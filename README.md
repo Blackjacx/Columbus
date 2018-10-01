@@ -5,8 +5,8 @@
 <h1 align="center">Columbus</h1>
 
 <p align="center">
-  <a href="https://app.bitrise.io/app/516ed8926e583449">
-    <img alt="Build Status" src="https://app.bitrise.io/app/516ed8926e583449/status.svg?token=A8c_zKhQ8_z1sNw00nAH7A&branch=develop"/>
+  <a href="https://app.bitrise.io/build/ddeb8a6c0cf9a616">
+    <img alt="Build Status" src="https://app.bitrise.io/app/f12f3f1a861800f0/status.svg?token=yxLmeCg3EaFOFnZKhbHGrQ&branch=develop"/>
   </a>
   <img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
   <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
