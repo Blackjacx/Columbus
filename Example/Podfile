@@ -1,11 +1,11 @@
 use_frameworks!
 inhibit_all_warnings!
 
-target 'Columbus_Example_iOS' do
+target 'Columbus_Example' do
     platform :ios, '11.0'
     pod 'Columbus', :path => '../'
 
-    target 'Columbus_Example_iOS_Tests' do
+    target 'Columbus_Example_Tests' do
         inherit! :search_paths
 
         pod 'Quick'

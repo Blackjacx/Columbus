@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		311DF1D2CABECADFAD27A04D /* Pods_Columbus_Example_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C766AF4B8CEB5FFB3C7CC2 /* Pods_Columbus_Example_iOS_Tests.framework */; };
+		2037F9725C4B81DC08B1C8E4 /* Pods_Columbus_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1807DF644789BEE28D17D1B8 /* Pods_Columbus_Example.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		67CC016A83F3812B5686177B /* Pods_Columbus_Example_TV_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36861D2E8CD430A0011E530 /* Pods_Columbus_Example_TV_Tests.framework */; };
 		B920178021617E0000BF16AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B920177121617CC800BF16AD /* Images.xcassets */; };
@@ -16,8 +16,8 @@
 		B920178421617FF100BF16AD /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B9D3BDBD21618A600021F561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920176B21617C8E00BF16AD /* AppDelegate.swift */; };
 		B9D3BDBF21618EBA0021F561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D3BDBE21618EBA0021F561 /* LaunchScreen.storyboard */; };
+		C58BBAA0580C9AF0CFD75B07 /* Pods_Columbus_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 391F7A8411BDF00C34A50BB7 /* Pods_Columbus_Example_Tests.framework */; };
 		D1EFCEB6A7DB245F73454E06 /* Pods_Columbus_Example_TV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07B03FC73B415B7D7AC6776C /* Pods_Columbus_Example_TV.framework */; };
-		EBF97B4F6DE8E8573674DD1D /* Pods_Columbus_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943DEC889110E3CD4F12A2F8 /* Pods_Columbus_Example_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,19 +39,19 @@
 
 /* Begin PBXFileReference section */
 		07B03FC73B415B7D7AC6776C /* Pods_Columbus_Example_TV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Columbus_Example_TV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1807DF644789BEE28D17D1B8 /* Pods_Columbus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Columbus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C766AF4B8CEB5FFB3C7CC2 /* Pods_Columbus_Example_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Columbus_Example_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9BE01BED2F5A77F8AF9A85 /* Pods-Columbus_Example_TV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_TV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_TV/Pods-Columbus_Example_TV.debug.xcconfig"; sourceTree = "<group>"; };
 		2D9BE9D018D1A37FDCE2F202 /* Pods_Pod_UnitTests_Columbus_Example_TV_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_UnitTests_Columbus_Example_TV_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3644DF7FB3E1C792F838C401 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		365CEFE299DAF7213C2A01B6 /* Pods-Columbus_Example_iOS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_iOS_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_iOS_Tests/Pods-Columbus_Example_iOS_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		391F7A8411BDF00C34A50BB7 /* Pods_Columbus_Example_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Columbus_Example_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B53F53A257A94C5555CDEE3 /* Pods-Columbus_Example_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_Tests/Pods-Columbus_Example_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4FEE30CA875047B0674D147C /* Pods-Columbus_Example_TV_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_TV_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_TV_Tests/Pods-Columbus_Example_TV_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5BB1036F2E29C95B8BDD633A /* Pods-Columbus_Example_TV_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_TV_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_TV_Tests/Pods-Columbus_Example_TV_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* Columbus_Example_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Columbus_Example_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACE51AFB9204008FA782 /* Columbus_Example_iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Columbus_Example_iOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* Columbus_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Columbus_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* Columbus_Example_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Columbus_Example_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		85EDE1F6A38F251CFFD44344 /* Pods-Columbus_Example_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_iOS/Pods-Columbus_Example_iOS.release.xcconfig"; sourceTree = "<group>"; };
-		887873471C447DCBB301A6FA /* Pods-Columbus_Example_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_iOS/Pods-Columbus_Example_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		943DEC889110E3CD4F12A2F8 /* Pods_Columbus_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Columbus_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9822FCD959BA5C0007027434 /* Pods-Columbus_Example_TV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_TV.release.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_TV/Pods-Columbus_Example_TV.release.xcconfig"; sourceTree = "<group>"; };
 		B920171321617A1200BF16AD /* Columbus_Example_TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Columbus_Example_TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,11 +62,13 @@
 		B920177121617CC800BF16AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = iOS/Images.xcassets; sourceTree = "<group>"; };
 		B920177421617CCC00BF16AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iOS/Info.plist; sourceTree = "<group>"; };
 		B9D3BDBE21618EBA0021F561 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BED8A6E6526B2E461069AB89 /* Pods-Columbus_Example_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_Tests/Pods-Columbus_Example_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C331550089FAF810D410CFBD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C36861D2E8CD430A0011E530 /* Pods_Columbus_Example_TV_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Columbus_Example_TV_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4346AFEB14107BD3FC0FE38 /* Pods-Columbus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example/Pods-Columbus_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C4B417BE4886243349F8AAC3 /* Pods-Columbus_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example/Pods-Columbus_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C4CE7868AAD5710AD4E7E93C /* Columbus.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Columbus.podspec; path = ../Columbus.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D2E5B6529B585D1B6F38652D /* Pods_Pod_UnitTests_Columbus_Example_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_UnitTests_Columbus_Example_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFBC7D039D5B61AD0067D5A0 /* Pods-Columbus_Example_iOS_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Columbus_Example_iOS_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Columbus_Example_iOS_Tests/Pods-Columbus_Example_iOS_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF97B4F6DE8E8573674DD1D /* Pods_Columbus_Example_iOS.framework in Frameworks */,
+				2037F9725C4B81DC08B1C8E4 /* Pods_Columbus_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				311DF1D2CABECADFAD27A04D /* Pods_Columbus_Example_iOS_Tests.framework in Frameworks */,
+				C58BBAA0580C9AF0CFD75B07 /* Pods_Columbus_Example_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +122,8 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* Columbus_Example_iOS.app */,
-				607FACE51AFB9204008FA782 /* Columbus_Example_iOS_Tests.xctest */,
+				607FACD01AFB9204008FA782 /* Columbus_Example.app */,
+				607FACE51AFB9204008FA782 /* Columbus_Example_Tests.xctest */,
 				B920171321617A1200BF16AD /* Columbus_Example_TV.app */,
 				B920172321617A1400BF16AD /* Columbus_Example_TV_Tests.xctest */,
 			);
@@ -175,6 +177,8 @@
 				C36861D2E8CD430A0011E530 /* Pods_Columbus_Example_TV_Tests.framework */,
 				943DEC889110E3CD4F12A2F8 /* Pods_Columbus_Example_iOS.framework */,
 				26C766AF4B8CEB5FFB3C7CC2 /* Pods_Columbus_Example_iOS_Tests.framework */,
+				1807DF644789BEE28D17D1B8 /* Pods_Columbus_Example.framework */,
+				391F7A8411BDF00C34A50BB7 /* Pods_Columbus_Example_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -205,10 +209,10 @@
 				9822FCD959BA5C0007027434 /* Pods-Columbus_Example_TV.release.xcconfig */,
 				4FEE30CA875047B0674D147C /* Pods-Columbus_Example_TV_Tests.debug.xcconfig */,
 				5BB1036F2E29C95B8BDD633A /* Pods-Columbus_Example_TV_Tests.release.xcconfig */,
-				887873471C447DCBB301A6FA /* Pods-Columbus_Example_iOS.debug.xcconfig */,
-				85EDE1F6A38F251CFFD44344 /* Pods-Columbus_Example_iOS.release.xcconfig */,
-				EFBC7D039D5B61AD0067D5A0 /* Pods-Columbus_Example_iOS_Tests.debug.xcconfig */,
-				365CEFE299DAF7213C2A01B6 /* Pods-Columbus_Example_iOS_Tests.release.xcconfig */,
+				C4B417BE4886243349F8AAC3 /* Pods-Columbus_Example.debug.xcconfig */,
+				C4346AFEB14107BD3FC0FE38 /* Pods-Columbus_Example.release.xcconfig */,
+				4B53F53A257A94C5555CDEE3 /* Pods-Columbus_Example_Tests.debug.xcconfig */,
+				BED8A6E6526B2E461069AB89 /* Pods-Columbus_Example_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -216,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* Columbus_Example_iOS */ = {
+		607FACCF1AFB9204008FA782 /* Columbus_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example_iOS" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example" */;
 			buildPhases = (
 				514FD9730C2959B5744AE574 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
@@ -230,14 +234,14 @@
 			);
 			dependencies = (
 			);
-			name = Columbus_Example_iOS;
+			name = Columbus_Example;
 			productName = Columbus;
-			productReference = 607FACD01AFB9204008FA782 /* Columbus_Example_iOS.app */;
+			productReference = 607FACD01AFB9204008FA782 /* Columbus_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* Columbus_Example_iOS_Tests */ = {
+		607FACE41AFB9204008FA782 /* Columbus_Example_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example_iOS_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example_Tests" */;
 			buildPhases = (
 				A903DE253AC15A3738526478 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
@@ -250,9 +254,9 @@
 			dependencies = (
 				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
 			);
-			name = Columbus_Example_iOS_Tests;
+			name = Columbus_Example_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* Columbus_Example_iOS_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* Columbus_Example_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		B920171221617A1200BF16AD /* Columbus_Example_TV */ = {
@@ -341,8 +345,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* Columbus_Example_iOS */,
-				607FACE41AFB9204008FA782 /* Columbus_Example_iOS_Tests */,
+				607FACCF1AFB9204008FA782 /* Columbus_Example */,
+				607FACE41AFB9204008FA782 /* Columbus_Example_Tests */,
 				B920171221617A1200BF16AD /* Columbus_Example_TV */,
 				B920172221617A1400BF16AD /* Columbus_Example_TV_Tests */,
 			);
@@ -443,7 +447,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Columbus_Example_iOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Columbus_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -458,7 +462,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example_iOS/Pods-Columbus_Example_iOS-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example/Pods-Columbus_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Columbus-iOS/Columbus.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -469,7 +473,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example_iOS/Pods-Columbus_Example_iOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example/Pods-Columbus_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		807F350E11CE2AA05E3E9B8A /* [CP] Embed Pods Frameworks */ = {
@@ -480,7 +484,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example_iOS_Tests/Pods-Columbus_Example_iOS_Tests-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example_Tests/Pods-Columbus_Example_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble-iOS/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick-iOS/Quick.framework",
 			);
@@ -493,7 +497,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example_iOS_Tests/Pods-Columbus_Example_iOS_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Columbus_Example_Tests/Pods-Columbus_Example_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9253DBCF962A1092991B32B6 /* [CP] Check Pods Manifest.lock */ = {
@@ -533,7 +537,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Columbus_Example_iOS_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Columbus_Example_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -604,7 +608,7 @@
 /* Begin PBXTargetDependency section */
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* Columbus_Example_iOS */;
+			target = 607FACCF1AFB9204008FA782 /* Columbus_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 		B920172521617A1400BF16AD /* PBXTargetDependency */ = {
@@ -719,7 +723,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 887873471C447DCBB301A6FA /* Pods-Columbus_Example_iOS.debug.xcconfig */;
+			baseConfigurationReference = C4B417BE4886243349F8AAC3 /* Pods-Columbus_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -742,7 +746,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85EDE1F6A38F251CFFD44344 /* Pods-Columbus_Example_iOS.release.xcconfig */;
+			baseConfigurationReference = C4346AFEB14107BD3FC0FE38 /* Pods-Columbus_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -764,7 +768,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFBC7D039D5B61AD0067D5A0 /* Pods-Columbus_Example_iOS_Tests.debug.xcconfig */;
+			baseConfigurationReference = 4B53F53A257A94C5555CDEE3 /* Pods-Columbus_Example_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = PCW579R278;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -781,13 +785,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Columbus_Example_iOS.app/Columbus_Example_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Columbus_Example.app/Columbus_Example";
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 365CEFE299DAF7213C2A01B6 /* Pods-Columbus_Example_iOS_Tests.release.xcconfig */;
+			baseConfigurationReference = BED8A6E6526B2E461069AB89 /* Pods-Columbus_Example_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -800,7 +804,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Columbus_Example_iOS.app/Columbus_Example_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Columbus_Example.app/Columbus_Example";
 			};
 			name = Release;
 		};
@@ -950,7 +954,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example_iOS" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
@@ -959,7 +963,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example_iOS_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Columbus_Example_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
