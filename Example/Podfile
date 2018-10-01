@@ -1,0 +1,26 @@
+use_frameworks!
+inhibit_all_warnings!
+
+target 'Columbus_Example' do
+    platform :ios, '11.0'
+    pod 'Columbus', :path => '../'
+
+    target 'Columbus_Example_Tests' do
+        inherit! :search_paths
+
+        pod 'Quick'
+        pod 'Nimble'
+    end
+end
+
+target 'Columbus_Example_TV' do
+    platform :tvos, '11.0'
+    pod 'Columbus', :path => '../'
+
+    target 'Columbus_Example_TV_Tests' do
+        inherit! :search_paths
+
+        pod 'Quick'
+        pod 'Nimble'
+    end
+end
