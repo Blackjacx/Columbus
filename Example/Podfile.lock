@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Columbus: 1a5a2ea2212e6a93ae7a6f3e20ae75aacf659db3
+  Columbus: 6fbaef5946a4c2a2fa7560d760966bea44cfc319
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
 
