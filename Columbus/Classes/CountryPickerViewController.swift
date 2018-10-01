@@ -6,8 +6,6 @@
 //  Copyright © 2018 CodingCobra. All rights reserved.
 //
 
-#warning("TODO: Add history of 3")
-
 import UIKit
 #if os(iOS)
 import CoreTelephony
