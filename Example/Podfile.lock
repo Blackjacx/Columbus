@@ -1,0 +1,27 @@
+PODS:
+  - Columbus (0.1.0)
+  - Nimble (7.3.1)
+  - Quick (1.3.2)
+
+DEPENDENCIES:
+  - Columbus (from `../`)
+  - Nimble
+  - Quick
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  Columbus:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Columbus: 1a5a2ea2212e6a93ae7a6f3e20ae75aacf659db3
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+
+PODFILE CHECKSUM: 779e84fcb0ed2fd74e6e1e6abbdbb5c8ec75c916
+
+COCOAPODS: 1.5.3
