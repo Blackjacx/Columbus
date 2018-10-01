@@ -53,7 +53,7 @@ pod "Columbus"
 The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you.
 
 <p align="center">
-  <img src="./github/assets/example_01.png" alt="Screenshot">
+  <img width="30%" src="./github/assets/example_01.png" alt="Screenshot">
 </p>
 
 ## Contribution
