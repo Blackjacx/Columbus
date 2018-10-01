@@ -14,10 +14,9 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '11.0'
     s.tvos.deployment_target = '11.0'
-    s.watchos.deployment_target = '11.0'
 
     s.resource_bundles  = {
-        'Columbus' => ['Columbus/Resources/*.{json,xcassets}']
+      'Columbus' => ['Columbus/Resources/*.{json,xcassets}']
     }
 
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
