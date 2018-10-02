@@ -58,34 +58,9 @@ pod "Columbus"
 
 The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the features unique to Columbus:
 
-<table style="width:100%">
-  <tr>
-    <td>
-      <p align="center">
-        <caption align="center">The searchbar at the top lets you filter the list of countries so you find your country quickly:</caption><br />
-        <img src="./github/assets/searchbar.png" alt="Searchbar">
-      </p>
-    </td>
-    <td>
-      <p align="center">
-        <caption align="center">The index bar on the right side lets you quickly scroll to the country you search:</caption><br />
-        <img src="./github/assets/indexbar.png" alt="Indexbar">
-      </p>      
-    </td>
-    <td>
-      <p align="center">
-        <caption align="center">Quickly select a country from the search history:</caption><br />
-        <img src="./github/assets/history.png" alt="History">
-      </p>
-    </td>
-    <td>
-      <p align="center">
-        <caption align="center">Fully localized by using standard components and Apple's `Locale` class:</caption><br />
-        <img src="./github/assets/localization.png" alt="Localization">
-      </p>
-    </td>
-  </tr>
-</table>
+![Searchbar](./github/assets/searchbar.png)  | ![Indexbar](./github/assets/indexbar.png) | ![History](./github/assets/history.png)  |  ![Localization](./github/assets/localization.png)
+:-------------------------:|:------------------------:|:-------------------------:|:-------------------------:
+The searchbar at the top lets you filter the list of countries so you find your country quickly | The index bar on the right side lets you quickly scroll to the country you search | Quickly select a country from the search history | Fully localized by using standard components and Apple's `Locale` class
 
 ### tvOS
 ... still in progress ...
