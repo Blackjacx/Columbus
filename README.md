@@ -40,7 +40,7 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 - Filter countries by using the searchbar
 - Quickly find a country by using the indexbar on the right side
 - Select a country from the history of selected countries - `still in progress`
-- Fully localized by using standard components and Apple's `Locale` class
+- Fully localized by using standard components and Apple's `Locale` class - `still in progress`
 
 ## Installation
 
