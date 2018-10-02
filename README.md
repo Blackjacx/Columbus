@@ -40,7 +40,7 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 - Filter countries by using the searchbar
 - Quickly find a country by using the indexbar on the right side
 - Select a country from the history of selected countries - `still in progress`
-- Fully localized by using standard components and Apple's `Locale` class - `still in progress`
+- Localized by using standard components and Apple's `Locale` class
 - Theming support to easily match your design
 
 ## Installation
@@ -59,9 +59,10 @@ pod "Columbus"
 
 The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the features unique to Columbus:
 
-![Searchbar](./github/assets/searchbar.png)|![Indexbar](./github/assets/indexbar.png)|![History](./github/assets/history.png)|![Localization](./github/assets/localization.png)|![Theming](./github/assets/theming.png) 
+Filtering|Indexbar|History|Localization|Theming
 --- | --- | --- | --- | ---
-The searchbar at the top lets you filter the list of countries so you find your country quickly|The index bar on the right side lets you quickly scroll to the country you search|Quickly select a country from the search history|Fully localized by using standard components and Apple's `Locale` class|Theming support to easily match your design
+![Searchbar](./github/assets/searchbar.png)|![Indexbar](./github/assets/indexbar.png)|![History](./github/assets/history.png)|![Localization](./github/assets/localization.png)|![Theming](./github/assets/theming.png) 
+
 
 ### tvOS
 ... still in progress ...
@@ -78,6 +79,10 @@ The searchbar at the top lets you filter the list of countries so you find your 
 ## Author
 
 [Stefan Herold](mailto:stefan.herold@gmail.com) • [@Blackjacxxx](https://twitter.com/Blackjacxxx)
+
+## Links
+
+- [Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
 
 ## License
 
