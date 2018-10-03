@@ -18,16 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        var config = DefaultConfig()
+        let config = DefaultConfig()
         Columbus.config = config
 
         let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { [weak self] (country) in
-            let alert = UIAlertController(title: country.name, message: "Phone Code: \(country.dialingCodeWithPlusPrefix)\nISO Code: \(country.isoCountryCode)", preferredStyle: .alert)
-            self?.window?.rootViewController?.present(alert, animated: true, completion: {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { [weak self] in
-                    self?.window?.rootViewController?.dismiss(animated: true, completion: nil)
-                })
-            })
+            print(country)
         })
         window?.rootViewController = countryPicker
         window?.makeKeyAndVisible()

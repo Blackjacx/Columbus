@@ -55,6 +55,19 @@ pod "Columbus"
 
 ## Examples
 
+### Usage
+
+```swift
+let config = DefaultConfig()
+Columbus.config = config
+
+let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { [weak self] (country) in
+    print(country)
+})
+present(countryPicker, animated: true)
+
+```
+
 ### iOS
 
 The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the features unique to Columbus:
