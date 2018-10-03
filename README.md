@@ -85,9 +85,9 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Contribution
 
-- If you found a **bug**, open an **issue**
-- If you have a **feature request**, open an **issue**
-- If you want to **contribute**, submit a **pull request**
+- If you found a **bug**, please open an **issue**.
+- If you have a **feature request**, please open an **issue**.
+- If you want to **contribute**, please submit a **pull request**.
 
 ## Author
 
