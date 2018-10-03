@@ -26,7 +26,7 @@
     <img src="https://codecov.io/gh/Blackjacx/Columbus/branch/develop/graph/badge.svg" />
   </a>
   <a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop">
-    <img alt="codebeat badge" src="https://codebeat.co/badges/fe69c0cf-173d-405d-8072-006504cff51e" />
+    <img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" />
   </a>
   <a href="https://cocoapods.org/pods/Columbus">
     <img alt="Downloads" src="https://img.shields.io/cocoapods/dt/Columbus.svg?maxAge=3600&style=flat" />
