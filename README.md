@@ -97,6 +97,10 @@ Filtering|Indexbar|History|Localization|Theming
 
 - [Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
 
+## Credits
+
+- [**Thanks For The Flag Icons**](https://github.com/lipis/flag-icon-css)
+
 ## License
 
 Columbus is available under the MIT license. See the LICENSE file for more info.
