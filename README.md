@@ -36,7 +36,12 @@
   </a>
 </p>
 
-A country picker for iOS, tvOS and watchOS with features you will only find distributed in many different country-picker implementations.
+A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. The following list highlights the most valuable features:
+- Filter countries by using the searchbar
+- Quickly find a country by using the indexbar on the right side
+- Select a country from the history of selected countries - `still in progress`
+- Localized by using standard components and Apple's `Locale` class
+- Theming support to easily match your design
 
 ## Installation
 
@@ -50,11 +55,33 @@ pod "Columbus"
 
 ## Examples
 
-The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you.
+### Usage
 
-<p align="center">
-  <img width="30%" src="./github/assets/example_01.png" alt="Screenshot">
-</p>
+```swift
+let config = DefaultConfig()
+Columbus.config = config
+
+let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { [weak self] (country) in
+    print(country)
+})
+present(countryPicker, animated: true)
+
+```
+
+### iOS
+
+The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the features unique to Columbus:
+
+Filtering|Indexbar|History|Localization|Theming
+--- | --- | --- | --- | ---
+![Searchbar](./github/assets/searchbar.png)|![Indexbar](./github/assets/indexbar.png)|![History](./github/assets/history.png)|![Localization](./github/assets/localization.png)|![Theming](./github/assets/theming.png) 
+
+
+### tvOS
+... still in progress ...
+
+### watchOS
+... still in progress ...
 
 ## Contribution
 
@@ -65,6 +92,10 @@ The repo includes an example project. It shows the main use case of the project 
 ## Author
 
 [Stefan Herold](mailto:stefan.herold@gmail.com) • [@Blackjacxxx](https://twitter.com/Blackjacxxx)
+
+## Links
+
+- [Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
 
 ## License
 

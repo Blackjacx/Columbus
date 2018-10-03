@@ -102,9 +102,14 @@ public final class CountryPickerViewController: UIViewController {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.delegate = self
         searchBar.tintColor = Columbus.config.controlColor
-        searchBar.barTintColor = .white
+        searchBar.barTintColor = Columbus.config.backgroundColor
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = Columbus.config.searchBarPlaceholder
+
+        let svs = searchBar.subviews.flatMap { $0.subviews }
+        guard let textField = (svs.compactMap { $0 as? UITextField }).first else { return }
+        textField.textColor = searchBar.tintColor
+
         searchBarContentView.addSubview(searchBar)
 
         searchBarContentView.translatesAutoresizingMaskIntoConstraints = false

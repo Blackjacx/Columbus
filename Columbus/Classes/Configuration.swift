@@ -35,3 +35,19 @@ public struct DefaultConfig: Configuration {
 
     public init() {}
 }
+
+public struct DarkModeConfig: Configuration {
+    public var textColor: UIColor = .white
+    public var textAttributes: [NSAttributedString.Key: Any] = [
+        .font: UIFont.monospacedDigitSystemFont(ofSize: 32, weight: .ultraLight)
+    ]
+    public var lineColor: UIColor = .lightGray
+    public var lineWidth: CGFloat = 3.0 / UIScreen.main.scale
+    public var rasterSize: CGFloat = 24.0
+    public var backgroundColor: UIColor = .darkGray
+    public var separatorInsets: UIEdgeInsets = .zero
+    public var controlColor: UIColor = .red
+    public var searchBarPlaceholder: String? = "Search For Country"
+
+    public init() {}
+}
