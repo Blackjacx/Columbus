@@ -45,36 +45,29 @@ final class CountryView: UIView {
     }
 
     func setupFlagImageView() {
-        flagImageView.contentMode = .scaleAspectFit
+        flagImageView.contentMode = .center
         flagImageView.layer.shadowColor = UIColor.black.cgColor
         flagImageView.layer.shadowOpacity = 0.25
         flagImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
-
+        flagImageView.translatesAutoresizingMaskIntoConstraints = false
         flagImageView.setContentHuggingPriority(.required, for: .horizontal)
-        flagImageView.setContentHuggingPriority(.required, for: .vertical)
     }
 
     func setupCountryNameLabel() {
         countryNameLabel.textColor = Columbus.config.textColor
-//        countryNameLabel.backgroundColor = .green
-
-//        countryNameLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        countryNameLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        countryCodeLabel.textAlignment = .left
+        countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setupCountryCodeLabel() {
         countryCodeLabel.textColor = Columbus.config.textColor
-//        countryCodeLabel.backgroundColor = .green
-
-//        countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        countryCodeLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-        countryCodeLabel.setContentHuggingPriority(.required, for: .horizontal)
+        countryCodeLabel.textAlignment = .right
+        countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
+        countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 
     func setupViewLayoutConstraints() {
         let constraints: [NSLayoutConstraint] = [
-//            flagImageView.widthAnchor.constraint(equalToConstant: 20),
-//            flagImageView.heightAnchor.constraint(equalToConstant: 15),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),

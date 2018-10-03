@@ -27,6 +27,8 @@ final class CountryCell: UITableViewCell {
         backgroundView?.layer.masksToBounds = true
         backgroundView?.backgroundColor = Columbus.config.backgroundColor
 
+        backgroundColor = Columbus.config.backgroundColor
+
         setupCountryView()
         setupLayoutConstraints()
     }

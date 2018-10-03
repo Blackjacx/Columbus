@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'Columbus'
-    s.version           = '0.2.0'
+    s.version           = '0.3.0'
     s.license           = { :type => 'MIT', :file => 'LICENSE' }
     s.summary           = 'A country picker for iOS, tvOS and watchOS.'
     s.description       = <<-DESC
@@ -24,5 +24,12 @@ Pod::Spec.new do |s|
     # s.public_header_files = 'Pod/Classes/**/*.h'
     s.frameworks = 'UIKit'
     # s.dependency 'AFNetworking', '~> 2.3'
+
+    s.test_spec 'UnitTests' do |ts|
+      ts.requires_app_host = true
+      ts.source_files = 'Example/Tests/**/*.{swift}'
+      ts.dependency 'Quick'
+      ts.dependency 'Nimble'
+    end
 end
 

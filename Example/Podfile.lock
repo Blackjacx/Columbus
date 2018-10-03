@@ -1,5 +1,5 @@
 PODS:
-  - Columbus (0.1.0)
+  - Columbus (0.2.0)
   - Nimble (7.3.1)
   - Quick (1.3.2)
 
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Columbus: 6fbaef5946a4c2a2fa7560d760966bea44cfc319
+  Columbus: d9d78665da12a8974d59ac2e75b5456f0d29458b
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
 
