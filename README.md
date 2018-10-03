@@ -95,11 +95,11 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Links
 
-- [Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
+[Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
 
 ## Credits
 
-- [**Thanks For The Flag Icons**](https://github.com/lipis/flag-icon-css)
+[Thanks For The Flag Icons](https://github.com/lipis/flag-icon-css)
 
 ## License
 
