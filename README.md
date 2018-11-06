@@ -26,7 +26,7 @@
     <img src="https://codecov.io/gh/Blackjacx/Columbus/branch/develop/graph/badge.svg" />
   </a>
   <a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop">
-    <img alt="codebeat badge" src="https://codebeat.co/badges/fe69c0cf-173d-405d-8072-006504cff51e" />
+    <img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" />
   </a>
   <a href="https://cocoapods.org/pods/Columbus">
     <img alt="Downloads" src="https://img.shields.io/cocoapods/dt/Columbus.svg?maxAge=3600&style=flat" />
@@ -85,9 +85,9 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Contribution
 
-- If you found a **bug**, open an **issue**
-- If you have a **feature request**, open an **issue**
-- If you want to **contribute**, submit a **pull request**
+- If you found a **bug**, please open an **issue**.
+- If you have a **feature request**, please open an **issue**.
+- If you want to **contribute**, please submit a **pull request**.
 
 ## Author
 
@@ -95,7 +95,11 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Links
 
-- [Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
+[Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
+
+## Credits
+
+[Thanks For The Flag Icons](https://github.com/lipis/flag-icon-css)
 
 ## License
 
