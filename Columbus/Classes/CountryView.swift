@@ -45,7 +45,7 @@ final class CountryView: UIView {
     }
 
     func setupFlagImageView() {
-        flagImageView.contentMode = .center
+        flagImageView.contentMode = .scaleAspectFit
         flagImageView.layer.shadowColor = UIColor.black.cgColor
         flagImageView.layer.shadowOpacity = 0.25
         flagImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -72,6 +72,9 @@ final class CountryView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            flagImageView.heightAnchor.constraint(equalToConstant: 16),
+            flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor, multiplier: 4/3),
         ]
         NSLayoutConstraint.activate(constraints)
     }
