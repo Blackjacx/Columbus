@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* Add AUTHORS file - [@blackjacx](https://github.com/blackjacx).
 
 ## [0.4.0] - 2018-11-06
 * [#5](https://github.com/Blackjacx/Columbus/pull/5): Add Vector Flag Assets - [@regexident](https://github.com/regexident).
