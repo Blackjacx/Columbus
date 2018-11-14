@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#7](https://github.com/Blackjacx/Columbus/pull/7): Customizable Separator Insets - [@blackjacx](https://github.com/blackjacx).
 
 ## [0.6.0] - 2018-11-14
 * [#6](https://github.com/Blackjacx/Columbus/pull/6): Make Countries • DefaultCountry Easier Reachable - [@blackjacx](https://github.com/blackjacx).
