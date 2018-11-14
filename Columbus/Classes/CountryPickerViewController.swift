@@ -325,8 +325,10 @@ extension CountryPickerViewController: UITableViewDelegate {
 
         // Adjusting the seperator insets: http://stackoverflow.com/a/39005773/971329
 
+        #if os(iOS)
         // removing seperator inset
         cell.separatorInset = Columbus.config.separatorInsets
+        #endif
 
         // prevent the cell from inheriting the tableView's margin settings
         cell.preservesSuperviewLayoutMargins = false
