@@ -28,7 +28,7 @@ public struct DefaultConfig: Configuration {
     public var rasterSize: CGFloat = 12.0
     public var backgroundColor: UIColor = .white
     public var separatorInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: rasterSize, left: rasterSize, bottom: rasterSize, right: rasterSize)
+        return UIEdgeInsets(top: 0, left: rasterSize, bottom: 0, right: rasterSize)
     }
     public var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
     public var searchBarPlaceholder: String? = "Search"

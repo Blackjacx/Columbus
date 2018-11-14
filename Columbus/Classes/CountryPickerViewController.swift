@@ -320,4 +320,18 @@ extension CountryPickerViewController: UITableViewDelegate {
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return sectionTitles
     }
+
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        // Adjusting the seperator insets: http://stackoverflow.com/a/39005773/971329
+
+        // removing seperator inset
+        cell.separatorInset = Columbus.config.separatorInsets
+
+        // prevent the cell from inheriting the tableView's margin settings
+        cell.preservesSuperviewLayoutMargins = false
+
+        // explicitly setting cell's layout margins
+        cell.layoutMargins = Columbus.config.separatorInsets
+    }
 }
