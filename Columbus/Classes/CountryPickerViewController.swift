@@ -16,11 +16,11 @@ import CoreTelephony
 public final class CountryPickerViewController: UIViewController {
 
     /// The list of data displayed in the data source
-    let allItems = createCountries()
+    public static let countries = createCountries()
     /// The list of data displayed when the user enters a search term
     var filteredItems = CountryList()
     /// Returns all items or filtered items if filtering is currently active
-    var items: CountryList { return isFiltering ? filteredItems : allItems }
+    var items: CountryList { return isFiltering ? filteredItems : type(of: self).countries }
     /// The data source for the section indexing
     var itemsForSectionTitle = [String: [Country]]()
     /// The section index title cache
@@ -149,27 +149,27 @@ public final class CountryPickerViewController: UIViewController {
 
     // MARK: - Country Handling
 
-    public func defaultCountry(for locale: Locale = Locale.current) -> Country {
+    public static func defaultCountry(for locale: Locale = Locale.current) -> Country {
 
         // Core Telephony Approach
 
         #if os(iOS)
         if
             let simRegionId = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode,
-            let country = (allItems.first { $0.isoCountryCode.compare(simRegionId, options: .caseInsensitive) == .orderedSame }) {
+            let country = (countries.first { $0.isoCountryCode.compare(simRegionId, options: .caseInsensitive) == .orderedSame }) {
             return country
         }
         #endif
 
         // Current Locale Approach
 
-        if let country = (allItems.first { $0.isoCountryCode == locale.regionCode }) {
+        if let country = (countries.first { $0.isoCountryCode == locale.regionCode }) {
             return country
         }
 
         // Default
 
-        return allItems.filter { $0.isoCountryCode.compare("de", options: .caseInsensitive) == .orderedSame }[0]
+        return countries.filter { $0.isoCountryCode.compare("de", options: .caseInsensitive) == .orderedSame }[0]
     }
 
     private static func createCountries() -> CountryList {
@@ -186,10 +186,10 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Filtering
 
     func filterContentForSearchText(_ searchText: String) {
-        let filteredByName = allItems.filter {
+        let filteredByName = type(of: self).countries.filter {
             $0.name.lowercased().contains(searchText.lowercased())
         }
-        let filteredByDialingCode = allItems.filter {
+        let filteredByDialingCode = type(of: self).countries.filter {
             "+\($0.dialingCode)".contains(searchText)
         }
 
