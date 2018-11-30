@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 public struct CountryPickerConfig: Configuration {
     public var textColor: UIColor = .darkGray
-    public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
+    public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15)]
     public var lineColor: UIColor = .lightGray
     public var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     public var rasterSize: CGFloat = 12.0
