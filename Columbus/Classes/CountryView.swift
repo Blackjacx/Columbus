@@ -51,12 +51,14 @@ final class CountryView: UIView {
         flagImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
         flagImageView.translatesAutoresizingMaskIntoConstraints = false
         flagImageView.setContentHuggingPriority(.required, for: .horizontal)
+        flagImageView.setContentHuggingPriority(.required, for: .vertical)
     }
 
     func setupCountryNameLabel() {
         countryNameLabel.textColor = Columbus.config.textColor
         countryCodeLabel.textAlignment = .left
         countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        countryNameLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     private func setupCountryCodeLabel() {
@@ -64,6 +66,7 @@ final class CountryView: UIView {
         countryCodeLabel.textAlignment = .right
         countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
         countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        countryCodeLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     func setupViewLayoutConstraints() {
@@ -72,9 +75,8 @@ final class CountryView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-
-            flagImageView.heightAnchor.constraint(equalToConstant: 16),
-            flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor, multiplier: 4/3),
+            
+            flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor, multiplier: 4/3)
         ]
         NSLayoutConstraint.activate(constraints)
     }
