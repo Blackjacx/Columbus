@@ -13,7 +13,6 @@ final class CountryCell: UITableViewCell {
     static let cellId = "\(self.self)"
 
     var countryView = CountryView()
-    private var cachedSize = CGSize.zero
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,11 +43,11 @@ final class CountryCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        cachedSize = .zero
     }
 
     func setupCountryView() {
         countryView.translatesAutoresizingMaskIntoConstraints = false
+        countryView.setContentHuggingPriority(.required, for: .vertical)
         contentView.addSubview(countryView)
     }
 

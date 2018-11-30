@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.6.2] - 2018-11-30
+* [#8](https://github.com/Blackjacx/Columbus/pull/8): Fix Constraint Warnings - [@blackjacx](https://github.com/blackjacx).
+
 ## [0.6.1] - 2018-11-14
 * [#7](https://github.com/Blackjacx/Columbus/pull/7): Customizable Separator Insets - [@blackjacx](https://github.com/blackjacx).
 
