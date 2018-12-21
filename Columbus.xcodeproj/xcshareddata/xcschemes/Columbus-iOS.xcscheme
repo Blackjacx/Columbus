@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B920171221617A1200BF16AD"
-               BuildableName = "Columbus_Example_TV.app"
-               BlueprintName = "Columbus_Example_TV"
+               BlueprintIdentifier = "B9F8788221CD28A200273F82"
+               BuildableName = "Columbus.framework"
+               BlueprintName = "Columbus-iOS"
                ReferencedContainer = "container:Columbus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,16 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B920172221617A1400BF16AD"
-               BuildableName = "Columbus_Example_TV_Tests.xctest"
-               BlueprintName = "Columbus_Example_TV_Tests"
+               BlueprintIdentifier = "B9F878AB21CD2A4D00273F82"
+               BuildableName = "Columbus-iOS-Tests.xctest"
+               BlueprintName = "Columbus-iOS-Tests"
                ReferencedContainer = "container:Columbus.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B920171221617A1200BF16AD"
-            BuildableName = "Columbus_Example_TV.app"
-            BlueprintName = "Columbus_Example_TV"
+            BlueprintIdentifier = "B9F8788221CD28A200273F82"
+            BuildableName = "Columbus.framework"
+            BlueprintName = "Columbus-iOS"
             ReferencedContainer = "container:Columbus.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B920171221617A1200BF16AD"
-            BuildableName = "Columbus_Example_TV.app"
-            BlueprintName = "Columbus_Example_TV"
+            BlueprintIdentifier = "B9F8788221CD28A200273F82"
+            BuildableName = "Columbus.framework"
+            BlueprintName = "Columbus-iOS"
             ReferencedContainer = "container:Columbus.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -81,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B920171221617A1200BF16AD"
-            BuildableName = "Columbus_Example_TV.app"
-            BlueprintName = "Columbus_Example_TV"
+            BlueprintIdentifier = "B9F8788221CD28A200273F82"
+            BuildableName = "Columbus.framework"
+            BlueprintName = "Columbus-iOS"
             ReferencedContainer = "container:Columbus.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
