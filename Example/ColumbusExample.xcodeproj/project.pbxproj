@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B9F8790021CD2D7F00273F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8326021C84F3D0008ED90 /* AppDelegate.swift */; };
+		B9F8790221CD2D8400273F82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F878C921CD2CF500273F82 /* Images.xcassets */; };
+		B9F8790421CD2D9800273F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */; };
+		B9F8791A21CD2DEB00273F82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F878CE21CD2CFA00273F82 /* Images.xcassets */; };
+		B9F8791B21CD2DEF00273F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8326021C84F3D0008ED90 /* AppDelegate.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B94B1B0B21CD394500FF1B72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B94B1B0621CD38B400FF1B72;
+			remoteInfo = "Columbus-tvOS";
+		};
+		B94B1B0D21CD394700FF1B72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B94B1AF421CD38B400FF1B72;
+			remoteInfo = "Columbus-tvOS";
+		};
+		B94B1B2521CD3BEC00FF1B72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B9F8788221CD28A200273F82;
+			remoteInfo = "Columbus-iOS";
+		};
+		B96D498221CD3ED00010E69B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B96D496221CD3DC20010E69B;
+			remoteInfo = "Resources-iOS";
+		};
+		B9A4A66021D0FC94001FF5DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9DB81FC21D0E9F500A39677;
+			remoteInfo = "Columbus-tvOS-Tests";
+		};
+		B9F8797121CD36B400273F82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9F8788321CD28A200273F82;
+			remoteInfo = Columbus;
+		};
+		B9F8797321CD36B400273F82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9F878AC21CD2A4D00273F82;
+			remoteInfo = ColumbusTests;
+		};
+		B9F8797521CD36B400273F82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9F8793521CD320600273F82;
+			remoteInfo = Resources;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B9C8326021C84F3D0008ED90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B9F878C921CD2CF500273F82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B9F878CA21CD2CF500273F82 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9F878CE21CD2CFA00273F82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B9F878CF21CD2CFA00273F82 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B9F878D821CD2D5A00273F82 /* Columbus_iOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Columbus_iOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9F8790A21CD2DDA00273F82 /* Columbus_tvOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Columbus_tvOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Columbus.xcodeproj; path = ../Columbus.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9F878D521CD2D5A00273F82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9F8790721CD2DDA00273F82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9C8325421C84F3D0008ED90 = {
+			isa = PBXGroup;
+			children = (
+				B9F8797B21CD373200273F82 /* Frameworks */,
+				B9C8325E21C84F3D0008ED90 /* Products */,
+				B9C8325F21C84F3D0008ED90 /* Source */,
+				B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		B9C8325E21C84F3D0008ED90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9F878D821CD2D5A00273F82 /* Columbus_iOS_Example.app */,
+				B9F8790A21CD2DDA00273F82 /* Columbus_tvOS_Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9C8325F21C84F3D0008ED90 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */,
+				B9C8326021C84F3D0008ED90 /* AppDelegate.swift */,
+				B9F878C821CD2CF500273F82 /* iOS */,
+				B9F878CD21CD2CFA00273F82 /* tvOS */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B9F878C821CD2CF500273F82 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B9F878C921CD2CF500273F82 /* Images.xcassets */,
+				B9F878CA21CD2CF500273F82 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		B9F878CD21CD2CFA00273F82 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				B9F878CE21CD2CFA00273F82 /* Images.xcassets */,
+				B9F878CF21CD2CFA00273F82 /* Info.plist */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		B9F8796C21CD36B400273F82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9F8797221CD36B400273F82 /* Columbus.framework */,
+				B96D498321CD3ED00010E69B /* Resources.bundle */,
+				B9F8797421CD36B400273F82 /* Columbus-iOS-Tests.xctest */,
+				B94B1B0C21CD394500FF1B72 /* Columbus.framework */,
+				B9F8797621CD36B400273F82 /* Resources.bundle */,
+				B9A4A66121D0FC94001FF5DC /* Columbus-tvOS-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9F8797B21CD373200273F82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9F878D721CD2D5A00273F82 /* Columbus_iOS_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9F878E721CD2D5B00273F82 /* Build configuration list for PBXNativeTarget "Columbus_iOS_Example" */;
+			buildPhases = (
+				B9F878D421CD2D5A00273F82 /* Sources */,
+				B9F878D521CD2D5A00273F82 /* Frameworks */,
+				B9F878D621CD2D5A00273F82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B94B1B2621CD3BEC00FF1B72 /* PBXTargetDependency */,
+			);
+			name = Columbus_iOS_Example;
+			productName = Columbus_iOS_Example;
+			productReference = B9F878D821CD2D5A00273F82 /* Columbus_iOS_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B9F8790921CD2DDA00273F82 /* Columbus_tvOS_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9F8791621CD2DDB00273F82 /* Build configuration list for PBXNativeTarget "Columbus_tvOS_Example" */;
+			buildPhases = (
+				B9F8790621CD2DDA00273F82 /* Sources */,
+				B9F8790721CD2DDA00273F82 /* Frameworks */,
+				B9F8790821CD2DDA00273F82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B94B1B0E21CD394700FF1B72 /* PBXTargetDependency */,
+			);
+			name = Columbus_tvOS_Example;
+			productName = Columbus_tvOS_Example;
+			productReference = B9F8790A21CD2DDA00273F82 /* Columbus_tvOS_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9C8325521C84F3D0008ED90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = CodingCobra;
+				TargetAttributes = {
+					B9F878D721CD2D5A00273F82 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					B9F8790921CD2DDA00273F82 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = B9C8325821C84F3D0008ED90 /* Build configuration list for PBXProject "ColumbusExample" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				de,
+				es,
+				fr,
+				it,
+				ja,
+				ru,
+				"zh-Hans",
+			);
+			mainGroup = B9C8325421C84F3D0008ED90;
+			productRefGroup = B9C8325E21C84F3D0008ED90 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B9F8796C21CD36B400273F82 /* Products */;
+					ProjectRef = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				B9F878D721CD2D5A00273F82 /* Columbus_iOS_Example */,
+				B9F8790921CD2DDA00273F82 /* Columbus_tvOS_Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B94B1B0C21CD394500FF1B72 /* Columbus.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Columbus.framework;
+			remoteRef = B94B1B0B21CD394500FF1B72 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B96D498321CD3ED00010E69B /* Resources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Resources.bundle;
+			remoteRef = B96D498221CD3ED00010E69B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B9A4A66121D0FC94001FF5DC /* Columbus-tvOS-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Columbus-tvOS-Tests.xctest";
+			remoteRef = B9A4A66021D0FC94001FF5DC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B9F8797221CD36B400273F82 /* Columbus.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Columbus.framework;
+			remoteRef = B9F8797121CD36B400273F82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B9F8797421CD36B400273F82 /* Columbus-iOS-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Columbus-iOS-Tests.xctest";
+			remoteRef = B9F8797321CD36B400273F82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B9F8797621CD36B400273F82 /* Resources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Resources.bundle;
+			remoteRef = B9F8797521CD36B400273F82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9F878D621CD2D5A00273F82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9F8790221CD2D8400273F82 /* Images.xcassets in Resources */,
+				B9F8790421CD2D9800273F82 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9F8790821CD2DDA00273F82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9F8791A21CD2DEB00273F82 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9F878D421CD2D5A00273F82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9F8790021CD2D7F00273F82 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9F8790621CD2DDA00273F82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9F8791B21CD2DEF00273F82 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B94B1B0E21CD394700FF1B72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Columbus-tvOS";
+			targetProxy = B94B1B0D21CD394700FF1B72 /* PBXContainerItemProxy */;
+		};
+		B94B1B2621CD3BEC00FF1B72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Columbus-iOS";
+			targetProxy = B94B1B2521CD3BEC00FF1B72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B9C8326D21C84F400008ED90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B9C8326E21C84F400008ED90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9F878E821CD2D5B00273F82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCW579R278;
+				INFOPLIST_FILE = Source/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-iOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B9F878E921CD2D5B00273F82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCW579R278;
+				INFOPLIST_FILE = Source/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-iOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B9F8791721CD2DDB00273F82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCW579R278;
+				INFOPLIST_FILE = Source/tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+			};
+			name = Debug;
+		};
+		B9F8791821CD2DDB00273F82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCW579R278;
+				INFOPLIST_FILE = Source/tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9C8325821C84F3D0008ED90 /* Build configuration list for PBXProject "ColumbusExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9C8326D21C84F400008ED90 /* Debug */,
+				B9C8326E21C84F400008ED90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9F878E721CD2D5B00273F82 /* Build configuration list for PBXNativeTarget "Columbus_iOS_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9F878E821CD2D5B00273F82 /* Debug */,
+				B9F878E921CD2D5B00273F82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9F8791621CD2DDB00273F82 /* Build configuration list for PBXNativeTarget "Columbus_tvOS_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9F8791721CD2DDB00273F82 /* Debug */,
+				B9F8791821CD2DDB00273F82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9C8325521C84F3D0008ED90 /* Project object */;
+}

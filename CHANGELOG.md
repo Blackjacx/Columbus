@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#9](https://github.com/Blackjacx/Columbus/pull/9): Enable Carthage Support - [@blackjacx](https://github.com/blackjacx).
 
 ## [0.6.2] - 2018-11-30
 * [#8](https://github.com/Blackjacx/Columbus/pull/8): Fix Constraint Warnings - [@blackjacx](https://github.com/blackjacx).
