@@ -13,7 +13,7 @@ public final class Columbus {
     public static var config: Configuration!
     public static let bundle: Bundle = {
         let frameworkBundle = Bundle(for: Columbus.self)
-        let bundleName = "Columbus.bundle"
+        let bundleName = "Resources.bundle"
         guard let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent(bundleName) else {
             fatalError("Bundle url nil!")
         }
