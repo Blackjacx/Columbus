@@ -16,14 +16,11 @@
   <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
   <img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
   <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
-  <!-- <a href="https://github.com/Carthage/Carthage">
+  <a href="https://github.com/Carthage/Carthage">
     <img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat"/>
-  </a> -->
+  </a>
   <a href="https://github.com/Blackjacx/Columbus/blob/develop/LICENSE?raw=true">
     <img alt="License" src="https://img.shields.io/cocoapods/l/Columbus.svg?style=flat"/>
-  </a>
-  <a href="https://codecov.io/gh/Blackjacx/Columbus">
-    <img src="https://codecov.io/gh/Blackjacx/Columbus/branch/develop/graph/badge.svg" />
   </a>
   <a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop">
     <img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" />
@@ -45,12 +42,22 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 
 ## Installation
 
+Columbus is compatible with `iOS 11` and higher and builds with `Xcode 10` and `Swift 4.2`. 
+
 ### CocoaPods
 
-Columbus is compatible with `iOS 11` and higher and builds with `Xcode 10` and `Swift 4.2`. It is available through [CocoaPods](https://cocoapods.org/pods/Columbus). To install it, simply add the following line to your Podfile and it will install the newest version:
+To install via [CocoaPods](https://cocoapods.org/pods/Columbus), simply add the following line to your Podfile and run `pod install` to install the newest version:
 
 ```ruby
 pod "Columbus"
+```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate SHSearchBar into your Xcode project using Carthage, specify it in your Cartfile:
+
+```ruby
+github "Blackjacx/Columbus"
 ```
 
 ## Examples
