@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.7.1] - 2018-12-28
+* [#10](https://github.com/Blackjacx/Columbus/pull/10): Prevent Using CoreTelephony API on Simulator - [@blackjacx](https://github.com/blackjacx).
+
 ## [0.7.0] - 2018-12-24
 * [#9](https://github.com/Blackjacx/Columbus/pull/9): Enable Carthage Support - [@blackjacx](https://github.com/blackjacx).
 

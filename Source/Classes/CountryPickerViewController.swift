@@ -7,7 +7,8 @@
 //
 
 import UIKit
-#if os(iOS)
+
+#if os(iOS) && !targetEnvironment(simulator)
 import CoreTelephony
 #endif
 
@@ -153,7 +154,7 @@ public final class CountryPickerViewController: UIViewController {
 
         // Core Telephony Approach
 
-        #if os(iOS)
+        #if os(iOS) && !targetEnvironment(simulator)
         if
             let simRegionId = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode,
             let country = (countries.first { $0.isoCountryCode.compare(simRegionId, options: .caseInsensitive) == .orderedSame }) {
