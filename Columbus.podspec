@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
     s.tvos.deployment_target = '11.0'
 
     s.resource_bundles  = {
-      'Columbus' => ['Source/Resources/*.{json,xcassets}']
+      'Resources' => ['Source/Resources/*.{json,xcassets}']
     }
 
     s.frameworks = 'UIKit'
