@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.7.2] - 2018-12-28
 * [#11](https://github.com/Blackjacx/Columbus/pull/11): Fix Resource Bundle Name - [@blackjacx](https://github.com/blackjacx).
 
 ## [0.7.1] - 2018-12-28
