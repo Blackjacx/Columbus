@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#11](https://github.com/Blackjacx/Columbus/pull/11): Fix Resource Bundle Name - [@blackjacx](https://github.com/blackjacx).
 
 ## [0.7.1] - 2018-12-28
 * [#10](https://github.com/Blackjacx/Columbus/pull/10): Prevent Using CoreTelephony API on Simulator - [@blackjacx](https://github.com/blackjacx).
