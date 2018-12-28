@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'Columbus'
-    s.version           = '0.7.1'
+    s.version           = '0.7.2'
     s.license           = { :type => 'MIT', :file => 'LICENSE' }
     s.summary           = 'A country picker for iOS, tvOS and watchOS.'
     s.description       = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
     s.tvos.deployment_target = '11.0'
 
     s.resource_bundles  = {
-      'Columbus' => ['Source/Resources/*.{json,xcassets}']
+      'Resources' => ['Source/Resources/*.{json,xcassets}']
     }
 
     s.frameworks = 'UIKit'
