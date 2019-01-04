@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.7.3] - 2019-01-04
 * [#12](https://github.com/Blackjacx/Columbus/pull/12): Remove CFBundleExecutable From Plist - [@blackjacx](https://github.com/blackjacx).
 
 ## [0.7.2] - 2018-12-28
