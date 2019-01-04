@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'Columbus'
-    s.version           = '0.7.2'
+    s.version           = '0.7.3'
     s.license           = { :type => 'MIT', :file => 'LICENSE' }
     s.summary           = 'A country picker for iOS, tvOS and watchOS.'
     s.description       = <<-DESC
