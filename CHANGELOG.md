@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.7.3] - 2019-01-04
+* [#12](https://github.com/Blackjacx/Columbus/pull/12): Remove CFBundleExecutable From Plist - [@blackjacx](https://github.com/blackjacx).
+
 ## [0.7.2] - 2018-12-28
 * [#11](https://github.com/Blackjacx/Columbus/pull/11): Fix Resource Bundle Name - [@blackjacx](https://github.com/blackjacx).
 
