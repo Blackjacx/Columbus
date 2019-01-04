@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [0.7.4] - 2019-01-04
+* [#13](https://github.com/Blackjacx/Columbus/pull/13): Prevent Embedding Swift Libraries - [@blackjacx](https://github.com/blackjacx).
+
 ## [0.7.3] - 2019-01-04
 * [#12](https://github.com/Blackjacx/Columbus/pull/12): Remove CFBundleExecutable From Plist - [@blackjacx](https://github.com/blackjacx).
 
