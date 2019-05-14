@@ -10,7 +10,7 @@ import UIKit
 
 final class CountryCell: UITableViewCell {
 
-    static let cellId = "\(self.self)"
+    static let cellId = "CountryCell"
 
     var countryView = CountryView()
 

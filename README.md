@@ -12,7 +12,7 @@
   <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
   <img alt="Xcode 10.0+" src="https://img.shields.io/badge/Xcode-10.0%2B-blue.svg"/>
   <img alt="iOS 11.0+" src="https://img.shields.io/badge/iOS-11.0%2B-blue.svg"/>
-  <img alt="Swift 4.2+" src="https://img.shields.io/badge/Swift-4.2%2B-orange.svg"/>
+  <img alt="Swift 5.0+" src="https://img.shields.io/badge/Swift-5.0%2B-orange.svg"/>
   <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
   <img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
   <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
@@ -24,9 +24,6 @@
   </a>
   <a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop">
     <img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" />
-  </a>
-  <a href="https://cocoapods.org/pods/Columbus">
-    <img alt="Downloads" src="https://img.shields.io/cocoapods/dt/Columbus.svg?maxAge=3600&style=flat" />
   </a>
   <a href="https://www.paypal.me/STHEROLD">
     <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg"/>
@@ -42,7 +39,7 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 
 ## Installation
 
-Columbus is compatible with `iOS 11` and higher and builds with `Xcode 10` and `Swift 4.2`. 
+Columbus is compatible with `iOS 11` and higher and builds with `Xcode 10` and `Swift 5.0`. 
 
 ### CocoaPods
 
@@ -59,6 +56,8 @@ pod "Columbus"
 ```ruby
 github "Blackjacx/Columbus"
 ```
+
+Using Carthage has some advantages in contrast to Cocopods for this framework. Since it needs to compile the asset catalog for over 200 flag assets it is much faster to build the framework once using Carthage and hard-integrate it into your app. If you use Cocoapods the asset catalog is compiled together with Columbus each time you do a clean build and probably also when Xcode thinks Columbus needs to be compiled again.
 
 ## Examples
 
