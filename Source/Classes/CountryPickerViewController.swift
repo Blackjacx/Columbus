@@ -47,6 +47,13 @@ public final class CountryPickerViewController: UIViewController {
     var scrollOffsetPriorSearch = CGPoint.zero
     /// The tableview that displays the countries
     let tableView = UITableView(frame: .zero, style: .plain)
+    /// Constrains the bottom margin of the tableview to screen or keyboard
+    var tableViewBottomConstraint: NSLayoutConstraint!
+    
+    /// The observer that informs about KeyboardWillShow notifications
+    private var keyboardDidShowObserver: NSObjectProtocol?
+    /// The observer that informs about KeyboardWillHide notifications
+    private var keyboardWillHideObserver: NSObjectProtocol?
 
     // MARK: - Initialization
 
@@ -70,7 +77,23 @@ public final class CountryPickerViewController: UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         fatalError()
     }
-
+    
+    deinit {
+        deinitObserver()
+    }
+    
+    private func deinitObserver() {
+        
+        #if os(iOS)
+        if let observer = keyboardDidShowObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        
+        if let observer = keyboardWillHideObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        #endif
+    }
 
     // MARK: - Setup UI
 
@@ -86,6 +109,22 @@ public final class CountryPickerViewController: UIViewController {
 
         reloadData()
         displaySelectedCountry()
+        setupObserver()
+    }
+    
+    private func setupObserver() {
+        
+        #if os(iOS)
+        keyboardDidShowObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification, object: nil, queue: nil) { [weak self] (note) in
+            guard let userInfo = note.userInfo else { return }
+            guard let height = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else { return }
+            self?.tableViewBottomConstraint.constant = -height
+        }
+        
+        keyboardWillHideObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { [weak self] (_) in
+            self?.tableViewBottomConstraint.constant = 0
+        }
+        #endif
     }
     
     private func setupListView() {
@@ -120,10 +159,13 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func setupLayoutConstraints() {
-        var constraints = [
+        
+        tableViewBottomConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        
+        var constraints: [NSLayoutConstraint] = [
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableViewBottomConstraint
         ]
 
         #if os(iOS)
