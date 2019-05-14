@@ -237,8 +237,8 @@ public final class CountryPickerViewController: UIViewController {
         DispatchQueue.global().asyncAfter(deadline: .now() + 1) { [weak self] in
             guard
                 let key = (self?.itemsForSectionTitle.first { $0.value.contains { $0.isoCountryCode == self?.selectedRegionCode } }?.key),
-                let section = (self?.sectionTitles.index { $0 == key }),
-                let row = (self?.itemsForSectionTitle[key]?.index { $0.isoCountryCode == self?.selectedRegionCode }) else {
+                let section = (self?.sectionTitles.firstIndex { $0 == key }),
+                let row = (self?.itemsForSectionTitle[key]?.firstIndex { $0.isoCountryCode == self?.selectedRegionCode }) else {
 
                     return
             }
