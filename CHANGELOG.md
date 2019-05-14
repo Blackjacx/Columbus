@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.0.0] - 2019-05-14
 * [#16](https://github.com/Blackjacx/Columbus/pull/16): Fix Keyboard-Related Events - [@Blackjacx](https://github.com/Blackjacx).
 * [#15](https://github.com/Blackjacx/Columbus/pull/15): Migrate to Swift 5 - [@Blackjacx](https://github.com/Blackjacx).
 
