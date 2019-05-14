@@ -318,7 +318,12 @@ extension CountryPickerViewController: UISearchBarDelegate {
     }
 
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        tableView.contentOffset = scrollOffsetPriorSearch
+        // Schedule re-setting contentOffset when table view finished reloading
+        // https://stackoverflow.com/a/16071589/971329
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.setContentOffset(self.scrollOffsetPriorSearch, animated: true)
+        }
         searchBar.setShowsCancelButton(false, animated: true)
     }
 }
