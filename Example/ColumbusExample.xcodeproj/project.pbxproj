@@ -36,6 +36,13 @@
 			remoteGlobalIDString = B9F8788221CD28A200273F82;
 			remoteInfo = "Columbus-iOS";
 		};
+		B9693323228B54FF0002B855 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9A4A67821D145EB001FF5DC;
+			remoteInfo = "Resources-tvOS";
+		};
 		B96D498221CD3ED00010E69B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
@@ -63,13 +70,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = B9F878AC21CD2A4D00273F82;
 			remoteInfo = ColumbusTests;
-		};
-		B9F8797521CD36B400273F82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B9F8793521CD320600273F82;
-			remoteInfo = Resources;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -158,7 +158,7 @@
 				B96D498321CD3ED00010E69B /* Resources.bundle */,
 				B9F8797421CD36B400273F82 /* Columbus-iOS-Tests.xctest */,
 				B94B1B0C21CD394500FF1B72 /* Columbus.framework */,
-				B9F8797621CD36B400273F82 /* Resources.bundle */,
+				B9693324228B54FF0002B855 /* Resources.bundle */,
 				B9A4A66121D0FC94001FF5DC /* Columbus-tvOS-Tests.xctest */,
 			);
 			name = Products;
@@ -222,9 +222,11 @@
 				TargetAttributes = {
 					B9F878D721CD2D5A00273F82 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					B9F8790921CD2DDA00273F82 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -268,6 +270,13 @@
 			remoteRef = B94B1B0B21CD394500FF1B72 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		B9693324228B54FF0002B855 /* Resources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Resources.bundle;
+			remoteRef = B9693323228B54FF0002B855 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B96D498321CD3ED00010E69B /* Resources.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -294,13 +303,6 @@
 			fileType = wrapper.cfbundle;
 			path = "Columbus-iOS-Tests.xctest";
 			remoteRef = B9F8797321CD36B400273F82 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B9F8797621CD36B400273F82 /* Resources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Resources.bundle;
-			remoteRef = B9F8797521CD36B400273F82 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -489,7 +491,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -509,7 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -528,7 +530,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
@@ -548,7 +550,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};

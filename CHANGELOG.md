@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#15](https://github.com/Blackjacx/Columbus/pull/15): Migrate to Swift 5 - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [0.7.4] - 2019-01-04
 * [#13](https://github.com/Blackjacx/Columbus/pull/13): Prevent Embedding Swift Libraries - [@blackjacx](https://github.com/blackjacx).
