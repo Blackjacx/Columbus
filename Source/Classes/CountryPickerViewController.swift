@@ -134,6 +134,7 @@ public final class CountryPickerViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tintColor = Columbus.config.controlColor
+        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
     }
 
