@@ -12,25 +12,30 @@ import SwiftUI
 struct CountryRow : View {
     var country: Country
 
-    #warning("Apply attributes to both text labels: Columbus.config.textAttributes")
-    #warning("Find out how to prevent truncation for dialing code label")
+    #warning("Apply attributes to both text labels: Columbus.config.textAttributes. See [ViewModifiers](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-custom-modifiers)")
     var body: some View {
-        return HStack(spacing: Columbus.config.rasterSize) {
+        let raster = Columbus.config.rasterSize
+
+        return HStack() {
             country.flagIcon
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .shadow(color: Color(.shadow), radius: Columbus.config.shadowRadius, x: 1, y: 1)
                 .frame(width: Columbus.config.flagWidth, alignment: .leading)
+                .padding([.trailing], raster)
+                .layoutPriority(1.0)
 
             Text(country.name)
                 .color(Color(.text))
                 .frame(alignment: .leading)
 
-            Spacer()
+            Spacer(minLength: raster)
 
             Text(country.dialingCodeWithPlusPrefix)
                 .color(Color(.text))
                 .frame(alignment: .trailing)
+                .background(Color.red)
+                .layoutPriority(0.5)
         }
     }
 }

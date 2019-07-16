@@ -15,7 +15,7 @@ enum CountryDecodingError: Error {
 
 public struct Country: Identifiable {
 
-    /// Confirmance to `Identifiable`
+    /// Conformance to `Identifiable`
     public var id = UUID()
     /// Name of the country
     public let name: String

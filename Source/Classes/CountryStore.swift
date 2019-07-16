@@ -51,7 +51,6 @@ private struct CountryList: Decodable {
             }
         }
         self.countries = countries
-            //            .filter { $0.flagIcon.size != .zero }
             .sorted { $1.name > $0.name }
     }
 }

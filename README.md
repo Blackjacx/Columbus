@@ -9,18 +9,26 @@
     <img alt="Build Status" src="https://app.bitrise.io/app/f12f3f1a861800f0/status.svg?token=yxLmeCg3EaFOFnZKhbHGrQ&branch=develop"/>
   </a>
   <img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
-  <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
-  <img alt="Xcode 10.0+" src="https://img.shields.io/badge/Xcode-10.0%2B-blue.svg"/>
-  <img alt="iOS 11.0+" src="https://img.shields.io/badge/iOS-11.0%2B-blue.svg"/>
-  <img alt="Swift 5.0+" src="https://img.shields.io/badge/Swift-5.0%2B-orange.svg"/>
+  <img alt="Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
+  <img alt="Xcode 11.0+" src="https://img.shields.io/badge/Xcode-11.0%2B-blue.svg"/>
+  <img alt="iOS 13.0+" src="https://img.shields.io/badge/iOS-13.0%2B-blue.svg"/>
+  <img alt="Swift 5.1" src="https://img.shields.io/badge/swift-5.1-FFAC45.svg"/>
+  <a href="https://github.com/apple/swift-package-manager">
+    <img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg" alt="SwiftPM: Compatible">
+  </a>
   <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
   <img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
-  <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
+  <a href="https://github.com/Blackjacx/Columbus/pulls?q=is%3Apr+is%3Aclosed">
+    <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
+  </a> 
   <a href="https://github.com/Carthage/Carthage">
-    <img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat"/>
+    <img alt="Carthage Compatible" src="https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat"/>
   </a>
+  <a href="https://cocoapods.org/pods/Columbus">
+      <img src="https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat" alt="CocoaPods Compatible">
+    </a>
   <a href="https://github.com/Blackjacx/Columbus/blob/develop/LICENSE?raw=true">
-    <img alt="License" src="https://img.shields.io/cocoapods/l/Columbus.svg?style=flat"/>
+    <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License MIT">
   </a>
   <a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop">
     <img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" />
@@ -38,7 +46,9 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 
 ## Installation
 
-Columbus is compatible with `iOS 11` and higher and builds with `Xcode 10` and `Swift 5.0`. 
+Columbus 2.x is implemented using SwiftUI and therefore only compatible with `iOS 13` and higher. It builds with `Xcode 11` and `Swift 5.1`.  
+
+If you need to support iOS 11/12 please use Columbus version 1.x.
 
 ### CocoaPods
 

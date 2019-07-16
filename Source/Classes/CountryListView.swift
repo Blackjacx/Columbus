@@ -15,10 +15,16 @@ public struct CountryListView: View {
 
     #warning("Implement a search bar!")
     #warning("Implement an index bar!")
+    #warning("Find out how to elegate country to the outside world")
+    #warning("Consider distributing the framework as Binary Package so it is not compiled all the time.")
+
+    #warning("Update README.md for SPM/Binary Package and usage instructions.")
     public var body: some View {
         NavigationView {
             List(store.countries) { country in
-                CountryRow(country: country)
+                CountryRow(country: country).tapAction {
+                    print(country)
+                }
             }
             .navigationBarTitle(Text("Countries"))
         }
