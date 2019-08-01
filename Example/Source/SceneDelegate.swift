@@ -59,15 +59,15 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 public struct CountryPickerConfig: Configuration {
-    public var shadowRadius: Length = 10.0
+    public var shadowRadius: CGFloat = 10.0
     public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15)]
     public var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     public var rasterSize: CGFloat = 12.0
     public var separatorInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
     }
-    public var searchBarPlaceholder: String? = "Search"
-    public var flagWidth: Length = 30
+    public var searchBarPlaceholder: String = "Search"
+    public var flagWidth: CGFloat = 30
 
     public init() {}
 }

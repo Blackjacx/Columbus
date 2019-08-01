@@ -26,15 +26,14 @@ struct CountryRow : View {
                 .layoutPriority(1.0)
 
             Text(country.name)
-                .color(Color(.text))
                 .frame(alignment: .leading)
+                .foregroundColor(Color(.text))
 
             Spacer(minLength: raster)
 
             Text(country.dialingCodeWithPlusPrefix)
-                .color(Color(.text))
                 .frame(alignment: .trailing)
-                .background(Color.red)
+                .foregroundColor(Color(.text))
                 .layoutPriority(0.5)
         }
     }

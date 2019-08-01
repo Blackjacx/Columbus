@@ -9,19 +9,29 @@
 import SwiftUI
 import Combine
 
-final class CountryStore: BindableObject {
+final class CountryStore: ObservableObject {
 
-    var countries: [Country] = [] {
-        didSet { didChange.send() }
+    @Published var countries: [Country] = []
+    @Published var filteredCountries: [Country] = []
+
+    init() {}
+
+    func filter(query: String) {
+        let filteredByName = self.countries.filter {
+            $0.name.lowercased().contains(query.lowercased())
+        }
+        let filteredByDialingCode = self.countries.filter {
+            "+\($0.dialingCode)".contains(query)
+        }
+
+        if !filteredByName.isEmpty {
+            self.filteredCountries = filteredByName
+        } else {
+            self.filteredCountries = filteredByDialingCode
+        }
     }
 
-    var didChange = PassthroughSubject<Void, Never>()
-
-    init() {
-        loadCountries()
-    }
-
-    private func loadCountries() {
+    func load() {
         guard
             let filePath = Columbus.bundle.path(forResource: "Countries", ofType: "json"),
             let data = FileManager.default.contents(atPath: filePath),
@@ -29,6 +39,7 @@ final class CountryStore: BindableObject {
                 return
         }
         self.countries = countries
+        self.filteredCountries = countries
     }
 }
 

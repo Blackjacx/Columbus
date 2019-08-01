@@ -9,9 +9,12 @@
 import SwiftUI
 
 public struct CountryListView: View {
-    @ObjectBinding private var store = CountryStore()
+    @ObservedObject private var store = CountryStore()
+    @State var query: String = ""
+    private let raster = Columbus.config.rasterSize
 
-    public init() {}
+    public init() {
+    }
 
     #warning("Implement a search bar!")
     #warning("Implement an index bar!")
@@ -21,12 +24,25 @@ public struct CountryListView: View {
     #warning("Update README.md for SPM/Binary Package and usage instructions.")
     public var body: some View {
         NavigationView {
-            List(store.countries) { country in
-                CountryRow(country: country).tapAction {
-                    print(country)
+            VStack(spacing: raster) {
+                HStack(spacing: raster) {
+                    Image(systemName: "magnifyingglass")
+
+                    TextField(Columbus.config.searchBarPlaceholder, text: $query) {
+                        self.store.filter(query: self.query)
+                    }
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .foregroundColor(Color(.text))
+                }
+                .padding()
+
+                List(store.filteredCountries) { country in
+                    CountryRow(country: country)
                 }
             }
             .navigationBarTitle(Text("Countries"))
+        }.onAppear {
+            self.store.load()
         }
     }
 }
