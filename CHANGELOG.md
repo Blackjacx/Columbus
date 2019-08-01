@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* Fix vulnerability with Fastlane / mini_magick - [@Blackjacx](https://github.com/blackjacx).
 
 ## [1.0.0] - 2019-05-14
 * [#16](https://github.com/Blackjacx/Columbus/pull/16): Fix Keyboard-Related Events - [@Blackjacx](https://github.com/Blackjacx).
