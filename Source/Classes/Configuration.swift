@@ -19,7 +19,7 @@ public protocol Configuration {
 }
 
 public struct DefaultConfig: Configuration {
-    public var shadowRadius: CGFloat = 10.0
+    public var shadowRadius: CGFloat = 5.0
     public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
     public var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     public var rasterSize: CGFloat = 12.0

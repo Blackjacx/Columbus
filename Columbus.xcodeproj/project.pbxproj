@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B92A544022F3699C008FE261 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92A543F22F3699C008FE261 /* CountryListViewModel.swift */; };
 		B9397D4222DBC42E00E9D98E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9397D4122DBC42E00E9D98E /* Extensions.swift */; };
 		B9397D4322DBC42E00E9D98E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9397D4122DBC42E00E9D98E /* Extensions.swift */; };
 		B94B1AF921CD38B400FF1B72 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788F21CD28EC00273F82 /* Country.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B92A543F22F3699C008FE261 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
 		B9397D4122DBC42E00E9D98E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B94B1B0621CD38B400FF1B72 /* Columbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Columbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96D496221CD3DC20010E69B /* Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 				B9F8789421CD28EC00273F82 /* Configuration.swift */,
 				B9F8788F21CD28EC00273F82 /* Country.swift */,
 				B9F8788E21CD28EC00273F82 /* CountryListView.swift */,
+				B92A543F22F3699C008FE261 /* CountryListViewModel.swift */,
 				B9B4EBCF22DA4889001346B0 /* CountryRow.swift */,
 				B9B4EBFF22DBB215001346B0 /* CountryStore.swift */,
 				B9397D4122DBC42E00E9D98E /* Extensions.swift */,
@@ -507,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F8789D21CD28EC00273F82 /* Country.swift in Sources */,
+				B92A544022F3699C008FE261 /* CountryListViewModel.swift in Sources */,
 				B9F8789C21CD28EC00273F82 /* CountryListView.swift in Sources */,
 				B9F878A221CD28EC00273F82 /* Configuration.swift in Sources */,
 				B9B4EBD022DA4889001346B0 /* CountryRow.swift in Sources */,

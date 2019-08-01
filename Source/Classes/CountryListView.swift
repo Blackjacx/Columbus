@@ -9,40 +9,47 @@
 import SwiftUI
 
 public struct CountryListView: View {
-    @ObservedObject private var store = CountryStore()
-    @State var query: String = ""
+    @ObservedObject private var store: CountryStore
+    @EnvironmentObject var viewModel: CountryListViewModel
     private let raster = Columbus.config.rasterSize
 
-    public init() {
+    public init(store: CountryStore) {
+        self.store = store
     }
 
-    #warning("Implement a search bar!")
-    #warning("Implement an index bar!")
-    #warning("Find out how to elegate country to the outside world")
+    #warning("Initially show button to present/dismiss Columbus")
+    #warning("Find out how to delegate country to the outside world - Environment!")
     #warning("Consider distributing the framework as Binary Package so it is not compiled all the time.")
 
     #warning("Update README.md for SPM/Binary Package and usage instructions.")
+    #warning("Implement an index bar!")
     public var body: some View {
-        NavigationView {
+
+        return NavigationView {
             VStack(spacing: raster) {
                 HStack(spacing: raster) {
                     Image(systemName: "magnifyingglass")
 
-                    TextField(Columbus.config.searchBarPlaceholder, text: $query) {
-                        self.store.filter(query: self.query)
-                    }
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .foregroundColor(Color(.text))
+                    TextField(Columbus.config.searchBarPlaceholder, text: $viewModel.query)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .foregroundColor(Color(.text))
                 }
                 .padding()
 
-                List(store.filteredCountries) { country in
-                    CountryRow(country: country)
+                Text("SelectedCountry: \(self.viewModel.selectedCountry?.name ?? "none")")
+
+                List(self.viewModel.filteredCountries) { country in
+                    ZStack {
+                        CountryRow(country: country)
+                        Button("", action: {
+                            self.viewModel.selectedCountry = country
+                        })
+                    }
                 }
             }
             .navigationBarTitle(Text("Countries"))
         }.onAppear {
-            self.store.load()
+            self.viewModel.filteredCountries = self.store.countries
         }
     }
 }
@@ -50,7 +57,7 @@ public struct CountryListView: View {
 #if DEBUG
 struct CountryListView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryListView()
+        CountryListView(store: CountryStore())
     }
 }
 #endif

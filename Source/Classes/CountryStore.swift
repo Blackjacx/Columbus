@@ -9,14 +9,18 @@
 import SwiftUI
 import Combine
 
-final class CountryStore: ObservableObject {
+public final class CountryStore: ObservableObject {
 
     @Published var countries: [Country] = []
-    @Published var filteredCountries: [Country] = []
 
-    init() {}
-
-    func filter(query: String) {
+    public init() {
+        load()
+    }
+    
+    func filtered(by query: String) -> [Country] {
+        guard !query.isEmpty else {
+            return countries
+        }
         let filteredByName = self.countries.filter {
             $0.name.lowercased().contains(query.lowercased())
         }
@@ -24,11 +28,7 @@ final class CountryStore: ObservableObject {
             "+\($0.dialingCode)".contains(query)
         }
 
-        if !filteredByName.isEmpty {
-            self.filteredCountries = filteredByName
-        } else {
-            self.filteredCountries = filteredByDialingCode
-        }
+        return filteredByName.isEmpty ? filteredByDialingCode : filteredByName
     }
 
     func load() {
@@ -39,7 +39,6 @@ final class CountryStore: ObservableObject {
                 return
         }
         self.countries = countries
-        self.filteredCountries = countries
     }
 }
 

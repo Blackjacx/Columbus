@@ -23,7 +23,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             Columbus.config = CountryPickerConfig()
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: CountryListView())
+            let store = CountryStore()
+            let viewModel = CountryListViewModel(store: store)
+            window.rootViewController = UIHostingController(rootView: CountryListView(store: store).environmentObject(viewModel))
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -59,7 +61,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 public struct CountryPickerConfig: Configuration {
-    public var shadowRadius: CGFloat = 10.0
+    public var shadowRadius: CGFloat = 5.0
     public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15)]
     public var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     public var rasterSize: CGFloat = 12.0
