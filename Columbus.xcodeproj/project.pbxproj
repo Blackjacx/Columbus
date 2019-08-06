@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B92A544022F3699C008FE261 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92A543F22F3699C008FE261 /* CountryListViewModel.swift */; };
+		B9397D4222DBC42E00E9D98E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9397D4122DBC42E00E9D98E /* Extensions.swift */; };
+		B9397D4322DBC42E00E9D98E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9397D4122DBC42E00E9D98E /* Extensions.swift */; };
 		B94B1AF921CD38B400FF1B72 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788F21CD28EC00273F82 /* Country.swift */; };
-		B94B1AFA21CD38B400FF1B72 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryList.swift */; };
+		B94B1AFA21CD38B400FF1B72 /* CountryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryListView.swift */; };
 		B94B1AFB21CD38B400FF1B72 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789421CD28EC00273F82 /* Configuration.swift */; };
-		B94B1AFC21CD38B400FF1B72 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789321CD28EC00273F82 /* CountryCell.swift */; };
-		B94B1AFD21CD38B400FF1B72 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */; };
 		B94B1AFE21CD38B400FF1B72 /* Columbus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789021CD28EC00273F82 /* Columbus.swift */; };
-		B94B1AFF21CD38B400FF1B72 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789121CD28EC00273F82 /* CountryView.swift */; };
 		B96D495D21CD3DC20010E69B /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789721CD28EC00273F82 /* Countries.json */; };
 		B96D495E21CD3DC20010E69B /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789821CD28EC00273F82 /* Flags.xcassets */; };
 		B9A4A65721D0F409001FF5DC /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B96D496221CD3DC20010E69B /* Resources.bundle */; };
@@ -22,13 +22,14 @@
 		B9A4A67321D145EB001FF5DC /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789721CD28EC00273F82 /* Countries.json */; };
 		B9A4A67421D145EB001FF5DC /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789821CD28EC00273F82 /* Flags.xcassets */; };
 		B9A4A67D21D146A1001FF5DC /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9A4A67821D145EB001FF5DC /* Resources.bundle */; };
+		B9B4EBD022DA4889001346B0 /* CountryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4EBCF22DA4889001346B0 /* CountryRow.swift */; };
+		B9B4EBD122DA4889001346B0 /* CountryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4EBCF22DA4889001346B0 /* CountryRow.swift */; };
+		B9B4EC0022DBB215001346B0 /* CountryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4EBFF22DBB215001346B0 /* CountryStore.swift */; };
+		B9B4EC0122DBB215001346B0 /* CountryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4EBFF22DBB215001346B0 /* CountryStore.swift */; };
 		B9DB66ED21DF924600E9BB35 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0621CD38B400FF1B72 /* Columbus.framework */; };
-		B9F8789C21CD28EC00273F82 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryList.swift */; };
+		B9F8789C21CD28EC00273F82 /* CountryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryListView.swift */; };
 		B9F8789D21CD28EC00273F82 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788F21CD28EC00273F82 /* Country.swift */; };
 		B9F8789E21CD28EC00273F82 /* Columbus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789021CD28EC00273F82 /* Columbus.swift */; };
-		B9F8789F21CD28EC00273F82 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789121CD28EC00273F82 /* CountryView.swift */; };
-		B9F878A021CD28EC00273F82 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */; };
-		B9F878A121CD28EC00273F82 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789321CD28EC00273F82 /* CountryCell.swift */; };
 		B9F878A221CD28EC00273F82 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789421CD28EC00273F82 /* Configuration.swift */; };
 		B9F878B121CD2A4E00273F82 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8788321CD28A200273F82 /* Columbus.framework */; };
 /* End PBXBuildFile section */
@@ -65,10 +66,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B92A543F22F3699C008FE261 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
+		B9397D4122DBC42E00E9D98E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B94B1B0621CD38B400FF1B72 /* Columbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Columbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96D496221CD3DC20010E69B /* Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A4A65921D0FC14001FF5DC /* ColumbusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumbusTests.swift; sourceTree = "<group>"; };
 		B9A4A67821D145EB001FF5DC /* Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9B4EBCF22DA4889001346B0 /* CountryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRow.swift; sourceTree = "<group>"; };
+		B9B4EBFF22DBB215001346B0 /* CountryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStore.swift; sourceTree = "<group>"; };
 		B9DB81FC21D0E9F500A39677 /* Columbus-tvOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Columbus-tvOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F8787821CD27FE00273F82 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B9F8787921CD27FE00273F82 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
@@ -77,12 +82,9 @@
 		B9F8787C21CD27FE00273F82 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		B9F8787D21CD27FE00273F82 /* AUTHORS */ = {isa = PBXFileReference; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		B9F8788321CD28A200273F82 /* Columbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Columbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9F8788E21CD28EC00273F82 /* CountryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
+		B9F8788E21CD28EC00273F82 /* CountryListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListView.swift; sourceTree = "<group>"; };
 		B9F8788F21CD28EC00273F82 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B9F8789021CD28EC00273F82 /* Columbus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Columbus.swift; sourceTree = "<group>"; };
-		B9F8789121CD28EC00273F82 /* CountryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
-		B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerViewController.swift; sourceTree = "<group>"; };
-		B9F8789321CD28EC00273F82 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		B9F8789421CD28EC00273F82 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		B9F8789721CD28EC00273F82 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
 		B9F8789821CD28EC00273F82 /* Flags.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Flags.xcassets; sourceTree = "<group>"; };
@@ -219,10 +221,11 @@
 				B9F8789021CD28EC00273F82 /* Columbus.swift */,
 				B9F8789421CD28EC00273F82 /* Configuration.swift */,
 				B9F8788F21CD28EC00273F82 /* Country.swift */,
-				B9F8789321CD28EC00273F82 /* CountryCell.swift */,
-				B9F8788E21CD28EC00273F82 /* CountryList.swift */,
-				B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */,
-				B9F8789121CD28EC00273F82 /* CountryView.swift */,
+				B9F8788E21CD28EC00273F82 /* CountryListView.swift */,
+				B92A543F22F3699C008FE261 /* CountryListViewModel.swift */,
+				B9B4EBCF22DA4889001346B0 /* CountryRow.swift */,
+				B9B4EBFF22DBB215001346B0 /* CountryStore.swift */,
+				B9397D4122DBC42E00E9D98E /* Extensions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -471,12 +474,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B94B1AF921CD38B400FF1B72 /* Country.swift in Sources */,
-				B94B1AFA21CD38B400FF1B72 /* CountryList.swift in Sources */,
+				B94B1AFA21CD38B400FF1B72 /* CountryListView.swift in Sources */,
 				B94B1AFB21CD38B400FF1B72 /* Configuration.swift in Sources */,
-				B94B1AFC21CD38B400FF1B72 /* CountryCell.swift in Sources */,
-				B94B1AFD21CD38B400FF1B72 /* CountryPickerViewController.swift in Sources */,
+				B9B4EBD122DA4889001346B0 /* CountryRow.swift in Sources */,
+				B9B4EC0122DBB215001346B0 /* CountryStore.swift in Sources */,
 				B94B1AFE21CD38B400FF1B72 /* Columbus.swift in Sources */,
-				B94B1AFF21CD38B400FF1B72 /* CountryView.swift in Sources */,
+				B9397D4322DBC42E00E9D98E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,12 +510,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F8789D21CD28EC00273F82 /* Country.swift in Sources */,
-				B9F8789C21CD28EC00273F82 /* CountryList.swift in Sources */,
+				B92A544022F3699C008FE261 /* CountryListViewModel.swift in Sources */,
+				B9F8789C21CD28EC00273F82 /* CountryListView.swift in Sources */,
 				B9F878A221CD28EC00273F82 /* Configuration.swift in Sources */,
-				B9F878A121CD28EC00273F82 /* CountryCell.swift in Sources */,
-				B9F878A021CD28EC00273F82 /* CountryPickerViewController.swift in Sources */,
+				B9B4EBD022DA4889001346B0 /* CountryRow.swift in Sources */,
+				B9B4EC0022DBB215001346B0 /* CountryStore.swift in Sources */,
 				B9F8789E21CD28EC00273F82 /* Columbus.swift in Sources */,
-				B9F8789F21CD28EC00273F82 /* CountryView.swift in Sources */,
+				B9397D4222DBC42E00E9D98E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,11 +602,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
@@ -647,11 +651,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

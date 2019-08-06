@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9397D4E22DBCD8D00E9D98E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9397D4D22DBCD8D00E9D98E /* Colors.xcassets */; };
+		B9397D4F22DBCD8D00E9D98E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9397D4D22DBCD8D00E9D98E /* Colors.xcassets */; };
+		B9B4EBF722DA5869001346B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4EBF622DA5869001346B0 /* SceneDelegate.swift */; };
+		B9B4EBF822DA5869001346B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4EBF622DA5869001346B0 /* SceneDelegate.swift */; };
+		B9B4EBF922DA5FEA001346B0 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; };
+		B9B4EBFA22DA5FEA001346B0 /* Columbus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B9B4EBFC22DA5FFC001346B0 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0C21CD394500FF1B72 /* Columbus.framework */; };
+		B9B4EBFD22DA5FFC001346B0 /* Columbus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0C21CD394500FF1B72 /* Columbus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B9F8790021CD2D7F00273F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8326021C84F3D0008ED90 /* AppDelegate.swift */; };
 		B9F8790221CD2D8400273F82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F878C921CD2CF500273F82 /* Images.xcassets */; };
 		B9F8790421CD2D9800273F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */; };
@@ -21,20 +29,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = B94B1B0621CD38B400FF1B72;
 			remoteInfo = "Columbus-tvOS";
-		};
-		B94B1B0D21CD394700FF1B72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B94B1AF421CD38B400FF1B72;
-			remoteInfo = "Columbus-tvOS";
-		};
-		B94B1B2521CD3BEC00FF1B72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B9F8788221CD28A200273F82;
-			remoteInfo = "Columbus-iOS";
 		};
 		B9693323228B54FF0002B855 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -73,7 +67,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B9B4EBFB22DA5FEA001346B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B9B4EBFA22DA5FEA001346B0 /* Columbus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9B4EBFE22DA5FFC001346B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B9B4EBFD22DA5FFC001346B0 /* Columbus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B9397D4D22DBCD8D00E9D98E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		B9B4EBF622DA5869001346B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B9C8326021C84F3D0008ED90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9F878C921CD2CF500273F82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B9F878CA21CD2CF500273F82 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B4EBF922DA5FEA001346B0 /* Columbus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B4EBFC22DA5FFC001346B0 /* Columbus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +148,10 @@
 		B9C8325F21C84F3D0008ED90 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B9397D4D22DBCD8D00E9D98E /* Colors.xcassets */,
 				B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */,
 				B9C8326021C84F3D0008ED90 /* AppDelegate.swift */,
+				B9B4EBF622DA5869001346B0 /* SceneDelegate.swift */,
 				B9F878C821CD2CF500273F82 /* iOS */,
 				B9F878CD21CD2CFA00273F82 /* tvOS */,
 			);
@@ -181,11 +206,11 @@
 				B9F878D421CD2D5A00273F82 /* Sources */,
 				B9F878D521CD2D5A00273F82 /* Frameworks */,
 				B9F878D621CD2D5A00273F82 /* Resources */,
+				B9B4EBFB22DA5FEA001346B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B94B1B2621CD3BEC00FF1B72 /* PBXTargetDependency */,
 			);
 			name = Columbus_iOS_Example;
 			productName = Columbus_iOS_Example;
@@ -199,11 +224,11 @@
 				B9F8790621CD2DDA00273F82 /* Sources */,
 				B9F8790721CD2DDA00273F82 /* Frameworks */,
 				B9F8790821CD2DDA00273F82 /* Resources */,
+				B9B4EBFE22DA5FFC001346B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B94B1B0E21CD394700FF1B72 /* PBXTargetDependency */,
 			);
 			name = Columbus_tvOS_Example;
 			productName = Columbus_tvOS_Example;
@@ -312,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9397D4E22DBCD8D00E9D98E /* Colors.xcassets in Resources */,
 				B9F8790221CD2D8400273F82 /* Images.xcassets in Resources */,
 				B9F8790421CD2D9800273F82 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -322,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F8791A21CD2DEB00273F82 /* Images.xcassets in Resources */,
+				B9397D4F22DBCD8D00E9D98E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F8790021CD2D7F00273F82 /* AppDelegate.swift in Sources */,
+				B9B4EBF722DA5869001346B0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,23 +369,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F8791B21CD2DEF00273F82 /* AppDelegate.swift in Sources */,
+				B9B4EBF822DA5869001346B0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B94B1B0E21CD394700FF1B72 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Columbus-tvOS";
-			targetProxy = B94B1B0D21CD394700FF1B72 /* PBXContainerItemProxy */;
-		};
-		B94B1B2621CD3BEC00FF1B72 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Columbus-iOS";
-			targetProxy = B94B1B2521CD3BEC00FF1B72 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B9C8326D21C84F400008ED90 /* Debug */ = {
@@ -483,7 +499,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,7 +518,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +533,7 @@
 		B9F8791721CD2DDB00273F82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/tvOS/Info.plist;
@@ -532,14 +546,13 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Debug;
 		};
 		B9F8791821CD2DDB00273F82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/tvOS/Info.plist;
@@ -552,7 +565,6 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Release;
 		};

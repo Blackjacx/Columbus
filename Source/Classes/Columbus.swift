@@ -10,7 +10,7 @@ import Foundation
 
 public final class Columbus {
 
-    public static var config: Configuration!
+    public static var config: Configuration = DefaultConfig()
     public static let bundle: Bundle = {
         let frameworkBundle = Bundle(for: Columbus.self)
         let bundleName = "Resources.bundle"

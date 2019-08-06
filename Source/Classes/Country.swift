@@ -6,24 +6,27 @@
 //  Copyright © 2018 CodingCobra. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 enum CountryDecodingError: Error {
-    case nameNotFound
+    case countryNameNotFound(isoCountryCode: String)
+    case countryFlagNotFound(isoCountryCode: String)
 }
 
-public struct Country {
+public struct Country: Identifiable {
 
+    /// Conformance to `Identifiable`
+    public var id = UUID()
     /// Name of the country
     public let name: String
     /// ISO country code, e.g. DE, etc.
     public let isoCountryCode: String
-    /// International dialing code, e.g. 49, 1, ...
+    /// International dialing code, e.g. +49, +1, ...
     public let dialingCodeWithPlusPrefix: String
     /// `dialingCode` without + sign
     public let dialingCode: String
     /// The flag icon of the country
-    public let flagIcon: UIImage
+    public let flagIcon: Image
 }
 
 extension Country: Decodable {
@@ -42,9 +45,16 @@ extension Country: Decodable {
         dialingCode = dialingCodeWithPlusPrefix.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
 
         guard let countryName = Locale.current.localizedString(forRegionCode: isoCountryCode) else {
-            throw CountryDecodingError.nameNotFound
+            throw CountryDecodingError.countryNameNotFound(isoCountryCode: isoCountryCode)
+        }
+
+        let imageName = isoCountryCode.lowercased()
+
+        // Checks if image can be loaded since `Image` just crashes
+        guard let uiImage = UIImage(named: imageName, in: bundle, compatibleWith: nil) else {
+            throw CountryDecodingError.countryFlagNotFound(isoCountryCode: isoCountryCode)
         }
         name = countryName
-        flagIcon = UIImage(named: isoCountryCode.lowercased(), in: bundle, compatibleWith: nil) ?? UIImage()
+        flagIcon = Image(uiImage: uiImage)
     }
 }
