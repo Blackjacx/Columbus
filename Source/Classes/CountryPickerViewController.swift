@@ -32,13 +32,13 @@ public final class CountryPickerViewController: UIViewController {
     let selectedRegionCode: String
     #if os(iOS)
     /// The parent view for the searchbar
-    let searchBarContentView = UIView()
+    let searchbarContentView = UIView()
     /// The search bar to search for countries
-    let searchBar = UISearchBar()
+    let searchbar = UISearchBar()
     /// Returns `true` if searchbar is first responder and has text
-    var isFiltering: Bool { return searchBar.isFirstResponder && !isSearchBarEmpty }
+    var isFiltering: Bool { return searchbar.isFirstResponder && !isSearchBarEmpty }
     /// Returns if search bar is empty or not
-    var isSearchBarEmpty: Bool { return searchBar.text?.isEmpty ?? true }
+    var isSearchBarEmpty: Bool { return searchbar.text?.isEmpty ?? true }
     #else
     /// Returns always false on non-iOS platforms
     var isFiltering: Bool = false
@@ -46,7 +46,7 @@ public final class CountryPickerViewController: UIViewController {
     /// Offset before search started, so it can be set again afterwards.
     var scrollOffsetPriorSearch = CGPoint.zero
     /// The tableview that displays the countries
-    let tableView = UITableView(frame: .zero, style: .plain)
+    let table = UITableView(frame: .zero, style: .plain)
     /// Constrains the bottom margin of the tableview to screen or keyboard
     var tableViewBottomConstraint: NSLayoutConstraint!
     
@@ -103,8 +103,8 @@ public final class CountryPickerViewController: UIViewController {
 
         view.backgroundColor = Columbus.config.backgroundColor
 
-        setupListView()
-        setupSearchBar()
+        setupTable()
+        setupSearchbar()
         setupLayoutConstraints()
 
         reloadData()
@@ -127,65 +127,106 @@ public final class CountryPickerViewController: UIViewController {
         #endif
     }
     
-    private func setupListView() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(CountryCell.self, forCellReuseIdentifier: CountryCell.cellId)
-        tableView.backgroundColor = Columbus.config.backgroundColor
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tintColor = Columbus.config.controlColor
-        tableView.tableFooterView = UIView()
-        view.addSubview(tableView)
+    private func setupTable() {
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(CountryCell.self, forCellReuseIdentifier: CountryCell.cellId)
+        table.backgroundColor = Columbus.config.backgroundColor
+        table.dataSource = self
+        table.delegate = self
+        table.tintColor = Columbus.config.controlColor
+        table.tableFooterView = UIView()
+        view.addSubview(table)
     }
 
-    private func setupSearchBar() {
+    private func setupSearchbar() {
         #if os(iOS)
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.delegate = self
-        searchBar.tintColor = Columbus.config.controlColor
-        searchBar.barTintColor = Columbus.config.backgroundColor
-        searchBar.searchBarStyle = .minimal
-        searchBar.placeholder = Columbus.config.searchBarPlaceholder
+        searchbar.translatesAutoresizingMaskIntoConstraints = false
+        searchbar.delegate = self
+        searchbar.tintColor = Columbus.config.controlColor
+        searchbar.barTintColor = Columbus.config.backgroundColor
+        searchbar.searchBarStyle = .minimal
+        searchbar.placeholder = Columbus.config.searchBarPlaceholder
 
-        let svs = searchBar.subviews.flatMap { $0.subviews }
-        guard let textField = (svs.compactMap { $0 as? UITextField }).first else { return }
-        textField.textColor = searchBar.tintColor
+        let textField: UITextField?
 
-        searchBarContentView.addSubview(searchBar)
+        #if canImport(SwiftUI)
+        if #available(iOS 13.0, *) {
+            textField = searchbar.searchTextField
+        } else {
+            let searchbarSubViews = searchbar.recursiveSubviews()
+            textField = searchbarSubViews.compactMap({ $0 as? UITextField }).first
+        }
+        #else
+        let searchbarSubViews = searchbar.recursiveSubviews()
+        textField = searchbarSubViews.compactMap({ $0 as? UITextField }).first
+        #endif
+        
+        textField?.textColor = searchbar.tintColor
 
-        searchBarContentView.translatesAutoresizingMaskIntoConstraints = false
-        searchBarContentView.backgroundColor = searchBar.barTintColor
-        view.addSubview(searchBarContentView)
+        searchbarContentView.addSubview(searchbar)
+
+        searchbarContentView.translatesAutoresizingMaskIntoConstraints = false
+        searchbarContentView.backgroundColor = searchbar.barTintColor
+        view.addSubview(searchbarContentView)
         #endif
     }
 
     private func setupLayoutConstraints() {
-        
-        tableViewBottomConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        
-        var constraints: [NSLayoutConstraint] = [
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableViewBottomConstraint
-        ]
+
+        var constraints: [NSLayoutConstraint] = []
+
+        tableViewBottomConstraint = table.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        tableViewBottomConstraint.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.bottom")
+        constraints.append(tableViewBottomConstraint)
+
+        let tableLeading = table.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        tableLeading.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.leading")
+        constraints.append(tableLeading)
+
+        let tableTrailing = table.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        tableTrailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.trailing")
+        constraints.append(tableTrailing)
 
         #if os(iOS)
-        constraints += [
-            tableView.topAnchor.constraint(equalTo: searchBarContentView.bottomAnchor),
 
-            searchBarContentView.topAnchor.constraint(equalTo: view.topAnchor),
-            searchBarContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchBarContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        let tableTop = table.topAnchor.constraint(equalTo: searchbarContentView.bottomAnchor)
+        tableTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.top")
+        constraints.append(tableTop)
 
-            searchBar.topAnchor.constraint(equalTo: searchBarContentView.safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: searchBarContentView.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: searchBarContentView.trailingAnchor),
-            searchBar.bottomAnchor.constraint(equalTo: searchBarContentView.safeAreaLayoutGuide.bottomAnchor),
-        ]
+        let contentViewTop = searchbarContentView.topAnchor.constraint(equalTo: view.topAnchor)
+        contentViewTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).contentView.top")
+        constraints.append(contentViewTop)
+
+        let contentViewLeading = searchbarContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        contentViewLeading.identifier = Columbus.layoutConstraintId("\(type(of: self)).contentView.leading")
+        constraints.append(contentViewLeading)
+
+        let contentViewTrailing = searchbarContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        contentViewTrailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).contentView.trailing")
+        constraints.append(contentViewTrailing)
+
+        let searchbarTop = searchbar.topAnchor.constraint(equalTo: searchbarContentView.safeAreaLayoutGuide.topAnchor)
+        searchbarTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.top")
+        constraints.append(searchbarTop)
+
+        let searchbarLeading = searchbar.leadingAnchor.constraint(equalTo: searchbarContentView.leadingAnchor)
+        searchbarLeading.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.leading")
+        constraints.append(searchbarLeading)
+
+        let searchbarTrailing = searchbar.trailingAnchor.constraint(equalTo: searchbarContentView.trailingAnchor)
+        searchbarTrailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.trailing")
+        constraints.append(searchbarTrailing)
+
+        let searchbarBottom = searchbar.bottomAnchor.constraint(equalTo: searchbarContentView.safeAreaLayoutGuide.bottomAnchor)
+        searchbarBottom.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.bottom")
+        constraints.append(searchbarBottom)
+
         #else
-        constraints += [
-            tableView.topAnchor.constraint(equalTo: view.topAnchor)
-        ]
+
+        let tableTop = table.topAnchor.constraint(equalTo: view.topAnchor)
+        tableTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.top")
+        constraints.append(tableTop)
+        
         #endif
 
         NSLayoutConstraint.activate(constraints)
@@ -270,7 +311,7 @@ public final class CountryPickerViewController: UIViewController {
     func reloadData() {
 
         updateSectionIndex()
-        tableView.reloadData()
+        table.reloadData()
     }
 
     // MARK: Pre-select initial country
@@ -289,10 +330,10 @@ public final class CountryPickerViewController: UIViewController {
             let indexPath = IndexPath(row: row, section: section)
 
             DispatchQueue.main.async { [weak self] in
-                self?.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+                self?.table.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
-                    self?.tableView.deselectRow(at: indexPath, animated: true)
+                    self?.table.deselectRow(at: indexPath, animated: true)
                 })
             }
         }
@@ -313,7 +354,7 @@ extension CountryPickerViewController: UISearchBarDelegate {
     }
 
     public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        scrollOffsetPriorSearch = tableView.contentOffset
+        scrollOffsetPriorSearch = table.contentOffset
         searchBar.setShowsCancelButton(true, animated: true)
     }
 
@@ -322,7 +363,7 @@ extension CountryPickerViewController: UISearchBarDelegate {
         // https://stackoverflow.com/a/16071589/971329
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.tableView.setContentOffset(self.scrollOffsetPriorSearch, animated: true)
+            self.table.setContentOffset(self.scrollOffsetPriorSearch, animated: true)
         }
         searchBar.setShowsCancelButton(false, animated: true)
     }
