@@ -25,9 +25,8 @@
   <a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop">
     <img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" />
   </a>
-  <a href="https://www.paypal.me/STHEROLD">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg"/>
-  </a>
+  <a href="https://twitter.com/blackjacxxx"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/blackjacxxx?label=%40Blackjacxxx"/></a>
+  <a href="https://www.paypal.me/STHEROLD"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg"/></a>
 </p>
 
 A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. The following list highlights the most valuable features:
