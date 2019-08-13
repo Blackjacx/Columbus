@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#18](https://github.com/Blackjacx/Columbus/pull/18): Fix Recursive Textfield Determination - [@Blackjacx](https://github.com/Blackjacx).
 * Fix vulnerability with Fastlane / mini_magick - [@Blackjacx](https://github.com/blackjacx).
 
 ## [1.0.0] - 2019-05-14

@@ -10,7 +10,7 @@ import UIKit
 
 final class CountryCell: UITableViewCell {
 
-    static let cellId = "CountryCell"
+    static var cellId: String { return "\(CountryCell.self)" }
 
     var countryView = CountryView()
 
@@ -54,13 +54,19 @@ final class CountryCell: UITableViewCell {
     func setupLayoutConstraints() {
         let raster = Columbus.config.rasterSize
 
-        NSLayoutConstraint.activate([
-            countryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: raster),
-            countryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -raster),
-            countryView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: raster),
-            countryView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -raster),
-            ]
-        )
+        let leading = countryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: raster)
+        leading.identifier = Columbus.layoutConstraintId("\(type(of: self)).leading")
+
+        let trailing = countryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -raster)
+        trailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).trailing")
+
+        let top = countryView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: raster)
+        top.identifier = Columbus.layoutConstraintId("\(type(of: self)).top")
+
+        let bottom = countryView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -raster)
+        bottom.identifier = Columbus.layoutConstraintId("\(type(of: self)).bottom")
+
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
     }
 
     func configure(with country: Country) {

@@ -22,4 +22,8 @@ public final class Columbus {
         }
         return bundle
     }()
+
+    static func layoutConstraintId(_ suffix: String) -> String {
+        return "\(Columbus.bundle.bundleIdentifier!).\(suffix)"
+    }
 }
