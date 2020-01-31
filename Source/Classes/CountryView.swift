@@ -53,14 +53,12 @@ final class CountryView: UIView {
     }
 
     func setupCountryNameLabel() {
-        countryNameLabel.textColor = Columbus.config.textColor
         countryCodeLabel.textAlignment = .left
         countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
         countryNameLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     private func setupCountryCodeLabel() {
-        countryCodeLabel.textColor = Columbus.config.textColor
         countryCodeLabel.textAlignment = .right
         countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
         countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)

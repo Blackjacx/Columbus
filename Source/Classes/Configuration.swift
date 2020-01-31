@@ -9,7 +9,6 @@
 import UIKit
 
 public protocol Configuration {
-    var textColor: UIColor { get }
     var textAttributes: [NSAttributedString.Key: Any] { get }
     var textBackgroundColor: UIColor { get }
     var selectionColor: UIColor { get }

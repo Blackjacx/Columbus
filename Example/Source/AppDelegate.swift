@@ -31,12 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 public struct CountryPickerConfig: Configuration {
-    public var textColor: UIColor {
-        if #available(iOS 13.0, *) { return .label
-        } else { return .white }
-    }
 
-    public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .body)]
+    public var textAttributes: [NSAttributedString.Key: Any] = {
+        let textColor: UIColor
+
+        if #available(iOS 13.0, *) { textColor = .label
+        } else { textColor = .systemGray }
+
+        return [
+            .foregroundColor: textColor,
+            .font: UIFont.preferredFont(forTextStyle: .body)
+        ]
+    }()
 
     public var textBackgroundColor: UIColor {
         if #available(iOS 13.0, *) { return .systemGray6
