@@ -31,17 +31,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 public struct CountryPickerConfig: Configuration {
-    public var textColor: UIColor = .darkGray
-    public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15)]
-    public var lineColor: UIColor = .lightGray
+    public var textColor: UIColor {
+        if #available(iOS 13.0, *) { return .label
+        } else { return .white }
+    }
+
+    public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .body)]
+
+    public var textBackgroundColor: UIColor {
+        if #available(iOS 13.0, *) { return .systemGray6
+        } else { return .lightGray }
+    }
+
+    public var lineColor: UIColor {
+        if #available(iOS 13.0, *) { return .opaqueSeparator
+        } else { return .lightGray }
+    }
+
     public var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
-    public var rasterSize: CGFloat = 12.0
-    public var backgroundColor: UIColor = .white
+
+    public var rasterSize: CGFloat = 10.0
+
+    public var backgroundColor: UIColor {
+        if #available(iOS 13.0, *) { return .systemBackground
+        } else { return .white }
+    }
+
     public var separatorInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
     }
+
     public var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
-    public var searchBarPlaceholder: String? = "Search"
+
+    public let searchBarAttributedPlaceholder: NSAttributedString = {
+        let textColor: UIColor
+
+        if #available(iOS 13.0, *) { textColor = .placeholderText
+        } else { textColor = .systemGray }
+
+        return NSAttributedString(string: "Search",
+                                  attributes: [
+                                    .foregroundColor: textColor,
+                                    .font: UIFont.preferredFont(forTextStyle: .body)
+        ])
+    }()
 
     public init() {}
 }

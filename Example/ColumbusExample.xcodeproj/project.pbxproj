@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B93D76DE23E4711B00E41863 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; };
+		B93D76DF23E4711B00E41863 /* Columbus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B93D76E123E4712000E41863 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0C21CD394500FF1B72 /* Columbus.framework */; };
+		B93D76E223E4712000E41863 /* Columbus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0C21CD394500FF1B72 /* Columbus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B9F8790021CD2D7F00273F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8326021C84F3D0008ED90 /* AppDelegate.swift */; };
 		B9F8790221CD2D8400273F82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F878C921CD2CF500273F82 /* Images.xcassets */; };
 		B9F8790421CD2D9800273F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */; };
@@ -73,6 +77,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B93D76E023E4711B00E41863 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B93D76DF23E4711B00E41863 /* Columbus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B93D76E323E4712100E41863 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B93D76E223E4712000E41863 /* Columbus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B9C8326021C84F3D0008ED90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9F878C921CD2CF500273F82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -90,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93D76DE23E4711B00E41863 /* Columbus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93D76E123E4712000E41863 /* Columbus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +212,7 @@
 				B9F878D421CD2D5A00273F82 /* Sources */,
 				B9F878D521CD2D5A00273F82 /* Frameworks */,
 				B9F878D621CD2D5A00273F82 /* Resources */,
+				B93D76E023E4711B00E41863 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,6 +231,7 @@
 				B9F8790621CD2DDA00273F82 /* Sources */,
 				B9F8790721CD2DDA00273F82 /* Frameworks */,
 				B9F8790821CD2DDA00273F82 /* Resources */,
+				B93D76E323E4712100E41863 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,7 +536,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,6 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/tvOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,7 +566,6 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Debug;
 		};
@@ -543,6 +576,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PCW579R278;
 				INFOPLIST_FILE = Source/tvOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,7 +586,6 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Release;
 		};

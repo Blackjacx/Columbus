@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B905891D230233B800491105 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905891C230233B800491105 /* UIView+Subviews.swift */; };
 		B905891E230233BC00491105 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905891C230233B800491105 /* UIView+Subviews.swift */; };
+		B93D76DD23E4691300E41863 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D76DC23E4691300E41863 /* CustomSearchBar.swift */; };
 		B94B1AF921CD38B400FF1B72 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788F21CD28EC00273F82 /* Country.swift */; };
 		B94B1AFA21CD38B400FF1B72 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryList.swift */; };
 		B94B1AFB21CD38B400FF1B72 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789421CD28EC00273F82 /* Configuration.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		B905891C230233B800491105 /* UIView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
+		B93D76DC23E4691300E41863 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		B94B1B0621CD38B400FF1B72 /* Columbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Columbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96D496221CD3DC20010E69B /* Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A4A65921D0FC14001FF5DC /* ColumbusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumbusTests.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				B9F8788E21CD28EC00273F82 /* CountryList.swift */,
 				B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */,
 				B9F8789121CD28EC00273F82 /* CountryView.swift */,
+				B93D76DC23E4691300E41863 /* CustomSearchBar.swift */,
 				B905891C230233B800491105 /* UIView+Subviews.swift */,
 			);
 			path = Classes;
@@ -516,6 +519,7 @@
 				B9F878A221CD28EC00273F82 /* Configuration.swift in Sources */,
 				B9F878A121CD28EC00273F82 /* CountryCell.swift in Sources */,
 				B905891D230233B800491105 /* UIView+Subviews.swift in Sources */,
+				B93D76DD23E4691300E41863 /* CustomSearchBar.swift in Sources */,
 				B9F878A021CD28EC00273F82 /* CountryPickerViewController.swift in Sources */,
 				B9F8789E21CD28EC00273F82 /* Columbus.swift in Sources */,
 				B9F8789F21CD28EC00273F82 /* CountryView.swift in Sources */,

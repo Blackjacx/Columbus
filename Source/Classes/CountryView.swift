@@ -15,24 +15,22 @@ final class CountryView: UIView {
     let countryNameLabel = UILabel()
     let countryCodeLabel = UILabel()
 
-    init() {
-        super.init(frame: .zero)
-
-        setupStackView()
-        setupFlagImageView()
-        setupCountryNameLabel()
-        setupCountryCodeLabel()
-        setupViewLayoutConstraints()
+    static func masterInit(instance: CountryView) {
+        instance.setupStackView()
+        instance.setupFlagImageView()
+        instance.setupCountryNameLabel()
+        instance.setupCountryCodeLabel()
+        instance.setupViewLayoutConstraints()
     }
 
-    @available(*, unavailable, message:"init(frame:) has not been implemented")
-    private override convenience init(frame: CGRect) {
-        fatalError()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        Self.masterInit(instance: self)
     }
 
-    @available(*, unavailable, message:"init(coder:) has not been implemented")
     required init?(coder aDecoder: NSCoder) {
-        fatalError()
+        super.init(coder: aDecoder)
+        Self.masterInit(instance: self)
     }
 
     func setupStackView() {

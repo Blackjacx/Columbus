@@ -14,27 +14,31 @@ final class CountryCell: UITableViewCell {
 
     var countryView = CountryView()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        selectedBackgroundView = UIView()
-        selectedBackgroundView?.layer.cornerRadius = 12.0
-        selectedBackgroundView?.layer.masksToBounds = true
-        selectedBackgroundView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+    static func masterInit(instance: CountryCell) {
+        instance.selectedBackgroundView = UIView()
+        instance.selectedBackgroundView?.layer.cornerRadius = 12.0
+        instance.selectedBackgroundView?.layer.masksToBounds = true
+        instance.selectedBackgroundView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
 
-        backgroundView = UIView()
-        backgroundView?.layer.cornerRadius = 12.0
-        backgroundView?.layer.masksToBounds = true
-        backgroundView?.backgroundColor = Columbus.config.backgroundColor
+        instance.backgroundView = UIView()
+        instance.backgroundView?.layer.cornerRadius = 12.0
+        instance.backgroundView?.layer.masksToBounds = true
+        instance.backgroundView?.backgroundColor = Columbus.config.backgroundColor
 
-        backgroundColor = Columbus.config.backgroundColor
+        instance.backgroundColor = Columbus.config.backgroundColor
 
-        setupCountryView()
-        setupLayoutConstraints()
+        instance.setupCountryView()
+        instance.setupLayoutConstraints()
     }
 
-    @available(*, unavailable, message:"init(coder:) has not been implemented")
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        Self.masterInit(instance: self)
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        fatalError()
+        super.init(coder: aDecoder)
+        Self.masterInit(instance: self)
     }
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {

@@ -15,10 +15,10 @@ public final class Columbus {
         let frameworkBundle = Bundle(for: Columbus.self)
         let bundleName = "Resources.bundle"
         guard let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent(bundleName) else {
-            fatalError("Bundle url nil!")
+            preconditionFailure("Bundle url nil!")
         }
         guard let bundle = Bundle(url: bundleURL) else {
-            fatalError("Bundle nil!")
+            preconditionFailure("Bundle nil!")
         }
         return bundle
     }()

@@ -21,7 +21,7 @@ public final class CountryPickerViewController: UIViewController {
     /// The list of data displayed when the user enters a search term
     var filteredItems = CountryList()
     /// Returns all items or filtered items if filtering is currently active
-    var items: CountryList { return isFiltering ? filteredItems : type(of: self).countries }
+    var items: CountryList { searchbar.isFiltering ? filteredItems : type(of: self).countries }
     /// The data source for the section indexing
     var itemsForSectionTitle = [String: [Country]]()
     /// The section index title cache
@@ -30,19 +30,8 @@ public final class CountryPickerViewController: UIViewController {
     let didSelectClosure: (_ country: Country) -> ()
     /// The currently picked country
     let selectedRegionCode: String
-    #if os(iOS)
-    /// The parent view for the searchbar
-    let searchbarContentView = UIView()
     /// The search bar to search for countries
-    let searchbar = UISearchBar()
-    /// Returns `true` if searchbar is first responder and has text
-    var isFiltering: Bool { return searchbar.isFirstResponder && !isSearchBarEmpty }
-    /// Returns if search bar is empty or not
-    var isSearchBarEmpty: Bool { return searchbar.text?.isEmpty ?? true }
-    #else
-    /// Returns always false on non-iOS platforms
-    var isFiltering: Bool = false
-    #endif
+    let searchbar = CustomSearchBar()
     /// Offset before search started, so it can be set again afterwards.
     var scrollOffsetPriorSearch = CGPoint.zero
     /// The tableview that displays the countries
@@ -65,17 +54,17 @@ public final class CountryPickerViewController: UIViewController {
 
     @available(*, unavailable, message:"init() has not been implemented")
     init() {
-        fatalError()
+        preconditionFailure()
     }
 
     @available(*, unavailable, message: "init(nibName: , bundle:) has not been implemented")
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        fatalError()
+        preconditionFailure()
     }
 
     @available(*, unavailable, message:"init(coder:) has not been implemented")
     required public init?(coder aDecoder: NSCoder) {
-        fatalError()
+        preconditionFailure()
     }
     
     deinit {
@@ -95,6 +84,14 @@ public final class CountryPickerViewController: UIViewController {
         #endif
     }
 
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.preferredContentSizeCategory !=
+            traitCollection.preferredContentSizeCategory {
+            searchbar.invalidateIntrinsicContentSize()
+        }
+    }
+
     // MARK: - Setup UI
 
     override public func viewDidLoad() {
@@ -104,7 +101,9 @@ public final class CountryPickerViewController: UIViewController {
         view.backgroundColor = Columbus.config.backgroundColor
 
         setupTable()
+        #if os(iOS)
         setupSearchbar()
+        #endif
         setupLayoutConstraints()
 
         reloadData()
@@ -139,36 +138,25 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func setupSearchbar() {
-        #if os(iOS)
+        let leftView = UIImageView(image: UIImage(named: "de",
+                                                  in: Columbus.bundle,
+                                                  compatibleWith: nil))
+        leftView.contentMode = .scaleAspectFit
+
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         searchbar.delegate = self
         searchbar.tintColor = Columbus.config.controlColor
-        searchbar.barTintColor = Columbus.config.backgroundColor
-        searchbar.searchBarStyle = .minimal
-        searchbar.placeholder = Columbus.config.searchBarPlaceholder
+        searchbar.backgroundColor = Columbus.config.backgroundColor
+        searchbar.textAttributes = Columbus.config.textAttributes
+        searchbar.placeholder = Columbus.config.searchBarAttributedPlaceholder
+        searchbar.leadingView = leftView
 
-        let textField: UITextField?
+        let textField = searchbar.textField
+        textField.tintColor = Columbus.config.controlColor
+        textField.textColor = searchbar.tintColor
+        textField.backgroundColor = Columbus.config.textBackgroundColor
 
-        #if canImport(SwiftUI)
-        if #available(iOS 13.0, *) {
-            textField = searchbar.searchTextField
-        } else {
-            let searchbarSubViews = searchbar.recursiveSubviews()
-            textField = searchbarSubViews.compactMap({ $0 as? UITextField }).first
-        }
-        #else
-        let searchbarSubViews = searchbar.recursiveSubviews()
-        textField = searchbarSubViews.compactMap({ $0 as? UITextField }).first
-        #endif
-        
-        textField?.textColor = searchbar.tintColor
-
-        searchbarContentView.addSubview(searchbar)
-
-        searchbarContentView.translatesAutoresizingMaskIntoConstraints = false
-        searchbarContentView.backgroundColor = searchbar.barTintColor
-        view.addSubview(searchbarContentView)
-        #endif
+        view.addSubview(searchbar)
     }
 
     private func setupLayoutConstraints() {
@@ -189,37 +177,21 @@ public final class CountryPickerViewController: UIViewController {
 
         #if os(iOS)
 
-        let tableTop = table.topAnchor.constraint(equalTo: searchbarContentView.bottomAnchor)
-        tableTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.top")
-        constraints.append(tableTop)
-
-        let contentViewTop = searchbarContentView.topAnchor.constraint(equalTo: view.topAnchor)
-        contentViewTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).contentView.top")
-        constraints.append(contentViewTop)
-
-        let contentViewLeading = searchbarContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        contentViewLeading.identifier = Columbus.layoutConstraintId("\(type(of: self)).contentView.leading")
-        constraints.append(contentViewLeading)
-
-        let contentViewTrailing = searchbarContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        contentViewTrailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).contentView.trailing")
-        constraints.append(contentViewTrailing)
-
-        let searchbarTop = searchbar.topAnchor.constraint(equalTo: searchbarContentView.safeAreaLayoutGuide.topAnchor)
+        let searchbarTop = searchbar.topAnchor.constraint(equalTo: view.topAnchor)
         searchbarTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.top")
         constraints.append(searchbarTop)
 
-        let searchbarLeading = searchbar.leadingAnchor.constraint(equalTo: searchbarContentView.leadingAnchor)
+        let searchbarLeading = searchbar.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         searchbarLeading.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.leading")
         constraints.append(searchbarLeading)
 
-        let searchbarTrailing = searchbar.trailingAnchor.constraint(equalTo: searchbarContentView.trailingAnchor)
+        let searchbarTrailing = searchbar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         searchbarTrailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.trailing")
         constraints.append(searchbarTrailing)
 
-        let searchbarBottom = searchbar.bottomAnchor.constraint(equalTo: searchbarContentView.safeAreaLayoutGuide.bottomAnchor)
-        searchbarBottom.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.bottom")
-        constraints.append(searchbarBottom)
+        let tableTop = table.topAnchor.constraint(equalTo: searchbar.bottomAnchor)
+        tableTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.top")
+        constraints.append(tableTop)
 
         #else
 
@@ -340,35 +312,27 @@ public final class CountryPickerViewController: UIViewController {
     }
 }
 
-#if os(iOS)
-extension CountryPickerViewController: UISearchBarDelegate {
-
-    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterContentForSearchText(searchText)
+extension CountryPickerViewController: CustomSearchBarDelegate {
+    
+    func searchBarTextDidChange(_ searchBar: CustomSearchBar, newText: String) {
+        filterContentForSearchText(newText)
     }
 
-    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = nil
-        filterContentForSearchText("")
-        searchBar.resignFirstResponder()
-    }
-
-    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: CustomSearchBar) {
         scrollOffsetPriorSearch = table.contentOffset
-        searchBar.setShowsCancelButton(true, animated: true)
+//        searchBar.setShowsCancelButton(true, animated: true)
     }
 
-    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: CustomSearchBar) {
         // Schedule re-setting contentOffset when table view finished reloading
         // https://stackoverflow.com/a/16071589/971329
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.table.setContentOffset(self.scrollOffsetPriorSearch, animated: true)
         }
-        searchBar.setShowsCancelButton(false, animated: true)
+//        searchBar.setShowsCancelButton(false, animated: true)
     }
 }
-#endif
 
 extension CountryPickerViewController: UITableViewDataSource {
 
