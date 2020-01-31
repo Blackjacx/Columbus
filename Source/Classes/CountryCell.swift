@@ -47,7 +47,9 @@ final class CountryCell: UITableViewCell {
     }
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-         backgroundView?.backgroundColor = isFocused ? .green : Columbus.config.backgroundColor
+         backgroundView?.backgroundColor = isFocused ?
+            Columbus.config.selectionColor :
+            Columbus.config.backgroundColor
     }
 
     override func prepareForReuse() {

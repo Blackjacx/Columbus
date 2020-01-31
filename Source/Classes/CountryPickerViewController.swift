@@ -38,6 +38,22 @@ public final class CountryPickerViewController: UIViewController {
     let table = UITableView(frame: .zero, style: .plain)
     /// Constrains the bottom margin of the tableview to screen or keyboard
     var tableViewBottomConstraint: NSLayoutConstraint!
+    /// The index path of the currently focussed item
+    var focussedIndexPath: IndexPath = IndexPath(row: 0, section: 0) {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.setNeedsFocusUpdate()
+                self?.updateFocusIfNeeded()
+            }
+        }
+    }
+
+    override weak public var preferredFocusedView: UIView? {
+
+        print("\(focussedIndexPath.section), \(focussedIndexPath.row)")
+        let cell = table.cellForRow(at: focussedIndexPath)
+        return cell
+    }
     
     /// The observer that informs about KeyboardWillShow notifications
     private var keyboardDidShowObserver: NSObjectProtocol?
@@ -276,7 +292,7 @@ public final class CountryPickerViewController: UIViewController {
 
     func displaySelectedCountry() {
 
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) { [weak self] in
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) { [weak self] in
             guard
                 let key = (self?.itemsForSectionTitle.first { $0.value.contains { $0.isoCountryCode == self?.selectedRegionCode } }?.key),
                 let section = (self?.sectionTitles.firstIndex { $0 == key }),
@@ -287,13 +303,21 @@ public final class CountryPickerViewController: UIViewController {
 
             let indexPath = IndexPath(row: row, section: section)
 
+            #if os(iOS)
             DispatchQueue.main.async { [weak self] in
                 self?.table.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak self] in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                     self?.table.deselectRow(at: indexPath, animated: true)
-                })
+                }
             }
+            #elseif os(tvOS)
+            DispatchQueue.main.async { [weak self] in
+                self?.table.scrollToRow(at: indexPath, at: .middle, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                    self?.focussedIndexPath = indexPath
+                }
+            }
+            #endif
         }
     }
 }
