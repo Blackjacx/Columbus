@@ -32,58 +32,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 public struct CountryPickerConfig: Configuration {
 
-    public var textAttributes: [NSAttributedString.Key: Any] = {
-        let textColor: UIColor
-
-        if #available(iOS 13.0, *) { textColor = .label
-        } else { textColor = .systemGray }
-
-        return [
-            .foregroundColor: textColor,
-            .font: UIFont.preferredFont(forTextStyle: .body)
-        ]
-    }()
-
-    public var textBackgroundColor: UIColor {
-        if #available(iOS 13.0, *) { return .systemGray6
-        } else { return .lightGray }
-    }
-
-    public var selectionColor: UIColor {
-        if #available(iOS 13.0, *) { return .systemGray5
-        } else { return UIColor(white: 0.9, alpha: 1.0) }
-    }
-
-    public var lineColor: UIColor {
-        if #available(iOS 13.0, *) { return .opaqueSeparator
-        } else { return .lightGray }
-    }
-
+    public var textAttributes: [NSAttributedString.Key: Any] = [
+        .foregroundColor: UIColor.text,
+        .font: UIFont.preferredFont(forTextStyle: .body)
+    ]
+    public var textFieldBackgroundColor: UIColor = .textFieldBackground
+    public var backgroundColor: UIColor = .background
+    public var selectionColor: UIColor = .selection
+    public var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
+    public var lineColor: UIColor = .line
     public var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
-
     public var rasterSize: CGFloat = 10.0
-
-    public var backgroundColor: UIColor {
-        if #available(iOS 13.0, *) { return .systemBackground
-        } else { return .white }
-    }
-
     public var separatorInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
     }
-
-    public var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
-
     public let searchBarAttributedPlaceholder: NSAttributedString = {
-        let textColor: UIColor
-
-        if #available(iOS 13.0, *) { textColor = .placeholderText
-        } else { textColor = .systemGray }
-
-        return NSAttributedString(string: "Search",
-                                  attributes: [
-                                    .foregroundColor: textColor,
-                                    .font: UIFont.preferredFont(forTextStyle: .body)
+        NSAttributedString(string: "Search",
+                           attributes: [
+                            .foregroundColor: UIColor.placeholder,
+                            .font: UIFont.preferredFont(forTextStyle: .body)
         ])
     }()
 

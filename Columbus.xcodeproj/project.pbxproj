@@ -10,6 +10,7 @@
 		B905891D230233B800491105 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905891C230233B800491105 /* UIView+Subviews.swift */; };
 		B905891E230233BC00491105 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905891C230233B800491105 /* UIView+Subviews.swift */; };
 		B93D76DD23E4691300E41863 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D76DC23E4691300E41863 /* CustomSearchBar.swift */; };
+		B93D76E723E4A66600E41863 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D76DC23E4691300E41863 /* CustomSearchBar.swift */; };
 		B94B1AF921CD38B400FF1B72 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788F21CD28EC00273F82 /* Country.swift */; };
 		B94B1AFA21CD38B400FF1B72 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryList.swift */; };
 		B94B1AFB21CD38B400FF1B72 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789421CD28EC00273F82 /* Configuration.swift */; };
@@ -482,6 +483,7 @@
 				B94B1AFB21CD38B400FF1B72 /* Configuration.swift in Sources */,
 				B94B1AFC21CD38B400FF1B72 /* CountryCell.swift in Sources */,
 				B905891E230233BC00491105 /* UIView+Subviews.swift in Sources */,
+				B93D76E723E4A66600E41863 /* CustomSearchBar.swift in Sources */,
 				B94B1AFD21CD38B400FF1B72 /* CountryPickerViewController.swift in Sources */,
 				B94B1AFE21CD38B400FF1B72 /* Columbus.swift in Sources */,
 				B94B1AFF21CD38B400FF1B72 /* CountryView.swift in Sources */,

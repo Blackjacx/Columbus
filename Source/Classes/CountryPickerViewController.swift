@@ -154,7 +154,7 @@ public final class CountryPickerViewController: UIViewController {
         let textField = searchbar.textField
         textField.tintColor = Columbus.config.controlColor
         textField.textColor = searchbar.tintColor
-        textField.backgroundColor = Columbus.config.textBackgroundColor
+        textField.backgroundColor = Columbus.config.textFieldBackgroundColor
 
         view.addSubview(searchbar)
     }
