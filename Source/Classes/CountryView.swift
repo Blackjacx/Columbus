@@ -43,24 +43,24 @@ final class CountryView: UIView {
     }
 
     func setupFlagImageView() {
+        flagImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         flagImageView.contentMode = .scaleAspectFit
         flagImageView.layer.shadowColor = UIColor.black.cgColor
         flagImageView.layer.shadowOpacity = 0.25
         flagImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
-        flagImageView.translatesAutoresizingMaskIntoConstraints = false
         flagImageView.setContentHuggingPriority(.required, for: .horizontal)
         flagImageView.setContentHuggingPriority(.required, for: .vertical)
     }
 
     func setupCountryNameLabel() {
-        countryCodeLabel.textAlignment = .left
-        countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        countryNameLabel.textAlignment = .left
+        countryNameLabel.adjustsFontForContentSizeCategory = true
         countryNameLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     private func setupCountryCodeLabel() {
         countryCodeLabel.textAlignment = .right
-        countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
+        countryCodeLabel.adjustsFontForContentSizeCategory = true
         countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         countryCodeLabel.setContentHuggingPriority(.required, for: .vertical)
     }
@@ -78,10 +78,13 @@ final class CountryView: UIView {
     }
 
     func configure(with country: Country) {
+
         countryNameLabel.attributedText = NSAttributedString(string: country.name,
                                                              attributes: Columbus.config.textAttributes)
+
         countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix,
                                                              attributes: Columbus.config.textAttributes)
+
         flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(),
                                       in: Columbus.bundle,
                                       compatibleWith: nil)

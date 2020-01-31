@@ -102,7 +102,7 @@ public final class CountryPickerViewController: UIViewController {
         displaySelectedCountry()
         setupObserver()
     }
-    
+
     private func setupObserver() {
         
         #if os(iOS)
@@ -357,7 +357,7 @@ extension CountryPickerViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         sectionTitles[section]
     }
-    
+
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         sectionTitles
     }

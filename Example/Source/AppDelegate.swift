@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let config = CountryPickerConfig()
-        Columbus.config = config
+        Columbus.config = CountryPickerConfig()
 
         let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { (country) in
             print(country)
@@ -32,10 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 public struct CountryPickerConfig: Configuration {
 
-    public var textAttributes: [NSAttributedString.Key: Any] = [
-        .foregroundColor: UIColor.text,
-        .font: UIFont.preferredFont(forTextStyle: .body)
-    ]
+    /// This has to be a computed property so the font object is calculated
+    /// later on demand. Since this object is created right at appstart
+    /// something related to dynamic type seems not to be ready yet.
+    public var textAttributes: [NSAttributedString.Key: Any] {
+        [
+            .foregroundColor: UIColor.text,
+            .font: UIFont.preferredFont(forTextStyle: .body)
+        ]
+    }
     public var textFieldBackgroundColor: UIColor = .textFieldBackground
     public var backgroundColor: UIColor = .background
     public var selectionColor: UIColor = .selection

@@ -12,16 +12,14 @@ final class CountryCell: UITableViewCell {
 
     static var cellId: String { "\(CountryCell.self)" }
 
-    var countryView = CountryView()
+    let countryView = CountryView()
 
     static func masterInit(instance: CountryCell) {
         instance.selectedBackgroundView = UIView()
-        instance.selectedBackgroundView?.layer.cornerRadius = 12.0
         instance.selectedBackgroundView?.layer.masksToBounds = true
         instance.selectedBackgroundView?.backgroundColor = Columbus.config.selectionColor
 
         instance.backgroundView = UIView()
-        instance.backgroundView?.layer.cornerRadius = 12.0
         instance.backgroundView?.layer.masksToBounds = true
         instance.backgroundView?.backgroundColor = Columbus.config.backgroundColor
 
@@ -39,6 +37,13 @@ final class CountryCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         Self.masterInit(instance: self)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let radius = frame.height / 4
+        selectedBackgroundView?.layer.cornerRadius = radius
+        backgroundView?.layer.cornerRadius = radius
     }
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
