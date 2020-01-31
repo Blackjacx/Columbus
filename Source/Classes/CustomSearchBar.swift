@@ -43,21 +43,6 @@ final class CustomSearchBar: UIView {
         set { textField.attributedPlaceholder = newValue }
     }
 
-    var leadingView: UIView? {
-        willSet {
-//            guard let leadingView = leadingView else { return }
-//            hStack.removeArrangedSubview(leadingView)
-        }
-
-        didSet {
-//            guard let leadingView = leadingView else { return }
-//            hStack.insertArrangedSubview(leadingView, at: 0)
-//            NSLayoutConstraint.activate([
-//                leadingView.widthAnchor.constraint(equalToConstant: 36)
-//            ])
-        }
-    }
-
     /// Returns `true` if searchbar is first responder and has text
     var isFiltering: Bool {
         textField.isFirstResponder && !text.isEmpty

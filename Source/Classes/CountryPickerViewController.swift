@@ -138,10 +138,6 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func setupSearchbar() {
-        let leftView = UIImageView(image: UIImage(named: "de",
-                                                  in: Columbus.bundle,
-                                                  compatibleWith: nil))
-        leftView.contentMode = .scaleAspectFit
 
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         searchbar.delegate = self
@@ -149,7 +145,6 @@ public final class CountryPickerViewController: UIViewController {
         searchbar.backgroundColor = Columbus.config.backgroundColor
         searchbar.textAttributes = Columbus.config.textAttributes
         searchbar.placeholder = Columbus.config.searchBarAttributedPlaceholder
-        searchbar.leadingView = leftView
 
         let textField = searchbar.textField
         textField.tintColor = Columbus.config.controlColor
