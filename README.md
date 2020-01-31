@@ -62,9 +62,39 @@ Using Carthage has some advantages in contrast to Cocopods for this framework. S
 
 ### Usage
 
+In the following example you'll find all the possible configuration/theming options of Columbus:
+
 ```swift
-let config = DefaultConfig()
-Columbus.config = config
+struct CountryPickerConfig: Configuration {
+
+    /// In this example this has to be a computed property so the font object
+    /// is calculated later on demand. Since this object is created right at app
+    /// start something related to dynamic type seems not to be ready yet.
+    var textAttributes: [NSAttributedString.Key: Any] {
+        [
+            .foregroundColor: UIColor.text,
+            .font: UIFont.preferredFont(forTextStyle: .body)
+        ]
+    }
+    var textFieldBackgroundColor: UIColor = .textFieldBackground
+    var backgroundColor: UIColor = .background
+    var selectionColor: UIColor = .selection
+    var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
+    var lineColor: UIColor = .line
+    var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
+    var rasterSize: CGFloat = 10.0
+    var separatorInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
+    }
+    let searchBarAttributedPlaceholder: NSAttributedString = {
+        NSAttributedString(string: "Search",
+                           attributes: [
+                            .foregroundColor: UIColor.placeholder,
+                            .font: UIFont.preferredFont(forTextStyle: .body)])
+    }()
+}
+
+Columbus.config = CountryPickerConfig()
 
 let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { [weak self] (country) in
     print(country)
@@ -104,7 +134,7 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Credits
 
-[Thanks For The Flag Icons](https://github.com/lipis/flag-icon-css)
+[Thanks for the flag icons](https://github.com/lipis/flag-icon-css)
 
 ## License
 
