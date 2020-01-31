@@ -103,7 +103,6 @@ extension CustomSearchBar: UITextFieldDelegate {
 
     @objc func textDidChange(textField: UITextField) {
         delegate?.searchBarTextDidChange(self, newText: text)
-        textField.invalidateIntrinsicContentSize()
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -136,29 +135,9 @@ final class CustomTextField: UITextField {
         Self.masterInit(self)
     }
 
-    override var intrinsicContentSize: CGSize {
-        guard let text = text, !text.isEmpty else {
-            // You can return some custom size in case of empty string
-            return super.intrinsicContentSize
-        }
-        // Convert to NSString to use size(attributes:)
-        let string = text as NSString
-        // Calculate size for current text
-        let size = string.size(withAttributes: defaultTextAttributes)
-        return size
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = frame.height / 4
-    }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        if previousTraitCollection?.preferredContentSizeCategory !=
-            traitCollection.preferredContentSizeCategory {
-            invalidateIntrinsicContentSize()
-        }
     }
 
     override func textRect(forBounds bounds: CGRect) -> CGRect {

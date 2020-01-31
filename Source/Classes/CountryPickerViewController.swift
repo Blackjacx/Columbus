@@ -84,14 +84,6 @@ public final class CountryPickerViewController: UIViewController {
         #endif
     }
 
-    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        if previousTraitCollection?.preferredContentSizeCategory !=
-            traitCollection.preferredContentSizeCategory {
-            searchbar.invalidateIntrinsicContentSize()
-        }
-    }
-
     // MARK: - Setup UI
 
     override public func viewDidLoad() {
