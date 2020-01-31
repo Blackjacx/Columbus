@@ -332,7 +332,7 @@ extension CountryPickerViewController: CustomSearchBarDelegate {
 extension CountryPickerViewController: UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        sectionTitles.count
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -363,11 +363,11 @@ extension CountryPickerViewController: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
+        sectionTitles[section]
     }
     
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return sectionTitles
+        sectionTitles
     }
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

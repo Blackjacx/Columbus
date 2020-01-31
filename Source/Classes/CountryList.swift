@@ -26,17 +26,17 @@ extension CountryList: Collection {
     public typealias Element = ArrayType.Element
 
     // The upper and lower bounds of the collection, used in iterations
-    public var startIndex: Index { return values.startIndex }
-    public var endIndex: Index { return values.endIndex }
+    public var startIndex: Index { values.startIndex }
+    public var endIndex: Index { values.endIndex }
 
     // Required subscript, based on a dictionary index
     public subscript(index: Index) -> Element {
-        get { return values[index] }
+        get { values[index] }
     }
 
     // Method that returns the next index when iterating
     public func index(after i: Index) -> Index {
-        return values.index(after: i)
+        values.index(after: i)
     }
 }
 
