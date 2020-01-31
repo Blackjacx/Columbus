@@ -12,6 +12,7 @@ public protocol Configuration {
     var textColor: UIColor { get }
     var textAttributes: [NSAttributedString.Key: Any] { get }
     var textBackgroundColor: UIColor { get }
+    var selectionColor: UIColor { get }
     var lineColor: UIColor { get }
     var lineWidth: CGFloat { get }
     var rasterSize: CGFloat { get }

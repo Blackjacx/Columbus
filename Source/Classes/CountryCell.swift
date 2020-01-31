@@ -18,7 +18,7 @@ final class CountryCell: UITableViewCell {
         instance.selectedBackgroundView = UIView()
         instance.selectedBackgroundView?.layer.cornerRadius = 12.0
         instance.selectedBackgroundView?.layer.masksToBounds = true
-        instance.selectedBackgroundView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        instance.selectedBackgroundView?.backgroundColor = Columbus.config.selectionColor
 
         instance.backgroundView = UIView()
         instance.backgroundView?.layer.cornerRadius = 12.0

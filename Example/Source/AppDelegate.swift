@@ -43,6 +43,11 @@ public struct CountryPickerConfig: Configuration {
         } else { return .lightGray }
     }
 
+    public var selectionColor: UIColor {
+        if #available(iOS 13.0, *) { return .systemGray5
+        } else { return UIColor(white: 0.9, alpha: 1.0) }
+    }
+
     public var lineColor: UIColor {
         if #available(iOS 13.0, *) { return .opaqueSeparator
         } else { return .lightGray }
