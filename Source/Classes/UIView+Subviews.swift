@@ -3,7 +3,7 @@
 //  Columbus
 //
 //  Created by Stefan Herold on 13.08.19.
-//  Copyright © 2019 CodingCobra. All rights reserved.
+//  Copyright © 2020 Stefan Herold. All rights reserved.
 //
 
 import UIKit

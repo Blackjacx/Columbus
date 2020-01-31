@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -218,7 +218,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = CodingCobra;
+				ORGANIZATIONNAME = "Stefan Herold";
 				TargetAttributes = {
 					B9F878D721CD2D5A00273F82 = {
 						CreatedOnToolsVersion = 10.1;
@@ -231,7 +231,7 @@
 				};
 			};
 			buildConfigurationList = B9C8325821C84F3D0008ED90 /* Build configuration list for PBXProject "ColumbusExample" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -488,7 +488,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-iOS-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanherold.Columbus-iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -508,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-iOS-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanherold.Columbus-iOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -527,7 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-tvOS-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanherold.Columbus-tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
@@ -547,7 +547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codingcobra.Columbus-tvOS-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stefanherold.Columbus-tvOS-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
