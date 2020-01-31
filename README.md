@@ -103,6 +103,25 @@ present(countryPicker, animated: true)
 
 ```
 
+### Storyboards
+
+Good news for our storyboard users. I implemented full storyboard support - but for iOS 13 only. You'll need a fallback for earlier versions. To instantiate the picker from a storyboard you can use the following example:
+
+```swift
+if #available(iOS 13.0, *) {
+    let picker: CountryPickerViewController = storyboard.instantiateViewController(identifier: "Picker") { (coder) -> CountryPickerViewController? in
+        return CountryPickerViewController(coder: coder, initialRegionCode: "DE") { (country) in
+            print(country)
+        }
+    }
+} else {
+    // Fallback on earlier versions
+}
+
+```
+
+The above example gives you a non-optional instance of `CountryPickerViewController`. This new syntax also enables us to provide parameters for a storyboard-initialized view (controller). This prevents the addition of optional properties like in previous versions of iOS which is a huge progress.
+
 ### iOS
 
 The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the features unique to Columbus:

@@ -21,7 +21,7 @@ public final class CountryPickerViewController: UIViewController {
     /// The list of data displayed when the user enters a search term
     var filteredItems = CountryList()
     /// Returns all items or filtered items if filtering is currently active
-    var items: CountryList { searchbar.isFiltering ? filteredItems : type(of: self).countries }
+    var items: CountryList { searchbar.isFiltering ? filteredItems : Self.countries }
     /// The data source for the section indexing
     var itemsForSectionTitle = [String: [Country]]()
     /// The section index title cache
@@ -46,27 +46,26 @@ public final class CountryPickerViewController: UIViewController {
 
     // MARK: - Initialization
 
-    public init(initialRegionCode: String, didSelectClosure: @escaping ((_ country: Country) -> ())) {
+    public init(initialRegionCode: String,
+                didSelectClosure: @escaping ((_ country: Country) -> ())) {
         self.selectedRegionCode = initialRegionCode
         self.didSelectClosure = didSelectClosure
         super.init(nibName: nil, bundle: nil)
     }
 
-    @available(*, unavailable, message:"init() has not been implemented")
-    init() {
-        preconditionFailure()
+    public init?(coder aDecoder: NSCoder,
+                 initialRegionCode: String,
+                 didSelectClosure: @escaping ((_ country: Country) -> ())) {
+        self.selectedRegionCode = initialRegionCode
+        self.didSelectClosure = didSelectClosure
+        super.init(coder: aDecoder)
     }
 
-    @available(*, unavailable, message: "init(nibName: , bundle:) has not been implemented")
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        preconditionFailure()
+    @available(*, unavailable, message: "init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        preconditionFailure("init(coder:) has not been implemented")
     }
 
-    @available(*, unavailable, message:"init(coder:) has not been implemented")
-    required public init?(coder aDecoder: NSCoder) {
-        preconditionFailure()
-    }
-    
     deinit {
         deinitObserver()
     }
@@ -230,10 +229,10 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Filtering
 
     func filterContentForSearchText(_ searchText: String) {
-        let filteredByName = type(of: self).countries.filter {
+        let filteredByName = Self.countries.filter {
             $0.name.lowercased().contains(searchText.lowercased())
         }
-        let filteredByDialingCode = type(of: self).countries.filter {
+        let filteredByDialingCode = Self.countries.filter {
             "+\($0.dialingCode)".contains(searchText)
         }
 
