@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.1.1] - 2020-02-01
 * [#20](https://github.com/Blackjacx/Columbus/pull/20): Fix App Localization - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.1.0] - 2020-02-01
