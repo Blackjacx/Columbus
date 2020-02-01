@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.1.0] - 2020-02-01
 * [#19](https://github.com/Blackjacx/Columbus/pull/19): Implement Dynamic Type - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.0.1] - 2019-08-13
