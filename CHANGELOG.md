@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2020-02-01
+* [#19](https://github.com/Blackjacx/Columbus/pull/19): Implement Dynamic Type - [@Blackjacx](https://github.com/Blackjacx).
+
 ## [1.0.1] - 2019-08-13
 * [#18](https://github.com/Blackjacx/Columbus/pull/18): Fix Recursive Textfield Determination - [@Blackjacx](https://github.com/Blackjacx).
 * Fix vulnerability with Fastlane / mini_magick - [@Blackjacx](https://github.com/blackjacx).

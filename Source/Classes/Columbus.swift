@@ -3,7 +3,7 @@
 //  Columbus
 //
 //  Created by Stefan Herold on 22.06.18.
-//  Copyright © 2018 CodingCobra. All rights reserved.
+//  Copyright © 2020 Stefan Herold. All rights reserved.
 //
 
 import Foundation
@@ -15,15 +15,15 @@ public final class Columbus {
         let frameworkBundle = Bundle(for: Columbus.self)
         let bundleName = "Resources.bundle"
         guard let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent(bundleName) else {
-            fatalError("Bundle url nil!")
+            preconditionFailure("Bundle url nil!")
         }
         guard let bundle = Bundle(url: bundleURL) else {
-            fatalError("Bundle nil!")
+            preconditionFailure("Bundle nil!")
         }
         return bundle
     }()
 
     static func layoutConstraintId(_ suffix: String) -> String {
-        return "\(Columbus.bundle.bundleIdentifier!).\(suffix)"
+        "\(Columbus.bundle.bundleIdentifier!).\(suffix)"
     }
 }

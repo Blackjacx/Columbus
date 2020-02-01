@@ -3,14 +3,14 @@
 //  Columbus_Example_TV
 //
 //  Created by Stefan Herold on 23.06.18.
-//  Copyright © 2018 CodingCobra. All rights reserved.
+//  Copyright © 2020 Stefan Herold. All rights reserved.
 //
 
 import UIKit
 import Columbus
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let config = CountryPickerConfig()
-        Columbus.config = config
+        Columbus.config = CountryPickerConfig()
 
         let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { (country) in
             print(country)
@@ -30,18 +29,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-public struct CountryPickerConfig: Configuration {
-    public var textColor: UIColor = .darkGray
-    public var textAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 15)]
-    public var lineColor: UIColor = .lightGray
-    public var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
-    public var rasterSize: CGFloat = 12.0
-    public var backgroundColor: UIColor = .white
-    public var separatorInsets: UIEdgeInsets {
+struct CountryPickerConfig: Configuration {
+
+    /// In this example this has to be a computed property so the font object
+    /// is calculated later on demand. Since this object is created right at app
+    /// start something related to dynamic type seems not to be ready yet.
+    var textAttributes: [NSAttributedString.Key: Any] {
+        [
+            .foregroundColor: UIColor.text,
+            .font: UIFont.preferredFont(forTextStyle: .body)
+        ]
+    }
+    var textFieldBackgroundColor: UIColor = .textFieldBackground
+    var backgroundColor: UIColor = .background
+    var selectionColor: UIColor = .selection
+    var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
+    var lineColor: UIColor = .line
+    var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
+    var rasterSize: CGFloat = 10.0
+    var separatorInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
     }
-    public var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
-    public var searchBarPlaceholder: String? = "Search"
-
-    public init() {}
+    let searchBarAttributedPlaceholder: NSAttributedString = {
+        NSAttributedString(string: "Search",
+                           attributes: [
+                            .foregroundColor: UIColor.placeholder,
+                            .font: UIFont.preferredFont(forTextStyle: .body)])
+    }()
 }

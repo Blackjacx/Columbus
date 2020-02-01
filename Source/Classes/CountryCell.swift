@@ -3,42 +3,53 @@
 //  Columbus
 //
 //  Created by Stefan Herold on 21.06.18.
-//  Copyright © 2018 CodingCobra. All rights reserved.
+//  Copyright © 2020 Stefan Herold. All rights reserved.
 //
 
 import UIKit
 
 final class CountryCell: UITableViewCell {
 
-    static var cellId: String { return "\(CountryCell.self)" }
+    static var cellId: String { "\(CountryCell.self)" }
 
-    var countryView = CountryView()
+    let countryView = CountryView()
+
+    static func masterInit(instance: CountryCell) {
+        instance.selectedBackgroundView = UIView()
+        instance.selectedBackgroundView?.layer.masksToBounds = true
+        instance.selectedBackgroundView?.backgroundColor = Columbus.config.selectionColor
+
+        instance.backgroundView = UIView()
+        instance.backgroundView?.layer.masksToBounds = true
+        instance.backgroundView?.backgroundColor = Columbus.config.backgroundColor
+
+        instance.backgroundColor = Columbus.config.backgroundColor
+
+        instance.setupCountryView()
+        instance.setupLayoutConstraints()
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        selectedBackgroundView = UIView()
-        selectedBackgroundView?.layer.cornerRadius = 12.0
-        selectedBackgroundView?.layer.masksToBounds = true
-        selectedBackgroundView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-
-        backgroundView = UIView()
-        backgroundView?.layer.cornerRadius = 12.0
-        backgroundView?.layer.masksToBounds = true
-        backgroundView?.backgroundColor = Columbus.config.backgroundColor
-
-        backgroundColor = Columbus.config.backgroundColor
-
-        setupCountryView()
-        setupLayoutConstraints()
+        Self.masterInit(instance: self)
     }
 
-    @available(*, unavailable, message:"init(coder:) has not been implemented")
     required init?(coder aDecoder: NSCoder) {
-        fatalError()
+        super.init(coder: aDecoder)
+        Self.masterInit(instance: self)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let radius = frame.height / 4
+        selectedBackgroundView?.layer.cornerRadius = radius
+        backgroundView?.layer.cornerRadius = radius
     }
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-         backgroundView?.backgroundColor = isFocused ? .green : Columbus.config.backgroundColor
+         backgroundView?.backgroundColor = isFocused ?
+            Columbus.config.selectionColor :
+            Columbus.config.backgroundColor
     }
 
     override func prepareForReuse() {

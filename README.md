@@ -10,7 +10,7 @@
   </a>
   <img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
   <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
-  <img alt="Xcode 10.0+" src="https://img.shields.io/badge/Xcode-10.0%2B-blue.svg"/>
+  <img alt="Xcode 11.0+" src="https://img.shields.io/badge/Xcode-11.0%2B-blue.svg"/>
   <img alt="iOS 11.0+" src="https://img.shields.io/badge/iOS-11.0%2B-blue.svg"/>
   <img alt="Swift 5.0+" src="https://img.shields.io/badge/Swift-5.0%2B-orange.svg"/>
   <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
@@ -30,15 +30,15 @@
 </p>
 
 A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. The following list highlights the most valuable features:
-- Filter countries by using the searchbar
-- Quickly find a country by using the indexbar on the right side
+- Filter countries using an as-you-type search bar
+- Quickly find a country by using the indexbar on the right
 - Select a country from the history of selected countries - `still in progress`
 - Localized by using standard components and Apple's `Locale` class
-- Theming support to easily match your design
+- Theme support to easily fit to your design
 
 ## Installation
 
-Columbus is compatible with `iOS 11` and higher and builds with `Xcode 10` and `Swift 5.0`. 
+Columbus is compatible with `iOS 11` and higher and builds with `Xcode 11` and `Swift 5.0+`. 
 
 ### CocoaPods
 
@@ -56,15 +56,45 @@ pod "Columbus"
 github "Blackjacx/Columbus"
 ```
 
-Using Carthage has some advantages in contrast to Cocopods for this framework. Since it needs to compile the asset catalog for over 200 flag assets it is much faster to build the framework once using Carthage and hard-integrate it into your app. If you use Cocoapods the asset catalog is compiled together with Columbus each time you do a clean build and probably also when Xcode thinks Columbus needs to be compiled again.
+Using Carthage has some advantages in contrast to Cocopods for this framework. Since it needs to compile the asset catalog for over 200 flag assets it is much faster to build the framework once using Carthage and drop it into your app. If you use Cocoapods the asset catalog is compiled together with Columbus each time you do a clean build and probably also when Xcode thinks Columbus needs to be compiled again.
 
 ## Examples
 
 ### Usage
 
+In the following example you'll find all the possible configuration/theming options of Columbus:
+
 ```swift
-let config = DefaultConfig()
-Columbus.config = config
+struct CountryPickerConfig: Configuration {
+
+    /// In this example this has to be a computed property so the font object
+    /// is calculated later on demand. Since this object is created right at app
+    /// start something related to dynamic type seems not to be ready yet.
+    var textAttributes: [NSAttributedString.Key: Any] {
+        [
+            .foregroundColor: UIColor.text,
+            .font: UIFont.preferredFont(forTextStyle: .body)
+        ]
+    }
+    var textFieldBackgroundColor: UIColor = .textFieldBackground
+    var backgroundColor: UIColor = .background
+    var selectionColor: UIColor = .selection
+    var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
+    var lineColor: UIColor = .line
+    var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
+    var rasterSize: CGFloat = 10.0
+    var separatorInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
+    }
+    let searchBarAttributedPlaceholder: NSAttributedString = {
+        NSAttributedString(string: "Search",
+                           attributes: [
+                            .foregroundColor: UIColor.placeholder,
+                            .font: UIFont.preferredFont(forTextStyle: .body)])
+    }()
+}
+
+Columbus.config = CountryPickerConfig()
 
 let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { [weak self] (country) in
     print(country)
@@ -72,6 +102,25 @@ let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSele
 present(countryPicker, animated: true)
 
 ```
+
+### Storyboards
+
+Good news for our storyboard users. I implemented full storyboard support - but for iOS 13 only. You'll need a fallback for earlier versions. To instantiate the picker from a storyboard you can use the following example:
+
+```swift
+if #available(iOS 13.0, *) {
+    let picker: CountryPickerViewController = storyboard.instantiateViewController(identifier: "Picker") { (coder) -> CountryPickerViewController? in
+        return CountryPickerViewController(coder: coder, initialRegionCode: "DE") { (country) in
+            print(country)
+        }
+    }
+} else {
+    // Fallback on earlier versions
+}
+
+```
+
+The above example gives you a non-optional instance of `CountryPickerViewController`. This new syntax also enables us to provide parameters for a storyboard-initialized view (controller). This prevents the addition of optional properties like in previous versions of iOS which is a huge progress.
 
 ### iOS
 
@@ -104,7 +153,7 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Credits
 
-[Thanks For The Flag Icons](https://github.com/lipis/flag-icon-css)
+[Thanks for the flag icons](https://github.com/lipis/flag-icon-css)
 
 ## License
 
