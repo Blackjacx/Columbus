@@ -14,6 +14,8 @@ enum CountryDecodingError: Error {
 
 public struct Country {
 
+    private static let locale = Locale(identifier: Locale.preferredLanguages.first!)
+
     /// Name of the country
     public let name: String
     /// ISO country code, e.g. DE, etc.
@@ -41,7 +43,7 @@ extension Country: Decodable {
         dialingCodeWithPlusPrefix = try container.decode(String.self, forKey: .dialingCodeWithPlusPrefix)
         dialingCode = dialingCodeWithPlusPrefix.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
 
-        guard let countryName = Locale.current.localizedString(forRegionCode: isoCountryCode) else {
+        guard let countryName = Self.locale.localizedString(forRegionCode: isoCountryCode) else {
             throw CountryDecodingError.nameNotFound
         }
         name = countryName
