@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#19](https://github.com/Blackjacx/Columbus/pull/19): Implement Dynamic Type - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.0.1] - 2019-08-13
 * [#18](https://github.com/Blackjacx/Columbus/pull/18): Fix Recursive Textfield Determination - [@Blackjacx](https://github.com/Blackjacx).

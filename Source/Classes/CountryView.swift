@@ -3,7 +3,7 @@
 //  Columbus
 //
 //  Created by Stefan Herold on 21.06.18.
-//  Copyright © 2018 CodingCobra. All rights reserved.
+//  Copyright © 2020 Stefan Herold. All rights reserved.
 //
 
 import UIKit
@@ -15,24 +15,22 @@ final class CountryView: UIView {
     let countryNameLabel = UILabel()
     let countryCodeLabel = UILabel()
 
-    init() {
-        super.init(frame: .zero)
-
-        setupStackView()
-        setupFlagImageView()
-        setupCountryNameLabel()
-        setupCountryCodeLabel()
-        setupViewLayoutConstraints()
+    static func masterInit(instance: CountryView) {
+        instance.setupStackView()
+        instance.setupFlagImageView()
+        instance.setupCountryNameLabel()
+        instance.setupCountryCodeLabel()
+        instance.setupViewLayoutConstraints()
     }
 
-    @available(*, unavailable, message:"init(frame:) has not been implemented")
-    private override convenience init(frame: CGRect) {
-        fatalError()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        Self.masterInit(instance: self)
     }
 
-    @available(*, unavailable, message:"init(coder:) has not been implemented")
     required init?(coder aDecoder: NSCoder) {
-        fatalError()
+        super.init(coder: aDecoder)
+        Self.masterInit(instance: self)
     }
 
     func setupStackView() {
@@ -45,26 +43,24 @@ final class CountryView: UIView {
     }
 
     func setupFlagImageView() {
+        flagImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         flagImageView.contentMode = .scaleAspectFit
         flagImageView.layer.shadowColor = UIColor.black.cgColor
         flagImageView.layer.shadowOpacity = 0.25
         flagImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
-        flagImageView.translatesAutoresizingMaskIntoConstraints = false
         flagImageView.setContentHuggingPriority(.required, for: .horizontal)
         flagImageView.setContentHuggingPriority(.required, for: .vertical)
     }
 
     func setupCountryNameLabel() {
-        countryNameLabel.textColor = Columbus.config.textColor
-        countryCodeLabel.textAlignment = .left
-        countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        countryNameLabel.textAlignment = .left
+        countryNameLabel.adjustsFontForContentSizeCategory = true
         countryNameLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     private func setupCountryCodeLabel() {
-        countryCodeLabel.textColor = Columbus.config.textColor
         countryCodeLabel.textAlignment = .right
-        countryCodeLabel.translatesAutoresizingMaskIntoConstraints = false
+        countryCodeLabel.adjustsFontForContentSizeCategory = true
         countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         countryCodeLabel.setContentHuggingPriority(.required, for: .vertical)
     }
@@ -82,10 +78,13 @@ final class CountryView: UIView {
     }
 
     func configure(with country: Country) {
+
         countryNameLabel.attributedText = NSAttributedString(string: country.name,
                                                              attributes: Columbus.config.textAttributes)
+
         countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix,
                                                              attributes: Columbus.config.textAttributes)
+
         flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(),
                                       in: Columbus.bundle,
                                       compatibleWith: nil)
