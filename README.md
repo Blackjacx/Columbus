@@ -146,7 +146,7 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Author
 
-[Stefan Herold](mailto:stefan.herold@gmail.com) • [@Blackjacxxx](https://twitter.com/Blackjacxxx)
+[Stefan Herold](mailto:stefan.herold@gmail.com) • 🐦 [@Blackjacxxx](https://twitter.com/Blackjacxxx)
 
 ## Links
 
@@ -158,4 +158,4 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## License
 
-Columbus is available under the MIT license. See the LICENSE file for more info.
+Columbus is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
