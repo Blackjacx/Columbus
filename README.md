@@ -5,9 +5,10 @@
 <h1 align="center">Columbus</h1>
 
 <p align="center">
-  <a href="https://app.bitrise.io/build/ddeb8a6c0cf9a616">
-    <img alt="Build Status" src="https://app.bitrise.io/app/f12f3f1a861800f0/status.svg?token=yxLmeCg3EaFOFnZKhbHGrQ&branch=develop"/>
+  <a href="https://github.com/Blackjacx/columbus/actions?query=workflow%3ACI">
+    <img alt="CI status" src="https://github.com/blackjacx/columbus/workflows/CI/badge.svg" />
   </a>
+
   <img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
   <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
   <img alt="Xcode 11.0+" src="https://img.shields.io/badge/Xcode-11.0%2B-blue.svg"/>
