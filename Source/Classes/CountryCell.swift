@@ -84,4 +84,3 @@ final class CountryCell: UITableViewCell {
         countryView.configure(with: country)
     }
 }
-

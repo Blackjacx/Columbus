@@ -86,7 +86,10 @@ final class CustomSearchBar: UIView {
 
     private func setupAutoLayout() {
         let raster = Columbus.config.rasterSize
-        directionalLayoutMargins = NSDirectionalEdgeInsets(top: raster/2, leading: raster, bottom: raster/2, trailing: raster)
+        directionalLayoutMargins = NSDirectionalEdgeInsets(top: raster / 2,
+                                                           leading: raster,
+                                                           bottom: raster / 2,
+                                                           trailing: raster)
 
         let constraints: [NSLayoutConstraint] = [
             hStack.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),

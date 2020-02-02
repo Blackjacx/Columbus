@@ -71,8 +71,8 @@ final class CountryView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor, multiplier: 4/3)
+
+            flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor, multiplier: 4 / 3)
         ]
         NSLayoutConstraint.activate(constraints)
     }

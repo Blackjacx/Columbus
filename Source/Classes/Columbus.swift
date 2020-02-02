@@ -8,6 +8,7 @@
 
 import Foundation
 
+// swiftlint:disable:next convenience_type
 public final class Columbus {
 
     public static var config: Configuration!
