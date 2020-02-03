@@ -1,7 +1,7 @@
 name: CI
 on: [push, pull_request]
 env:
-  FRAMEWORK_SCHEME: "Columbus"
+  FRAMEWORK_SCHEME: "Columbus-iOS"
   FRAMEWORK_WORKSPACE: "Columbus.xcworkspace"
   FASTLANE_XCODE_LIST_TIMEOUT: 999
   FASTLANE_WORK_DIR: .
