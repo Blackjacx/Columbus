@@ -5,6 +5,8 @@
 ## CI
 codesigndoc_exports
 
+# Fastlane config script is downloaded
+Fastfile
 # Mint dependencies file which is downloaded
 Mintfile
 # Swiftlint config file which is downloaded
