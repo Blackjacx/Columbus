@@ -9,6 +9,8 @@ codesigndoc_exports
 *.framework.zip
 # Fastlane config script is downloaded
 Fastfile
+# Fastlane plugin config is downloaded
+Pluginfile
 # Mint dependencies file which is downloaded
 Mintfile
 # Swiftlint config file which is downloaded
