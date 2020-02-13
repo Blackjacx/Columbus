@@ -13,7 +13,7 @@ extension UIColor {
     static let background: UIColor = {
         if #available(iOS 13, *) {
             return UIColor(dynamicProvider: { (traits) in
-                switch(traits.userInterfaceStyle) {
+                switch traits.userInterfaceStyle {
                 case (.dark):   return UIColor(white: 0.1, alpha: 1)
                 default:        return .white
                 }
@@ -34,7 +34,7 @@ extension UIColor {
     static let textFieldBackground: UIColor = {
         if #available(iOS 13, *) {
             return UIColor(dynamicProvider: { (traits) in
-                switch(traits.userInterfaceStyle) {
+                switch traits.userInterfaceStyle {
                 case (.dark):   return UIColor(white: 0, alpha: 0.3)
                 default:        return UIColor(white: 0, alpha: 0.1)
                 }
@@ -63,7 +63,7 @@ extension UIColor {
     static let selection: UIColor = {
         if #available(iOS 13, *) {
             return UIColor(dynamicProvider: { (traits) in
-                switch(traits.userInterfaceStyle) {
+                switch traits.userInterfaceStyle {
                 case (.dark):   return .darkGray
                 default:        return UIColor(white: 0.9, alpha: 1.0)
                 }

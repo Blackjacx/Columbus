@@ -30,14 +30,10 @@ extension CountryList: Collection {
     public var endIndex: Index { values.endIndex }
 
     // Required subscript, based on a dictionary index
-    public subscript(index: Index) -> Element {
-        get { values[index] }
-    }
+    public subscript(index: Index) -> Element { values[index] }
 
     // Method that returns the next index when iterating
-    public func index(after i: Index) -> Index {
-        values.index(after: i)
-    }
+    public func index(after i: Index) -> Index { values.index(after: i) }
 }
 
 extension CountryList: Decodable {
@@ -59,4 +55,3 @@ extension CountryList: Decodable {
             .sorted { $1.name > $0.name }
     }
 }
-

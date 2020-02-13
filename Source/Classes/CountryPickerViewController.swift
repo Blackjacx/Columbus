@@ -27,7 +27,7 @@ public final class CountryPickerViewController: UIViewController {
     /// The section index title cache
     var sectionTitles = [String]()
     /// Called by the CountryPicker when the user selects a country.
-    let didSelectClosure: (_ country: Country) -> ()
+    let didSelectClosure: (_ country: Country) -> Void
     /// The currently picked country
     let selectedRegionCode: String
     /// The search bar to search for countries
@@ -48,13 +48,13 @@ public final class CountryPickerViewController: UIViewController {
         }
     }
 
-    override weak public var preferredFocusedView: UIView? {
+    override public weak var preferredFocusedView: UIView? {
 
         print("\(focussedIndexPath.section), \(focussedIndexPath.row)")
         let cell = table.cellForRow(at: focussedIndexPath)
         return cell
     }
-    
+
     /// The observer that informs about KeyboardWillShow notifications
     private var keyboardDidShowObserver: NSObjectProtocol?
     /// The observer that informs about KeyboardWillHide notifications
@@ -63,7 +63,7 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Initialization
 
     public init(initialRegionCode: String,
-                didSelectClosure: @escaping ((_ country: Country) -> ())) {
+                didSelectClosure: @escaping ((_ country: Country) -> Void)) {
         self.selectedRegionCode = initialRegionCode
         self.didSelectClosure = didSelectClosure
         super.init(nibName: nil, bundle: nil)
@@ -71,7 +71,7 @@ public final class CountryPickerViewController: UIViewController {
 
     public init?(coder aDecoder: NSCoder,
                  initialRegionCode: String,
-                 didSelectClosure: @escaping ((_ country: Country) -> ())) {
+                 didSelectClosure: @escaping ((_ country: Country) -> Void)) {
         self.selectedRegionCode = initialRegionCode
         self.didSelectClosure = didSelectClosure
         super.init(coder: aDecoder)
@@ -85,14 +85,14 @@ public final class CountryPickerViewController: UIViewController {
     deinit {
         deinitObserver()
     }
-    
+
     private func deinitObserver() {
-        
+
         #if os(iOS)
         if let observer = keyboardDidShowObserver {
             NotificationCenter.default.removeObserver(observer)
         }
-        
+
         if let observer = keyboardWillHideObserver {
             NotificationCenter.default.removeObserver(observer)
         }
@@ -119,20 +119,26 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func setupObserver() {
-        
+
+        let center = NotificationCenter.default
+
         #if os(iOS)
-        keyboardDidShowObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification, object: nil, queue: nil) { [weak self] (note) in
+        keyboardDidShowObserver = center.addObserver(forName: UIResponder.keyboardDidShowNotification,
+                                                     object: nil,
+                                                     queue: nil) { [weak self] (note) in
             guard let userInfo = note.userInfo else { return }
             guard let height = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else { return }
             self?.tableViewBottomConstraint.constant = -height
         }
-        
-        keyboardWillHideObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { [weak self] (_) in
+
+        keyboardWillHideObserver = center.addObserver(forName: UIResponder.keyboardWillHideNotification,
+                                                      object: nil,
+                                                      queue: nil) { [weak self] (_) in
             self?.tableViewBottomConstraint.constant = 0
         }
         #endif
     }
-    
+
     private func setupTable() {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(CountryCell.self, forCellReuseIdentifier: CountryCell.cellId)
@@ -200,7 +206,7 @@ public final class CountryPickerViewController: UIViewController {
         let tableTop = table.topAnchor.constraint(equalTo: view.topAnchor)
         tableTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.top")
         constraints.append(tableTop)
-        
+
         #endif
 
         NSLayoutConstraint.activate(constraints)
@@ -266,7 +272,7 @@ public final class CountryPickerViewController: UIViewController {
 
         sectionTitles.removeAll()
         itemsForSectionTitle.removeAll()
-        
+
         items.forEach {
             let key = String($0.name.prefix(1))
             guard itemsForSectionTitle[key] != nil else {
@@ -323,7 +329,7 @@ public final class CountryPickerViewController: UIViewController {
 }
 
 extension CountryPickerViewController: CustomSearchBarDelegate {
-    
+
     func searchBarTextDidChange(_ searchBar: CustomSearchBar, newText: String) {
         filterContentForSearchText(newText)
     }

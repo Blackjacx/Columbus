@@ -13,9 +13,10 @@ import Columbus
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         window = UIWindow(frame: UIScreen.main.bounds)
 
         Columbus.config = CountryPickerConfig()
@@ -43,12 +44,12 @@ struct CountryPickerConfig: Configuration {
     var textFieldBackgroundColor: UIColor = .textFieldBackground
     var backgroundColor: UIColor = .background
     var selectionColor: UIColor = .selection
-    var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
+    var controlColor: UIColor = UIColor(red: 1.0 / 255.0, green: 192.0 / 255.0, blue: 1, alpha: 1)
     var lineColor: UIColor = .line
     var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     var rasterSize: CGFloat = 10.0
     var separatorInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
+        UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
     }
     let searchBarAttributedPlaceholder: NSAttributedString = {
         NSAttributedString(string: "Search",
