@@ -5,6 +5,8 @@
 ## CI
 codesigndoc_exports
 
+# Carthage framework bundle - created during release process
+*.framework.zip
 # Fastlane config script is downloaded
 Fastfile
 # Mint dependencies file which is downloaded
