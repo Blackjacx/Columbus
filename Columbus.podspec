@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'Columbus'
-    s.version           = '1.1.8'
+    s.version           = '1.1.9'
     s.license           = { :type => 'MIT', :file => 'LICENSE' }
     s.summary           = 'A country picker for iOS, tvOS and watchOS.'
     s.description       = <<-DESC
@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
     s.author            = { 'Stefan Herold' => 'stefan.herold@gmail.com' }
     s.source            = { :git => 'https://github.com/blackjacx/Columbus.git', :tag => s.version.to_s }
     s.source_files = 'Source/Classes/**/*'
+    s.swift_versions = ['5.0']
 
     s.ios.deployment_target = '11.0'
     s.tvos.deployment_target = '11.0'
