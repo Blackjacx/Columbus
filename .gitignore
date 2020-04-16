@@ -8,9 +8,9 @@ codesigndoc_exports
 # Carthage framework bundle - created during release process
 *.framework.zip
 # Fastlane config script is downloaded
-Fastfile
+fastlane/Fastfile
 # Fastlane plugin config is downloaded
-Pluginfile
+fastlane/Pluginfile
 # Mint dependencies file which is downloaded
 Mintfile
 # Swiftlint config file which is downloaded
