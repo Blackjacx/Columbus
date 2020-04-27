@@ -492,7 +492,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mint run swiftlint\n";
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n  mint run swiftlint\nfi\n";
 		};
 		B902956A23E7660100269EA9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
