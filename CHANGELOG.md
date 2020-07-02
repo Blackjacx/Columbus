@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.4.1] - 2020-07-02
 * [#24](https://github.com/Blackjacx/Columbus/pull/24): Remove defaultCountry() isoCountryCode param default value - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.4.0] - 2020-07-02
