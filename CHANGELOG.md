@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.4.0] - 2020-07-02
 * [#23](https://github.com/Blackjacx/Columbus/pull/23): Use region code instead Locale in defaultCountry - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.2.0] - 2020-04-16
