@@ -13,7 +13,7 @@
   <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
   <img alt="Xcode 11.0+" src="https://img.shields.io/badge/Xcode-11.0%2B-blue.svg"/>
   <img alt="iOS 11.0+" src="https://img.shields.io/badge/iOS-11.0%2B-blue.svg"/>
-  <img alt="Swift 5.0+" src="https://img.shields.io/badge/Swift-5.0%2B-orange.svg"/>
+  <img alt="Swift 5.2+" src="https://img.shields.io/badge/Swift-5.2%2B-orange.svg"/>
   <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
   <img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
   <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
@@ -39,17 +39,9 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 
 ## Installation
 
-Columbus is compatible with `iOS 11` and higher and builds with `Xcode 11` and `Swift 5.0+`. 
+Columbus is compatible with `iOS 11` and higher and builds with `Xcode 11` and `Swift 5.2+`. 
 
-### CocoaPods
-
-To install via [CocoaPods](https://cocoapods.org/pods/Columbus), simply add the following line to your Podfile and run `pod install` to install the newest version:
-
-```ruby
-pod "Columbus"
-```
-
-### Carthage
+### Carthage (recommended)
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Columbus into your Xcode project using Carthage, specify it in your Cartfile:
 
@@ -58,6 +50,14 @@ github "Blackjacx/Columbus"
 ```
 
 Using Carthage has some advantages in contrast to Cocopods for this framework. Since it needs to compile the asset catalog for over 200 flag assets it is much faster to build the framework once using Carthage and drop it into your app. If you use Cocoapods the asset catalog is compiled together with Columbus each time you do a clean build and probably also when Xcode thinks Columbus needs to be compiled again.
+
+### CocoaPods
+
+To install via [CocoaPods](https://cocoapods.org/pods/Columbus), simply add the following line to your Podfile and run `pod install` to install the newest version:
+
+```ruby
+pod "Columbus"
+```
 
 ## Examples
 
@@ -96,8 +96,9 @@ struct CountryPickerConfig: Configuration {
 }
 
 Columbus.config = CountryPickerConfig()
+let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
 
-let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { [weak self] (country) in
+let countryPicker = CountryPickerViewController(initialCountryCode: defaultCountry.isoCountryCode, didSelectClosure: { (country) in
     print(country)
 })
 present(countryPicker, animated: true)
@@ -110,8 +111,9 @@ Good news for our storyboard users. I implemented full storyboard support - but 
 
 ```swift
 if #available(iOS 13.0, *) {
+    let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
     let picker: CountryPickerViewController = storyboard.instantiateViewController(identifier: "Picker") { (coder) -> CountryPickerViewController? in
-        return CountryPickerViewController(coder: coder, initialRegionCode: "DE") { (country) in
+        return CountryPickerViewController(coder: coder, initialCountryCode: defaultCountry.isoCountryCode) { (country) in
             print(country)
         }
     }
