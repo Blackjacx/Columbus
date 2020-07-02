@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#23](https://github.com/Blackjacx/Columbus/pull/23): Use region code instead Locale in defaultCountry - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.2.0] - 2020-04-16
 * [#22](https://github.com/Blackjacx/Columbus/pull/22): Enable module stability - [@Blackjacx](https://github.com/Blackjacx).
