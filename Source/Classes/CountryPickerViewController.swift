@@ -26,10 +26,10 @@ public final class CountryPickerViewController: UIViewController {
     var itemsForSectionTitle = [String: [Country]]()
     /// The section index title cache
     var sectionTitles = [String]()
-    /// Called by the CountryPicker when the user selects a country.
+    /// Called by the CountryPicker after the user selects a country.
     let didSelectClosure: (_ country: Country) -> Void
-    /// The currently picked country
-    let selectedRegionCode: String
+    /// The currently picked iso country code
+    let selectedCountryCode: String
     /// The search bar to search for countries
     let searchbar = CustomSearchBar()
     /// Offset before search started, so it can be set again afterwards.
@@ -62,17 +62,17 @@ public final class CountryPickerViewController: UIViewController {
 
     // MARK: - Initialization
 
-    public init(initialRegionCode: String,
+    public init(initialCountryCode: String,
                 didSelectClosure: @escaping ((_ country: Country) -> Void)) {
-        self.selectedRegionCode = initialRegionCode
+        self.selectedCountryCode = initialCountryCode
         self.didSelectClosure = didSelectClosure
         super.init(nibName: nil, bundle: nil)
     }
 
     public init?(coder aDecoder: NSCoder,
-                 initialRegionCode: String,
+                 initialCountryCode: String,
                  didSelectClosure: @escaping ((_ country: Country) -> Void)) {
-        self.selectedRegionCode = initialRegionCode
+        self.selectedCountryCode = initialCountryCode
         self.didSelectClosure = didSelectClosure
         super.init(coder: aDecoder)
     }
@@ -214,27 +214,26 @@ public final class CountryPickerViewController: UIViewController {
 
     // MARK: - Country Handling
 
-    public static func defaultCountry(for locale: Locale = Locale.current) -> Country {
+    /// Gives you the default country for your device using the following (ordered) approaches:
+    /// 1. Trying to determine your country from your SIM card
+    /// 2. Trying to determine your country using the country you passed in via its two-letter ISO country code
+    /// 3. Using `US` as fallback if the other approaches didn't work.
+    public static func defaultCountry(from isoCountryCode: String = Locale.current.regionCode ?? "US") -> Country {
 
         // Core Telephony Approach
 
         #if os(iOS) && !targetEnvironment(simulator)
         if
-            let simRegionId = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode,
-            let country = (countries.first { $0.isoCountryCode.compare(simRegionId, options: .caseInsensitive) == .orderedSame }) {
+            let simCountryCode = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode,
+            let country = (countries.first { $0.isoCountryCode.compare(simCountryCode, options: .caseInsensitive) == .orderedSame }) {
             return country
         }
         #endif
 
-        // Current Locale Approach
+        // Using the `isoCountryCode` parameter.
+        // By default the `regionCode` from the current locale is used. If that's nil the fallback is `US`.
 
-        if let country = (countries.first { $0.isoCountryCode == locale.regionCode }) {
-            return country
-        }
-
-        // Default
-
-        return countries.filter { $0.isoCountryCode.compare("de", options: .caseInsensitive) == .orderedSame }[0]
+        return countries.first { $0.isoCountryCode.compare(isoCountryCode, options: .caseInsensitive) == .orderedSame }!
     }
 
     private static func createCountries() -> CountryList {
@@ -300,9 +299,9 @@ public final class CountryPickerViewController: UIViewController {
 
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) { [weak self] in
             guard
-                let key = (self?.itemsForSectionTitle.first { $0.value.contains { $0.isoCountryCode == self?.selectedRegionCode } }?.key),
+                let key = (self?.itemsForSectionTitle.first { $0.value.contains { $0.isoCountryCode == self?.selectedCountryCode } }?.key),
                 let section = (self?.sectionTitles.firstIndex { $0 == key }),
-                let row = (self?.itemsForSectionTitle[key]?.firstIndex { $0.isoCountryCode == self?.selectedRegionCode }) else {
+                let row = (self?.itemsForSectionTitle[key]?.firstIndex { $0.isoCountryCode == self?.selectedCountryCode }) else {
 
                     return
             }

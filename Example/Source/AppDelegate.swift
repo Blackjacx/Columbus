@@ -20,8 +20,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         Columbus.config = CountryPickerConfig()
+        let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
 
-        let countryPicker = CountryPickerViewController(initialRegionCode: "DE", didSelectClosure: { (country) in
+        let countryPicker = CountryPickerViewController(initialCountryCode: defaultCountry.isoCountryCode, didSelectClosure: { (country) in
             print(country)
         })
         window?.rootViewController = countryPicker
