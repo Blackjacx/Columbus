@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [1.4.1] - 2020-07-02
+* [#24](https://github.com/Blackjacx/Columbus/pull/24): Remove defaultCountry() isoCountryCode param default value - [@Blackjacx](https://github.com/Blackjacx).
+
 ## [1.4.0] - 2020-07-02
 * [#23](https://github.com/Blackjacx/Columbus/pull/23): Use region code instead Locale in defaultCountry - [@Blackjacx](https://github.com/Blackjacx).
 
