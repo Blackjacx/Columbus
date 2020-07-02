@@ -215,25 +215,34 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Country Handling
 
     /// Gives you the default country for your device using the following (ordered) approaches:
-    /// 1. Trying to determine your country from your SIM card
-    /// 2. Trying to determine your country using the country you passed in via its two-letter ISO country code
+    /// 1. Trying to determine your country using the country you passed in via its two-letter ISO country code. This
+    /// has precedence since from now it is only used for really forcing the country picker to return a specific
+    /// country.
+    /// 2. Trying to determine your country from your SIM card
     /// 3. Using `US` as fallback if the other approaches didn't work.
-    public static func defaultCountry(from isoCountryCode: String = Locale.current.regionCode ?? "US") -> Country {
+    public static func defaultCountry(from isoCountryCode: String? = nil) -> Country {
+
+        // Using the `isoCountryCode` parameter to force the picker to return a specific country.
+
+        if
+            let isoCountryCode = isoCountryCode,
+            let country = (countries.first { $0.isoCountryCode.compare(isoCountryCode, options: .caseInsensitive) == .orderedSame }) {
+            return country
+        }
 
         // Core Telephony Approach
 
         #if os(iOS) && !targetEnvironment(simulator)
         if
-            let simCountryCode = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode,
-            let country = (countries.first { $0.isoCountryCode.compare(simCountryCode, options: .caseInsensitive) == .orderedSame }) {
+            let isoCountryCode = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode,
+            let country = (countries.first { $0.isoCountryCode.compare(isoCountryCode, options: .caseInsensitive) == .orderedSame }) {
             return country
         }
         #endif
 
-        // Using the `isoCountryCode` parameter.
-        // By default the `regionCode` from the current locale is used. If that's nil the fallback is `US`.
+        // Fallback  to US
 
-        return countries.first { $0.isoCountryCode.compare(isoCountryCode, options: .caseInsensitive) == .orderedSame }!
+        return countries.first { $0.isoCountryCode.compare("US", options: .caseInsensitive) == .orderedSame }!
     }
 
     private static func createCountries() -> CountryList {
