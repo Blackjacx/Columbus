@@ -1,5 +1,5 @@
 //
-//  Configuration.swift
+//  Configurable.swift
 //  Columbus
 //
 //  Created by Stefan Herold on 21.06.18.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-public protocol Configuration {
+public protocol Configurable {
+    var displayState: CountryPickerViewController.DisplayState { get }
     var textAttributes: [NSAttributedString.Key: Any] { get }
     var textFieldBackgroundColor: UIColor { get }
     var selectionColor: UIColor { get }

@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     s.author            = { 'Stefan Herold' => 'stefan.herold@gmail.com' }
     s.source            = { :git => 'https://github.com/blackjacx/Columbus.git', :tag => s.version.to_s }
     s.source_files = 'Source/Classes/**/*'
-    s.swift_versions = ['5.0']
+    s.swift_versions = ['5.3']
 
     s.ios.deployment_target = '11.0'
     s.tvos.deployment_target = '11.0'
