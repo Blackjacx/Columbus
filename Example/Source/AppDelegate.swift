@@ -20,12 +20,23 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         let config = CountryPickerConfig()
-        let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
-
-        let countryPicker = CountryPickerViewController(config: config,
-                                                        initialCountryCode: defaultCountry.isoCountryCode) { (country) in
-            print(country)
+        var countryPicker = CountryPickerViewController(config: config, initialCountryCode: "DE") { (country) in
+            print("Programmatic: \(country)")
         }
+
+        #if os(iOS)
+        if #available(iOS 13.0, *) {
+            let storyboard = UIStoryboard(name: "CountryPickerStoryboard", bundle: nil)
+            countryPicker = storyboard.instantiateViewController(identifier: "picker") { (coder) -> CountryPickerViewController? in
+                CountryPickerViewController(coder: coder, config: config, initialCountryCode: "DE") { (country) in
+                    print("Storyboard: \(country)")
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+        #endif
+
         window?.rootViewController = countryPicker
         window?.makeKeyAndVisible()
         return true
@@ -60,5 +71,4 @@ struct CountryPickerConfig: Configurable {
                             .foregroundColor: UIColor.placeholder,
                             .font: UIFont.preferredFont(forTextStyle: .body)])
     }()
-    var showIsoCountryCode: Bool = true
 }

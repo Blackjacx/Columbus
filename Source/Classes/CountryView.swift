@@ -10,13 +10,16 @@ import UIKit
 
 final class CountryView: UIView {
 
-    let stackView = UIStackView()
+    let hStack = UIStackView()
     let flagImageView = UIImageView()
     let countryNameLabel = UILabel()
     let countryCodeLabel = UILabel()
 
+    var country: Country!
+    var config: Configurable!
+
     private func sharedInit() {
-        setupStackView()
+        setupHStack()
         setupFlagImageView()
         setupCountryNameLabel()
         setupCountryCodeLabel()
@@ -33,12 +36,12 @@ final class CountryView: UIView {
         sharedInit()
     }
 
-    func setupStackView() {
+    func setupHStack() {
         [flagImageView, countryNameLabel, countryCodeLabel].forEach {
-            stackView.addArrangedSubview($0)
+            hStack.addArrangedSubview($0)
         }
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stackView)
+        hStack.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(hStack)
     }
 
     func setupFlagImageView() {
@@ -66,10 +69,10 @@ final class CountryView: UIView {
 
     func setupViewLayoutConstraints() {
         let constraints: [NSLayoutConstraint] = [
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            hStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            hStack.trailingAnchor.constraint(equalTo: trailingAnchor),
+            hStack.topAnchor.constraint(equalTo: topAnchor),
+            hStack.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor, multiplier: 4 / 3)
         ]
@@ -80,7 +83,17 @@ final class CountryView: UIView {
 
         countryNameLabel.attributedText = NSAttributedString(string: country.name, attributes: config.textAttributes)
         countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix, attributes: config.textAttributes)
-        stackView.spacing = config.rasterSize
+
+        hStack.spacing = config.rasterSize
+
         flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(), in: Columbus.bundle, compatibleWith: nil)
+
+        // Configure Display State
+        switch config.displayState {
+        case .simple:
+            countryCodeLabel.isHidden = true
+        case .countryCodeSelection:
+            countryCodeLabel.isHidden = false
+        }
     }
 }

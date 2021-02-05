@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B933821325CDF99400618FFD /* CountryPickerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B933821225CDF99400618FFD /* CountryPickerStoryboard.storyboard */; };
 		B93D76DE23E4711B00E41863 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; };
 		B93D76DF23E4711B00E41863 /* Columbus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B93D76E123E4712000E41863 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0C21CD394500FF1B72 /* Columbus.framework */; };
@@ -105,6 +106,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B933821225CDF99400618FFD /* CountryPickerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountryPickerStoryboard.storyboard; sourceTree = "<group>"; };
 		B93D76EA23E4A80900E41863 /* UIColor+SemanticColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SemanticColors.swift"; sourceTree = "<group>"; };
 		B9C8326021C84F3D0008ED90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9F878C921CD2CF500273F82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		B9C8325F21C84F3D0008ED90 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B933821225CDF99400618FFD /* CountryPickerStoryboard.storyboard */,
 				B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */,
 				B9C8326021C84F3D0008ED90 /* AppDelegate.swift */,
 				B93D76EA23E4A80900E41863 /* UIColor+SemanticColors.swift */,
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B933821325CDF99400618FFD /* CountryPickerStoryboard.storyboard in Resources */,
 				B9F8790221CD2D8400273F82 /* Images.xcassets in Resources */,
 				B9F8790421CD2D9800273F82 /* LaunchScreen.storyboard in Resources */,
 			);
