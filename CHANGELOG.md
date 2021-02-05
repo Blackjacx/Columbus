@@ -4,6 +4,10 @@
 * Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
 * Inject config directly in ViewController - [@Blackjacx](https://github.com/Blackjacx).
 
+## [1.4.2] - 2021-02-06
+* Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
+* Inject config directly in ViewController - [@Blackjacx](https://github.com/Blackjacx).
+
 ## [1.4.1] - 2020-07-02
 * [#24](https://github.com/Blackjacx/Columbus/pull/24): Remove defaultCountry() isoCountryCode param default value - [@Blackjacx](https://github.com/Blackjacx).
 
