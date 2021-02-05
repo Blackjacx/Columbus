@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.4.2] - 2021-02-06
 * Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
 * Inject config directly in ViewController - [@Blackjacx](https://github.com/Blackjacx).
 
