@@ -14,29 +14,29 @@ final class CountryCell: UITableViewCell {
 
     let countryView = CountryView()
 
-    static func masterInit(instance: CountryCell) {
-        instance.selectedBackgroundView = UIView()
-        instance.selectedBackgroundView?.layer.masksToBounds = true
-        instance.selectedBackgroundView?.backgroundColor = Columbus.config.selectionColor
+    private func sharedInit() {
+        selectedBackgroundView = UIView()
+        selectedBackgroundView?.layer.masksToBounds = true
+        selectedBackgroundView?.backgroundColor = Columbus.config.selectionColor
 
-        instance.backgroundView = UIView()
-        instance.backgroundView?.layer.masksToBounds = true
-        instance.backgroundView?.backgroundColor = Columbus.config.backgroundColor
+        backgroundView = UIView()
+        backgroundView?.layer.masksToBounds = true
+        backgroundView?.backgroundColor = Columbus.config.backgroundColor
 
-        instance.backgroundColor = Columbus.config.backgroundColor
+        backgroundColor = Columbus.config.backgroundColor
 
-        instance.setupCountryView()
-        instance.setupLayoutConstraints()
+        setupCountryView()
+        setupLayoutConstraints()
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        Self.masterInit(instance: self)
+        sharedInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Self.masterInit(instance: self)
+        sharedInit()
     }
 
     override func layoutSubviews() {

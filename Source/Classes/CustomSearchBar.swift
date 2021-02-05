@@ -48,22 +48,22 @@ final class CustomSearchBar: UIView {
         textField.isFirstResponder && !text.isEmpty
     }
 
-    static func masterInit(_ instance: CustomSearchBar) {
-        instance.setupHStack()
-        instance.setupTextField()
-        instance.setupAutoLayout()
+    private func sharedInit() {
+        setupHStack()
+        setupTextField()
+        setupAutoLayout()
+        textField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Self.masterInit(self)
-        textField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+        sharedInit()
+
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Self.masterInit(self)
-        textField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+        sharedInit()
     }
 
     override func resignFirstResponder() -> Bool {
@@ -123,19 +123,19 @@ extension CustomSearchBar: UITextFieldDelegate {
 
 final class CustomTextField: UITextField {
 
-    static func masterInit(_ instance: CustomTextField) {
-        instance.adjustsFontForContentSizeCategory = true
-        instance.clearButtonMode = .always
+    private func sharedInit() {
+        adjustsFontForContentSizeCategory = true
+        clearButtonMode = .always
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Self.masterInit(self)
+        sharedInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Self.masterInit(self)
+        sharedInit()
     }
 
     override func layoutSubviews() {

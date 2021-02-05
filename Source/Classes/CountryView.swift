@@ -15,22 +15,22 @@ final class CountryView: UIView {
     let countryNameLabel = UILabel()
     let countryCodeLabel = UILabel()
 
-    static func masterInit(instance: CountryView) {
-        instance.setupStackView()
-        instance.setupFlagImageView()
-        instance.setupCountryNameLabel()
-        instance.setupCountryCodeLabel()
-        instance.setupViewLayoutConstraints()
+    private func sharedInit() {
+        setupStackView()
+        setupFlagImageView()
+        setupCountryNameLabel()
+        setupCountryCodeLabel()
+        setupViewLayoutConstraints()
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        Self.masterInit(instance: self)
+        sharedInit()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        Self.masterInit(instance: self)
+        sharedInit()
     }
 
     func setupStackView() {
