@@ -60,7 +60,7 @@ public final class CountryPickerViewController: UIViewController {
         return cell
     }
 
-    /// The observer that informs about KeyboardWillShow notifications
+    /// The observer that informs about KeyboardDidShow notifications
     private var keyboardDidShowObserver: NSObjectProtocol?
     /// The observer that informs about KeyboardWillHide notifications
     private var keyboardWillHideObserver: NSObjectProtocol?
@@ -137,14 +137,22 @@ public final class CountryPickerViewController: UIViewController {
         keyboardDidShowObserver = center.addObserver(forName: UIResponder.keyboardDidShowNotification,
                                                      object: nil,
                                                      queue: nil) { [weak self] (note) in
-            guard let userInfo = note.userInfo else { return }
-            guard let height = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else { return }
-            self?.tableViewBottomConstraint.constant = -height
+
+            guard let userInfo = note.userInfo,
+                  userInfo[UIResponder.keyboardIsLocalUserInfoKey] as? Bool == true,
+                  let frame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+                return
+            }
+            self?.tableViewBottomConstraint.constant = -frame.height
         }
 
         keyboardWillHideObserver = center.addObserver(forName: UIResponder.keyboardWillHideNotification,
                                                       object: nil,
-                                                      queue: nil) { [weak self] (_) in
+                                                      queue: nil) { [weak self] (note) in
+
+            guard let userInfo = note.userInfo, userInfo[UIResponder.keyboardIsLocalUserInfoKey] as? Bool == true else {
+                return
+            }
             self?.tableViewBottomConstraint.constant = 0
         }
         #endif
@@ -167,6 +175,7 @@ public final class CountryPickerViewController: UIViewController {
         searchbar.delegate = self
         searchbar.tintColor = config.controlColor
         searchbar.backgroundColor = config.backgroundColor
+        searchbar.textField.returnKeyType = .done
         searchbar.textAttributes = config.textAttributes
         searchbar.placeholder = config.searchBarAttributedPlaceholder
 

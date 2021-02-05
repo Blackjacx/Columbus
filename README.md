@@ -61,8 +61,9 @@ pod "Columbus"
 In the following example you'll find all the possible configuration/theming options of Columbus:
 
 ```swift
-struct CountryPickerConfig: Configuration {
+struct CountryPickerConfig: Configurable {
 
+    var displayState = CountryPickerViewController.DisplayState.countryCodeSelection
     /// In this example this has to be a computed property so the font object
     /// is calculated later on demand. Since this object is created right at app
     /// start something related to dynamic type seems not to be ready yet.
@@ -75,12 +76,12 @@ struct CountryPickerConfig: Configuration {
     var textFieldBackgroundColor: UIColor = .textFieldBackground
     var backgroundColor: UIColor = .background
     var selectionColor: UIColor = .selection
-    var controlColor: UIColor = UIColor(red: 1.0/255.0, green: 192.0/255.0, blue: 1, alpha: 1)
+    var controlColor: UIColor = UIColor(red: 1.0 / 255.0, green: 192.0 / 255.0, blue: 1, alpha: 1)
     var lineColor: UIColor = .line
     var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     var rasterSize: CGFloat = 10.0
     var separatorInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
+        UIEdgeInsets(top: 0, left: rasterSize * 4.7, bottom: 0, right: rasterSize * 2.5)
     }
     let searchBarAttributedPlaceholder: NSAttributedString = {
         NSAttributedString(string: "Search",
@@ -89,13 +90,10 @@ struct CountryPickerConfig: Configuration {
                             .font: UIFont.preferredFont(forTextStyle: .body)])
     }()
 }
-
-Columbus.config = CountryPickerConfig()
-let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
-
-let countryPicker = CountryPickerViewController(initialCountryCode: defaultCountry.isoCountryCode, didSelectClosure: { (country) in
+let countryPicker = CountryPickerViewController(config: CountryPickerConfig(),
+                                                initialCountryCode: "US") { (country) in
     print(country)
-})
+}
 present(countryPicker, animated: true)
 
 ```
@@ -108,7 +106,7 @@ Good news for our storyboard users. I implemented full storyboard support - but 
 if #available(iOS 13.0, *) {
     let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
     let picker: CountryPickerViewController = storyboard.instantiateViewController(identifier: "Picker") { (coder) -> CountryPickerViewController? in
-        return CountryPickerViewController(coder: coder, initialCountryCode: defaultCountry.isoCountryCode) { (country) in
+        return CountryPickerViewController(configcoder: coder, initialCountryCode: defaultCountry.isoCountryCode) { (country) in
             print(country)
         }
     }
