@@ -1,16 +1,12 @@
-<!-- <p align="center">
-<img src="./icon.png" alt="Columbus" height="128" width="128">
-</p> -->
-
 # Columbus
 
 [![Twitter](https://img.shields.io/twitter/follow/blackjacxxx?label=%40Blackjacxxx)](https://twitter.com/blackjacx)
 <a href="https://github.com/Blackjacx/columbus/actions?query=workflow%3ACI"><img alt="CI status" src="https://github.com/blackjacx/columbus/workflows/CI/badge.svg" /></a>
 <img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
 <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
-<img alt="Xcode 11.0+" src="https://img.shields.io/badge/Xcode-11.0%2B-blue.svg"/>
+<img alt="Xcode 12.0+" src="https://img.shields.io/badge/Xcode-12.0%2B-blue.svg"/>
 <img alt="iOS 11.0+" src="https://img.shields.io/badge/iOS-11.0%2B-blue.svg"/>
-<img alt="Swift 5.2+" src="https://img.shields.io/badge/Swift-5.2%2B-orange.svg"/>
+<img alt="Swift 5.3+" src="https://img.shields.io/badge/Swift-5.3%2B-orange.svg"/>
 <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
 <img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
 <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
@@ -19,16 +15,20 @@
 <a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop"><img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" /></a>  
 <a href="https://www.paypal.me/STHEROLD"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg"/></a>
 
-A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. The following list highlights the most valuable features:
-- Filter countries using an as-you-type search bar
-- Quickly find a country by using the indexbar on the right
-- Select a country from the history of selected countries - `still in progress`
+A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. 
+
+## Features
+
+- Filter countries using an as-you-type search bar - type the **name** or it's **country code**
+- Quickly find a country by using the **indexbar** on the right
 - Localized by using standard components and Apple's `Locale` class
 - Theme support to easily fit to your design
+- Storyboard support
+- Select a country from the history of selected countries - `still in progress`
 
 ## Installation
 
-Columbus is compatible with `iOS 11` and higher and builds with `Xcode 11` and `Swift 5.2+`. 
+Columbus is compatible with `iOS 11` and higher and builds with `Xcode 11` and `Swift 5.3+`. 
 
 ### Carthage (recommended)
 
@@ -36,6 +36,12 @@ Columbus is compatible with `iOS 11` and higher and builds with `Xcode 11` and `
 
 ```ruby
 github "Blackjacx/Columbus"
+```
+
+The use the following command to build the XCFramework:
+
+```shell
+carthage bootstrap --use-ssh --use-xcframeworks --cache-builds
 ```
 
 Using Carthage has some advantages in contrast to Cocopods for this framework. Since it needs to compile the asset catalog for over 200 flag assets it is much faster to build the framework once using Carthage and drop it into your app. If you use Cocoapods the asset catalog is compiled together with Columbus each time you do a clean build and probably also when Xcode thinks Columbus needs to be compiled again.
@@ -116,7 +122,7 @@ The above example gives you a non-optional instance of `CountryPickerViewControl
 
 ### iOS
 
-The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the features unique to Columbus:
+The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the key features unique to Columbus:
 
 Filtering|Indexbar|History|Localization|Theming
 --- | --- | --- | --- | ---
