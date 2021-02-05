@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Columbus_Example_TV
+//  Columbus_iOS_Example
 //
 //  Created by Stefan Herold on 23.06.18.
 //  Copyright © 2020 Stefan Herold. All rights reserved.
@@ -19,20 +19,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        Columbus.config = CountryPickerConfig()
+        let config = CountryPickerConfig()
         let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
 
-        let countryPicker = CountryPickerViewController(initialCountryCode: defaultCountry.isoCountryCode, didSelectClosure: { (country) in
+        let countryPicker = CountryPickerViewController(config: config,
+                                                        initialCountryCode: defaultCountry.isoCountryCode) { (country) in
             print(country)
-        })
+        }
         window?.rootViewController = countryPicker
         window?.makeKeyAndVisible()
         return true
     }
 }
 
-struct CountryPickerConfig: Configuration {
+struct CountryPickerConfig: Configurable {
 
+    var displayState = CountryPickerViewController.DisplayState.countryCodeSelection
     /// In this example this has to be a computed property so the font object
     /// is calculated later on demand. Since this object is created right at app
     /// start something related to dynamic type seems not to be ready yet.
@@ -50,7 +52,7 @@ struct CountryPickerConfig: Configuration {
     var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     var rasterSize: CGFloat = 10.0
     var separatorInsets: UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: rasterSize * 3.7, bottom: 0, right: rasterSize)
+        UIEdgeInsets(top: 0, left: rasterSize * 4.7, bottom: 0, right: rasterSize * 2.5)
     }
     let searchBarAttributedPlaceholder: NSAttributedString = {
         NSAttributedString(string: "Search",
@@ -58,4 +60,5 @@ struct CountryPickerConfig: Configuration {
                             .foregroundColor: UIColor.placeholder,
                             .font: UIFont.preferredFont(forTextStyle: .body)])
     }()
+    var showIsoCountryCode: Bool = true
 }

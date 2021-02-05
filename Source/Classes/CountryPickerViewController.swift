@@ -16,8 +16,13 @@ import CoreTelephony
 /// country names, flags and dialling codes. It is used to pick a country.
 public final class CountryPickerViewController: UIViewController {
 
+    public typealias DidSelectCountry = (_ country: Country) -> Void
+
     /// The list of data displayed in the data source
     public static let countries = createCountries()
+
+    /// The configuration for the country picker
+    let config: Configurable
     /// The list of data displayed when the user enters a search term
     var filteredItems = CountryList()
     /// Returns all items or filtered items if filtering is currently active
@@ -27,11 +32,11 @@ public final class CountryPickerViewController: UIViewController {
     /// The section index title cache
     var sectionTitles = [String]()
     /// Called by the CountryPicker after the user selects a country.
-    let didSelectClosure: (_ country: Country) -> Void
+    let didSelectClosure: DidSelectCountry
     /// The currently picked iso country code
     let selectedCountryCode: String
     /// The search bar to search for countries
-    let searchbar = CustomSearchBar()
+    let searchbar: CustomSearchBar
     /// Offset before search started, so it can be set again afterwards.
     var scrollOffsetPriorSearch = CGPoint.zero
     /// The tableview that displays the countries
@@ -62,16 +67,22 @@ public final class CountryPickerViewController: UIViewController {
 
     // MARK: - Initialization
 
-    public init(initialCountryCode: String,
-                didSelectClosure: @escaping ((_ country: Country) -> Void)) {
+    public init(config: Configurable,
+                initialCountryCode: String,
+                didSelectClosure: @escaping DidSelectCountry) {
+        self.config = config
+        self.searchbar = CustomSearchBar(config: config)
         self.selectedCountryCode = initialCountryCode
         self.didSelectClosure = didSelectClosure
         super.init(nibName: nil, bundle: nil)
     }
 
     public init?(coder aDecoder: NSCoder,
+                 config: Configurable,
                  initialCountryCode: String,
-                 didSelectClosure: @escaping ((_ country: Country) -> Void)) {
+                 didSelectClosure: @escaping DidSelectCountry) {
+        self.config = config
+        self.searchbar = CustomSearchBar(config: config)
         self.selectedCountryCode = initialCountryCode
         self.didSelectClosure = didSelectClosure
         super.init(coder: aDecoder)
@@ -105,7 +116,7 @@ public final class CountryPickerViewController: UIViewController {
 
         super.viewDidLoad()
 
-        view.backgroundColor = Columbus.config.backgroundColor
+        view.backgroundColor = config.backgroundColor
 
         setupTable()
         #if os(iOS)
@@ -142,10 +153,10 @@ public final class CountryPickerViewController: UIViewController {
     private func setupTable() {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(CountryCell.self, forCellReuseIdentifier: CountryCell.cellId)
-        table.backgroundColor = Columbus.config.backgroundColor
+        table.backgroundColor = config.backgroundColor
         table.dataSource = self
         table.delegate = self
-        table.tintColor = Columbus.config.controlColor
+        table.tintColor = config.controlColor
         table.tableFooterView = UIView()
         view.addSubview(table)
     }
@@ -154,15 +165,15 @@ public final class CountryPickerViewController: UIViewController {
 
         searchbar.translatesAutoresizingMaskIntoConstraints = false
         searchbar.delegate = self
-        searchbar.tintColor = Columbus.config.controlColor
-        searchbar.backgroundColor = Columbus.config.backgroundColor
-        searchbar.textAttributes = Columbus.config.textAttributes
-        searchbar.placeholder = Columbus.config.searchBarAttributedPlaceholder
+        searchbar.tintColor = config.controlColor
+        searchbar.backgroundColor = config.backgroundColor
+        searchbar.textAttributes = config.textAttributes
+        searchbar.placeholder = config.searchBarAttributedPlaceholder
 
         let textField = searchbar.textField
-        textField.tintColor = Columbus.config.controlColor
+        textField.tintColor = config.controlColor
         textField.textColor = searchbar.tintColor
-        textField.backgroundColor = Columbus.config.textFieldBackgroundColor
+        textField.backgroundColor = config.textFieldBackgroundColor
 
         view.addSubview(searchbar)
     }
@@ -371,12 +382,22 @@ extension CountryPickerViewController: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CountryCell.cellId, for: indexPath)
+        let raster = config.rasterSize
+        let margins = NSDirectionalEdgeInsets(top: raster, leading: raster, bottom: raster, trailing: raster)
+
         if let cell = cell as? CountryCell {
             let key = sectionTitles[indexPath.section]
             let sectionItems = itemsForSectionTitle[key]
             let item = sectionItems?[indexPath.row]
-            item.map { cell.configure(with: $0) }
+            item.map { cell.configure(with: $0, config: config) }
         }
+
+        cell.selectedBackgroundView?.backgroundColor = config.selectionColor
+        cell.backgroundView?.backgroundColor = config.backgroundColor
+        cell.backgroundColor = config.backgroundColor
+        cell.contentView.directionalLayoutMargins = margins
+        cell.contentView.preservesSuperviewLayoutMargins = false
+
         return cell
     }
 }
@@ -404,14 +425,8 @@ extension CountryPickerViewController: UITableViewDelegate {
         // Adjusting the seperator insets: http://stackoverflow.com/a/39005773/971329
 
         #if os(iOS)
-        // removing seperator inset
-        cell.separatorInset = Columbus.config.separatorInsets
+        // setting seperator inset
+        cell.separatorInset = config.separatorInsets
         #endif
-
-        // prevent the cell from inheriting the tableView's margin settings
-        cell.preservesSuperviewLayoutMargins = false
-
-        // explicitly setting cell's layout margins
-        cell.layoutMargins = Columbus.config.separatorInsets
     }
 }

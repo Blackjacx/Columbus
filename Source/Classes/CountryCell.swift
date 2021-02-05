@@ -13,17 +13,14 @@ final class CountryCell: UITableViewCell {
     static var cellId: String { "\(CountryCell.self)" }
 
     let countryView = CountryView()
+    var config: Configurable!
 
     private func sharedInit() {
         selectedBackgroundView = UIView()
         selectedBackgroundView?.layer.masksToBounds = true
-        selectedBackgroundView?.backgroundColor = Columbus.config.selectionColor
 
         backgroundView = UIView()
         backgroundView?.layer.masksToBounds = true
-        backgroundView?.backgroundColor = Columbus.config.backgroundColor
-
-        backgroundColor = Columbus.config.backgroundColor
 
         setupCountryView()
         setupLayoutConstraints()
@@ -47,13 +44,7 @@ final class CountryCell: UITableViewCell {
     }
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-         backgroundView?.backgroundColor = isFocused ?
-            Columbus.config.selectionColor :
-            Columbus.config.backgroundColor
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
+         backgroundView?.backgroundColor = isFocused ? config.selectionColor : config.backgroundColor
     }
 
     func setupCountryView() {
@@ -63,24 +54,23 @@ final class CountryCell: UITableViewCell {
     }
 
     func setupLayoutConstraints() {
-        let raster = Columbus.config.rasterSize
-
-        let leading = countryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: raster)
+        let leading = countryView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor)
         leading.identifier = Columbus.layoutConstraintId("\(type(of: self)).leading")
 
-        let trailing = countryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -raster)
+        let trailing = countryView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
         trailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).trailing")
 
-        let top = countryView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: raster)
+        let top = countryView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor)
         top.identifier = Columbus.layoutConstraintId("\(type(of: self)).top")
 
-        let bottom = countryView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -raster)
+        let bottom = countryView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
         bottom.identifier = Columbus.layoutConstraintId("\(type(of: self)).bottom")
 
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
     }
 
-    func configure(with country: Country) {
-        countryView.configure(with: country)
+    func configure(with country: Country, config: Configurable) {
+        self.config = config
+        countryView.configure(with: country, config: config)
     }
 }

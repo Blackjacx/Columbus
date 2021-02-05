@@ -18,11 +18,11 @@ protocol CustomSearchBarDelegate: class {
 final class CustomSearchBar: UIView {
 
     private static let textFieldMinHeight: CGFloat = 36
-
-    let textField: UITextField = CustomTextField()
     weak var delegate: CustomSearchBarDelegate?
 
+    let textField: UITextField
     private let hStack = UIStackView()
+    private let config: Configurable
 
     var textAttributes: [NSAttributedString.Key: Any] = [:] {
         didSet {
@@ -55,15 +55,23 @@ final class CustomSearchBar: UIView {
         textField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    public init(config: Configurable) {
+        self.config = config
+        self.textField = CustomTextField(config: config)
+        super.init(frame: .zero)
         sharedInit()
-
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public init?(coder aDecoder: NSCoder, config: Configurable) {
+        self.config = config
+        self.textField = CustomTextField(config: config)
         super.init(coder: aDecoder)
         sharedInit()
+    }
+
+    @available(*, unavailable, message: "init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        preconditionFailure("init(coder:) has not been implemented")
     }
 
     override func resignFirstResponder() -> Bool {
@@ -73,7 +81,7 @@ final class CustomSearchBar: UIView {
 
     private func setupHStack() {
         hStack.translatesAutoresizingMaskIntoConstraints = false
-        hStack.spacing = Columbus.config.rasterSize
+        hStack.spacing = config.rasterSize
         addSubview(hStack)
     }
 
@@ -85,7 +93,7 @@ final class CustomSearchBar: UIView {
     }
 
     private func setupAutoLayout() {
-        let raster = Columbus.config.rasterSize
+        let raster = config.rasterSize
         directionalLayoutMargins = NSDirectionalEdgeInsets(top: raster / 2,
                                                            leading: raster,
                                                            bottom: raster / 2,
@@ -118,36 +126,5 @@ extension CustomSearchBar: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
-    }
-}
-
-final class CustomTextField: UITextField {
-
-    private func sharedInit() {
-        adjustsFontForContentSizeCategory = true
-        clearButtonMode = .always
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        sharedInit()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        sharedInit()
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = frame.height / 4
-    }
-
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        super.textRect(forBounds: bounds).insetBy(dx: Columbus.config.rasterSize, dy: 0)
-    }
-
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        super.editingRect(forBounds: bounds).insetBy(dx: Columbus.config.rasterSize, dy: 0)
     }
 }

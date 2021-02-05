@@ -37,7 +37,6 @@ final class CountryView: UIView {
         [flagImageView, countryNameLabel, countryCodeLabel].forEach {
             stackView.addArrangedSubview($0)
         }
-        stackView.spacing = Columbus.config.rasterSize
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
     }
@@ -77,16 +76,11 @@ final class CountryView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
 
-    func configure(with country: Country) {
+    func configure(with country: Country, config: Configurable) {
 
-        countryNameLabel.attributedText = NSAttributedString(string: country.name,
-                                                             attributes: Columbus.config.textAttributes)
-
-        countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix,
-                                                             attributes: Columbus.config.textAttributes)
-
-        flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(),
-                                      in: Columbus.bundle,
-                                      compatibleWith: nil)
+        countryNameLabel.attributedText = NSAttributedString(string: country.name, attributes: config.textAttributes)
+        countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix, attributes: config.textAttributes)
+        stackView.spacing = config.rasterSize
+        flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(), in: Columbus.bundle, compatibleWith: nil)
     }
 }
