@@ -47,6 +47,7 @@ extension CountryList: Decodable {
                 let country = try container.decode(Country.self)
                 countries.append(country)
             } catch {
+                _ = try? container.decode(EmptyDecodable.self) // proceed to next element
                 print(error)
             }
         }

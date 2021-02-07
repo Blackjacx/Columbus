@@ -10,6 +10,7 @@ import UIKit
 
 enum CountryDecodingError: Error {
     case nameNotFound
+    case flagIconNotFound
 }
 
 public struct Country {
@@ -47,6 +48,10 @@ extension Country: Decodable {
             throw CountryDecodingError.nameNotFound
         }
         name = countryName
-        flagIcon = UIImage(named: isoCountryCode.lowercased(), in: bundle, compatibleWith: nil) ?? UIImage()
+
+        guard let flag = UIImage(named: isoCountryCode.lowercased(), in: bundle, compatibleWith: nil) else {
+            throw CountryDecodingError.flagIconNotFound
+        }
+        flagIcon = flag
     }
 }
