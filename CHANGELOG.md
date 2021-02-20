@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+* Simplify section index creation - [@Blackjacx](https://github.com/Blackjacx).
+* Throw error instead of ignore missing flag icon - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.4.2] - 2021-02-06
 * Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
