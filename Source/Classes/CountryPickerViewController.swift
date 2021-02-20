@@ -298,18 +298,7 @@ public final class CountryPickerViewController: UIViewController {
 
     func updateSectionIndex() {
 
-        sectionTitles.removeAll()
-        itemsForSectionTitle.removeAll()
-
-        items.forEach {
-            let key = String($0.name.prefix(1))
-            guard itemsForSectionTitle[key] != nil else {
-                itemsForSectionTitle[key] = [$0]
-                return
-            }
-            itemsForSectionTitle[key]?.append($0)
-        }
-
+        itemsForSectionTitle = Dictionary(grouping: items) { String($0.name.prefix(1)) }
         sectionTitles = [String](itemsForSectionTitle.keys)
         sectionTitles = sectionTitles.sorted(by: <)
     }
@@ -337,21 +326,19 @@ public final class CountryPickerViewController: UIViewController {
 
             let indexPath = IndexPath(row: row, section: section)
 
-            #if os(iOS)
             DispatchQueue.main.async { [weak self] in
+                #if os(iOS)
                 self?.table.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                     self?.table.deselectRow(at: indexPath, animated: true)
                 }
-            }
-            #elseif os(tvOS)
-            DispatchQueue.main.async { [weak self] in
+                #elseif os(tvOS)
                 self?.table.scrollToRow(at: indexPath, at: .middle, animated: true)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                     self?.focussedIndexPath = indexPath
                 }
+                #endif
             }
-            #endif
         }
     }
 }
