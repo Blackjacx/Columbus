@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.6.0] - 2021-05-20Z
 * [#34](https://github.com/Blackjacx/Columbus/pull/34): XCFramework Compatibility - [@Blackjacx](https://github.com/Blackjacx).
 * Simplify section index creation - [@Blackjacx](https://github.com/Blackjacx).
 * Throw error instead of ignore missing flag icon - [@Blackjacx](https://github.com/Blackjacx).
