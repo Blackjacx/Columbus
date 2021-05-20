@@ -86,7 +86,7 @@ final class CountryView: UIView {
 
         hStack.spacing = config.rasterSize
 
-        flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(), in: Columbus.bundle, compatibleWith: nil)
+        flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(), in: ColumbusMain.bundle, compatibleWith: nil)
 
         // Configure Display State
         switch config.displayState {
