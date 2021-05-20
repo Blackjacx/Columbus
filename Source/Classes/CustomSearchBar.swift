@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CustomSearchBarDelegate: class {
+protocol CustomSearchBarDelegate: AnyObject {
     func searchBarTextDidChange(_ searchBar: CustomSearchBar, newText: String)
     func searchBarTextDidBeginEditing(_ searchBar: CustomSearchBar)
     func searchBarTextDidEndEditing(_ searchBar: CustomSearchBar)

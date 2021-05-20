@@ -37,7 +37,7 @@ extension Country: Decodable {
     }
 
     public init(from decoder: Decoder) throws {
-        let bundle = Columbus.bundle
+        let bundle = ColumbusMain.bundle
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         isoCountryCode = try container.decode(String.self, forKey: .isoCountryCode)

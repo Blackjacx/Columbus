@@ -1,5 +1,5 @@
 //
-//  Columbus.swift
+//  ColumbusMain.swift
 //  Columbus
 //
 //  Created by Stefan Herold on 22.06.18.
@@ -9,10 +9,10 @@
 import Foundation
 
 // swiftlint:disable:next convenience_type
-public final class Columbus {
+public final class ColumbusMain {
 
     public static let bundle: Bundle = {
-        let frameworkBundle = Bundle(for: Columbus.self)
+        let frameworkBundle = Bundle(for: ColumbusMain.self)
         let bundleName = "Resources.bundle"
         guard let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent(bundleName) else {
             preconditionFailure("Bundle url nil!")
@@ -24,6 +24,6 @@ public final class Columbus {
     }()
 
     static func layoutConstraintId(_ suffix: String) -> String {
-        "\(Columbus.bundle.bundleIdentifier!).\(suffix)"
+        "\(ColumbusMain.bundle.bundleIdentifier!).\(suffix)"
     }
 }

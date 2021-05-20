@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,7 @@
 		B94B1AFB21CD38B400FF1B72 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789421CD28EC00273F82 /* Configurable.swift */; };
 		B94B1AFC21CD38B400FF1B72 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789321CD28EC00273F82 /* CountryCell.swift */; };
 		B94B1AFD21CD38B400FF1B72 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */; };
-		B94B1AFE21CD38B400FF1B72 /* Columbus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789021CD28EC00273F82 /* Columbus.swift */; };
+		B94B1AFE21CD38B400FF1B72 /* ColumbusMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789021CD28EC00273F82 /* ColumbusMain.swift */; };
 		B94B1AFF21CD38B400FF1B72 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789121CD28EC00273F82 /* CountryView.swift */; };
 		B96D495D21CD3DC20010E69B /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789721CD28EC00273F82 /* Countries.json */; };
 		B96D495E21CD3DC20010E69B /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789821CD28EC00273F82 /* Flags.xcassets */; };
@@ -35,7 +35,7 @@
 		B9DB66ED21DF924600E9BB35 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0621CD38B400FF1B72 /* Columbus.framework */; };
 		B9F8789C21CD28EC00273F82 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryList.swift */; };
 		B9F8789D21CD28EC00273F82 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788F21CD28EC00273F82 /* Country.swift */; };
-		B9F8789E21CD28EC00273F82 /* Columbus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789021CD28EC00273F82 /* Columbus.swift */; };
+		B9F8789E21CD28EC00273F82 /* ColumbusMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789021CD28EC00273F82 /* ColumbusMain.swift */; };
 		B9F8789F21CD28EC00273F82 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789121CD28EC00273F82 /* CountryView.swift */; };
 		B9F878A021CD28EC00273F82 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */; };
 		B9F878A121CD28EC00273F82 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789321CD28EC00273F82 /* CountryCell.swift */; };
@@ -94,7 +94,7 @@
 		B9F8788321CD28A200273F82 /* Columbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Columbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F8788E21CD28EC00273F82 /* CountryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
 		B9F8788F21CD28EC00273F82 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		B9F8789021CD28EC00273F82 /* Columbus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Columbus.swift; sourceTree = "<group>"; };
+		B9F8789021CD28EC00273F82 /* ColumbusMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumbusMain.swift; sourceTree = "<group>"; };
 		B9F8789121CD28EC00273F82 /* CountryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
 		B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerViewController.swift; sourceTree = "<group>"; };
 		B9F8789321CD28EC00273F82 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		B9F8788C21CD28EC00273F82 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B9F8789021CD28EC00273F82 /* Columbus.swift */,
+				B9F8789021CD28EC00273F82 /* ColumbusMain.swift */,
 				B9F8789421CD28EC00273F82 /* Configurable.swift */,
 				B9F8788F21CD28EC00273F82 /* Country.swift */,
 				B9CAAB1325E1BEB4004BA1BF /* EmptyDecodable.swift */,
@@ -394,7 +394,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Stefan Herold";
 				TargetAttributes = {
 					B94B1AF421CD38B400FF1B72 = {
@@ -414,7 +414,7 @@
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Columbus" */;
-			compatibilityVersion = "Xcode 11.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -541,7 +541,7 @@
 				B933818825CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift in Sources */,
 				B93D76E723E4A66600E41863 /* CustomSearchBar.swift in Sources */,
 				B94B1AFD21CD38B400FF1B72 /* CountryPickerViewController.swift in Sources */,
-				B94B1AFE21CD38B400FF1B72 /* Columbus.swift in Sources */,
+				B94B1AFE21CD38B400FF1B72 /* ColumbusMain.swift in Sources */,
 				B94B1AFF21CD38B400FF1B72 /* CountryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,7 +582,7 @@
 				B933818725CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift in Sources */,
 				B93D76DD23E4691300E41863 /* CustomSearchBar.swift in Sources */,
 				B9F878A021CD28EC00273F82 /* CountryPickerViewController.swift in Sources */,
-				B9F8789E21CD28EC00273F82 /* Columbus.swift in Sources */,
+				B9F8789E21CD28EC00273F82 /* ColumbusMain.swift in Sources */,
 				B9F8789F21CD28EC00273F82 /* CountryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
