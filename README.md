@@ -4,9 +4,9 @@
 <a href="https://github.com/Blackjacx/columbus/actions?query=workflow%3ACI"><img alt="CI status" src="https://github.com/blackjacx/columbus/workflows/CI/badge.svg" /></a>
 <img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
 <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
-<img alt="Xcode 12.0+" src="https://img.shields.io/badge/Xcode-12.0%2B-blue.svg"/>
+<img alt="Xcode 12.5+" src="https://img.shields.io/badge/Xcode-12.5%2B-blue.svg"/>
 <img alt="iOS 11.0+" src="https://img.shields.io/badge/iOS-11.0%2B-blue.svg"/>
-<img alt="Swift 5.3+" src="https://img.shields.io/badge/Swift-5.3%2B-orange.svg"/>
+<img alt="Swift 5.4+" src="https://img.shields.io/badge/Swift-5.4%2B-orange.svg"/>
 <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
 <img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
 <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
@@ -27,8 +27,6 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 - Select a country from the history of selected countries - `still in progress`
 
 ## Installation
-
-Columbus is compatible with `iOS 11` and higher and builds with `Xcode 11` and `Swift 5.3+`. 
 
 ### Carthage (recommended)
 

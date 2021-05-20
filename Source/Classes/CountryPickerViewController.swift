@@ -192,39 +192,39 @@ public final class CountryPickerViewController: UIViewController {
         var constraints: [NSLayoutConstraint] = []
 
         tableViewBottomConstraint = table.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        tableViewBottomConstraint.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.bottom")
+        tableViewBottomConstraint.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.bottom")
         constraints.append(tableViewBottomConstraint)
 
         let tableLeading = table.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        tableLeading.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.leading")
+        tableLeading.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.leading")
         constraints.append(tableLeading)
 
         let tableTrailing = table.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        tableTrailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.trailing")
+        tableTrailing.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.trailing")
         constraints.append(tableTrailing)
 
         #if os(iOS)
 
         let searchbarTop = searchbar.topAnchor.constraint(equalTo: view.topAnchor)
-        searchbarTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.top")
+        searchbarTop.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).searchbar.top")
         constraints.append(searchbarTop)
 
         let searchbarLeading = searchbar.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        searchbarLeading.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.leading")
+        searchbarLeading.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).searchbar.leading")
         constraints.append(searchbarLeading)
 
         let searchbarTrailing = searchbar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        searchbarTrailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).searchbar.trailing")
+        searchbarTrailing.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).searchbar.trailing")
         constraints.append(searchbarTrailing)
 
         let tableTop = table.topAnchor.constraint(equalTo: searchbar.bottomAnchor)
-        tableTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.top")
+        tableTop.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.top")
         constraints.append(tableTop)
 
         #else
 
         let tableTop = table.topAnchor.constraint(equalTo: view.topAnchor)
-        tableTop.identifier = Columbus.layoutConstraintId("\(type(of: self)).tableView.top")
+        tableTop.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.top")
         constraints.append(tableTop)
 
         #endif
@@ -268,7 +268,7 @@ public final class CountryPickerViewController: UIViewController {
     private static func createCountries() -> CountryList {
 
         guard
-            let countriesFilePath = Columbus.bundle.path(forResource: "Countries", ofType: "json"),
+            let countriesFilePath = ColumbusMain.bundle.path(forResource: "Countries", ofType: "json"),
             let countriesData = FileManager.default.contents(atPath: countriesFilePath),
             let countries = try? JSONDecoder().decode(CountryList.self, from: countriesData) else {
                 return CountryList()

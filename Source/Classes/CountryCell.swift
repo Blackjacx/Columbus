@@ -55,16 +55,16 @@ final class CountryCell: UITableViewCell {
 
     func setupLayoutConstraints() {
         let leading = countryView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor)
-        leading.identifier = Columbus.layoutConstraintId("\(type(of: self)).leading")
+        leading.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).leading")
 
         let trailing = countryView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
-        trailing.identifier = Columbus.layoutConstraintId("\(type(of: self)).trailing")
+        trailing.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).trailing")
 
         let top = countryView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor)
-        top.identifier = Columbus.layoutConstraintId("\(type(of: self)).top")
+        top.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).top")
 
         let bottom = countryView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
-        bottom.identifier = Columbus.layoutConstraintId("\(type(of: self)).bottom")
+        bottom.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).bottom")
 
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
     }
