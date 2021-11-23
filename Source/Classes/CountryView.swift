@@ -11,7 +11,7 @@ import UIKit
 final class CountryView: UIView {
 
     let hStack = UIStackView()
-    let flagImageView = UIImageView()
+    let flagIconView = UILabel()
     let countryNameLabel = UILabel()
     let countryCodeLabel = UILabel()
 
@@ -20,7 +20,7 @@ final class CountryView: UIView {
 
     private func sharedInit() {
         setupHStack()
-        setupFlagImageView()
+        setupFlagIconView()
         setupCountryNameLabel()
         setupCountryCodeLabel()
         setupViewLayoutConstraints()
@@ -37,21 +37,18 @@ final class CountryView: UIView {
     }
 
     func setupHStack() {
-        [flagImageView, countryNameLabel, countryCodeLabel].forEach {
+        [flagIconView, countryNameLabel, countryCodeLabel].forEach {
             hStack.addArrangedSubview($0)
         }
         hStack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(hStack)
     }
 
-    func setupFlagImageView() {
-        flagImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
-        flagImageView.contentMode = .scaleAspectFit
-        flagImageView.layer.shadowColor = UIColor.black.cgColor
-        flagImageView.layer.shadowOpacity = 0.25
-        flagImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
-        flagImageView.setContentHuggingPriority(.required, for: .horizontal)
-        flagImageView.setContentHuggingPriority(.required, for: .vertical)
+    func setupFlagIconView() {
+        flagIconView.adjustsFontForContentSizeCategory = true
+        flagIconView.numberOfLines = 1
+        flagIconView.setContentHuggingPriority(.required, for: .horizontal)
+        flagIconView.setContentHuggingPriority(.required, for: .vertical)
     }
 
     func setupCountryNameLabel() {
@@ -74,19 +71,36 @@ final class CountryView: UIView {
             hStack.topAnchor.constraint(equalTo: topAnchor),
             hStack.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor, multiplier: 4 / 3)
+            flagIconView.widthAnchor.constraint(equalTo: flagIconView.heightAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
     }
 
     func configure(with country: Country, config: Configurable) {
 
-        countryNameLabel.attributedText = NSAttributedString(string: country.name, attributes: config.textAttributes)
-        countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix, attributes: config.textAttributes)
+        countryNameLabel.attributedText = NSAttributedString(string: country.name,
+                                                             attributes: config.textAttributes)
+        countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix,
+                                                             attributes: config.textAttributes)
 
         hStack.spacing = config.rasterSize
 
-        flagImageView.image = UIImage(named: country.isoCountryCode.lowercased(), in: ColumbusMain.bundle, compatibleWith: nil)
+        var attributes = config.textAttributes
+
+        // Improve visibility of flags with white background
+        let shadow = NSShadow()
+        shadow.shadowOffset = CGSize(width: 1, height: 1)
+        shadow.shadowColor = UIColor(white: 0, alpha: 0.25)
+        attributes[.shadow] = shadow
+
+        // Center icon horizontally (tvOS)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.setParagraphStyle(NSParagraphStyle.default)
+        paragraphStyle.alignment = .center
+        attributes[.paragraphStyle] = paragraphStyle
+
+        flagIconView.attributedText = NSAttributedString(string: country.flagString,
+                                                         attributes: attributes)
 
         // Configure Display State
         switch config.displayState {

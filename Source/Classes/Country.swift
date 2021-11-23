@@ -25,8 +25,8 @@ public struct Country {
     public let dialingCodeWithPlusPrefix: String
     /// `dialingCode` without + sign
     public let dialingCode: String
-    /// The flag icon of the country
-    public let flagIcon: UIImage
+    /// The flag icon as unicode string
+    public let flagString: String
 }
 
 extension Country: Decodable {
@@ -37,10 +37,10 @@ extension Country: Decodable {
     }
 
     public init(from decoder: Decoder) throws {
-        let bundle = ColumbusMain.bundle
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        let isoCountryCode = try container.decode(String.self, forKey: .isoCountryCode)
 
-        isoCountryCode = try container.decode(String.self, forKey: .isoCountryCode)
+        self.isoCountryCode = isoCountryCode
         dialingCodeWithPlusPrefix = try container.decode(String.self, forKey: .dialingCodeWithPlusPrefix)
         dialingCode = dialingCodeWithPlusPrefix.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
 
@@ -49,9 +49,18 @@ extension Country: Decodable {
         }
         name = countryName
 
-        guard let flag = UIImage(named: isoCountryCode.lowercased(), in: bundle, compatibleWith: nil) else {
+        guard let flagString = Self.flagUnicode(isoCountryCode: isoCountryCode, name: countryName) else {
             throw CountryDecodingError.flagIconNotFound
         }
-        flagIcon = flag
+        self.flagString = flagString
+    }
+
+    static func flagUnicode(isoCountryCode: String, name: String) -> String? {
+        let base = UnicodeScalar("🇦").value - UnicodeScalar("A").value
+        var s = ""
+        for v in isoCountryCode.uppercased().unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return String(s)
     }
 }

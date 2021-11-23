@@ -52,7 +52,6 @@ extension CountryList: Decodable {
             }
         }
         self.values = countries
-            .filter { $0.flagIcon.size != .zero }
             .sorted { $1.name > $0.name }
     }
 }
