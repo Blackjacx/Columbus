@@ -48,7 +48,6 @@ extension CountryList: Decodable {
                 countries.append(country)
             } catch {
                 _ = try? container.decode(EmptyDecodable.self) // proceed to next element
-                print(error)
             }
         }
         self.values = countries
