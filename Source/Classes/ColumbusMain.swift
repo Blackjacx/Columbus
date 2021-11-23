@@ -3,7 +3,7 @@
 //  Columbus
 //
 //  Created by Stefan Herold on 22.06.18.
-//  Copyright © 2020 Stefan Herold. All rights reserved.
+//  Copyright © 2021 Stefan Herold. All rights reserved.
 //
 
 import Foundation

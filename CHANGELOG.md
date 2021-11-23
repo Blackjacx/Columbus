@@ -4,6 +4,9 @@
 * Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
 * Inject config directly in ViewController - [@Blackjacx](https://github.com/Blackjacx).
 
+## [1.7.0] - 2021-11-23Z
+* [#37](https://github.com/Blackjacx/Columbus/pull/37): Replace images by emojis - [@Blackjacx](https://github.com/Blackjacx).
+
 ## [1.6.0] - 2021-05-20Z
 * [#34](https://github.com/Blackjacx/Columbus/pull/34): XCFramework Compatibility - [@Blackjacx](https://github.com/Blackjacx).
 * Simplify section index creation - [@Blackjacx](https://github.com/Blackjacx).
