@@ -3,7 +3,7 @@
 //  Columbus
 //
 //  Created by Stefan Herold on 22.06.18.
-//  Copyright © 2020 Stefan Herold. All rights reserved.
+//  Copyright © 2021 Stefan Herold. All rights reserved.
 //
 
 import UIKit
@@ -48,11 +48,9 @@ extension CountryList: Decodable {
                 countries.append(country)
             } catch {
                 _ = try? container.decode(EmptyDecodable.self) // proceed to next element
-                print(error)
             }
         }
         self.values = countries
-            .filter { $0.flagIcon.size != .zero }
             .sorted { $1.name > $0.name }
     }
 }

@@ -23,12 +23,10 @@
 		B94B1AFE21CD38B400FF1B72 /* ColumbusMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789021CD28EC00273F82 /* ColumbusMain.swift */; };
 		B94B1AFF21CD38B400FF1B72 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789121CD28EC00273F82 /* CountryView.swift */; };
 		B96D495D21CD3DC20010E69B /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789721CD28EC00273F82 /* Countries.json */; };
-		B96D495E21CD3DC20010E69B /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789821CD28EC00273F82 /* Flags.xcassets */; };
 		B9A4A65721D0F409001FF5DC /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B96D496221CD3DC20010E69B /* Resources.bundle */; };
 		B9A4A65A21D0FC14001FF5DC /* ColumbusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4A65921D0FC14001FF5DC /* ColumbusTests.swift */; };
 		B9A4A65B21D0FC14001FF5DC /* ColumbusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A4A65921D0FC14001FF5DC /* ColumbusTests.swift */; };
 		B9A4A67321D145EB001FF5DC /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789721CD28EC00273F82 /* Countries.json */; };
-		B9A4A67421D145EB001FF5DC /* Flags.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F8789821CD28EC00273F82 /* Flags.xcassets */; };
 		B9A4A67D21D146A1001FF5DC /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9A4A67821D145EB001FF5DC /* Resources.bundle */; };
 		B9CAAB1425E1BEB4004BA1BF /* EmptyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAAB1325E1BEB4004BA1BF /* EmptyDecodable.swift */; };
 		B9CAAB1525E1BEB4004BA1BF /* EmptyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAAB1325E1BEB4004BA1BF /* EmptyDecodable.swift */; };
@@ -100,7 +98,6 @@
 		B9F8789321CD28EC00273F82 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		B9F8789421CD28EC00273F82 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		B9F8789721CD28EC00273F82 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
-		B9F8789821CD28EC00273F82 /* Flags.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Flags.xcassets; sourceTree = "<group>"; };
 		B9F8789921CD28EC00273F82 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9F8789A21CD28EC00273F82 /* Columbus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Columbus.h; sourceTree = "<group>"; };
 		B9F878AC21CD2A4D00273F82 /* Columbus-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Columbus-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,7 +249,6 @@
 			children = (
 				B9F8793721CD320600273F82 /* Info.plist */,
 				B9F8789721CD28EC00273F82 /* Countries.json */,
-				B9F8789821CD28EC00273F82 /* Flags.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -450,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B96D495D21CD3DC20010E69B /* Countries.json in Resources */,
-				B96D495E21CD3DC20010E69B /* Flags.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +454,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9A4A67321D145EB001FF5DC /* Countries.json in Resources */,
-				B9A4A67421D145EB001FF5DC /* Flags.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
