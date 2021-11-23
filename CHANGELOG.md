@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.0] - 2021-11-23Z
 * [#37](https://github.com/Blackjacx/Columbus/pull/37): Replace images by emojis - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.6.0] - 2021-05-20Z
