@@ -3,7 +3,7 @@
 //  Columbus-iOS
 //
 //  Created by Stefan Herold on 31.01.20.
-//  Copyright © 2020 Stefan Herold. All rights reserved.
+//  Copyright © 2021 Stefan Herold. All rights reserved.
 //
 
 import UIKit
