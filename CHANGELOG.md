@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.3] - 2021-11-24Z
 * [#40](https://github.com/Blackjacx/Columbus/pull/40): Use system font for flags - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.7.2] - 2021-11-24Z
