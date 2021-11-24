@@ -52,6 +52,7 @@ final class CountryView: UIView {
         flagIconView.numberOfLines = 1
         flagIconView.setContentHuggingPriority(.required, for: .horizontal)
         flagIconView.setContentHuggingPriority(.required, for: .vertical)
+        flagIconView.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 
     func setupCountryNameLabel() {
@@ -72,9 +73,7 @@ final class CountryView: UIView {
             hStack.leadingAnchor.constraint(equalTo: leadingAnchor),
             hStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             hStack.topAnchor.constraint(equalTo: topAnchor),
-            hStack.bottomAnchor.constraint(equalTo: bottomAnchor),
-
-            flagIconView.widthAnchor.constraint(equalTo: flagIconView.heightAnchor)
+            hStack.bottomAnchor.constraint(equalTo: bottomAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -107,10 +106,8 @@ final class CountryView: UIView {
 
         // Configure Display State
         switch config.displayState {
-        case .simple:
-            countryCodeLabel.isHidden = true
-        case .countryCodeSelection:
-            countryCodeLabel.isHidden = false
+        case .simple:                   countryCodeLabel.isHidden = true
+        case .countryCodeSelection:     countryCodeLabel.isHidden = false
         }
     }
 }
