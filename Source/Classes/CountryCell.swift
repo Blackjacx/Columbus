@@ -12,8 +12,13 @@ final class CountryCell: UITableViewCell {
 
     static var cellId: String { "\(CountryCell.self)" }
 
-    let countryView = CountryView()
-    var config: Configurable!
+    private let countryView = CountryView()
+    private let separator = UIView()
+    private var config: Configurable!
+
+    private var separatorHeight: NSLayoutConstraint?
+    private var separatorLeading: NSLayoutConstraint?
+    private var separatorTrailing: NSLayoutConstraint?
 
     private func sharedInit() {
         selectedBackgroundView = UIView()
@@ -23,7 +28,8 @@ final class CountryCell: UITableViewCell {
         backgroundView?.layer.masksToBounds = true
 
         setupCountryView()
-        setupLayoutConstraints()
+        setupSeparator()
+        setupAutoLayout()
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -53,7 +59,18 @@ final class CountryCell: UITableViewCell {
         contentView.addSubview(countryView)
     }
 
-    func setupLayoutConstraints() {
+    private func setupSeparator() {
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(separator)
+    }
+
+    func setupAutoLayout() {
+        separatorHeight = separator.heightAnchor.constraint(equalToConstant: 0)
+        separatorHeight?.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).separatorHeight")
+
+        let separatorBottom = separator.bottomAnchor.constraint(equalTo: bottomAnchor)
+        separatorBottom.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).separatorBottom")
+
         let leading = countryView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor)
         leading.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).leading")
 
@@ -66,11 +83,45 @@ final class CountryCell: UITableViewCell {
         let bottom = countryView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
         bottom.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).bottom")
 
-        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+        NSLayoutConstraint.activate([
+            leading,
+            trailing,
+            top,
+            bottom,
+            separatorHeight!,
+            separatorBottom
+        ])
     }
 
     func configure(with country: Country, config: Configurable) {
         self.config = config
         countryView.configure(with: country, config: config)
+
+        //
+        // Separator setup
+        //
+
+        separator.backgroundColor = config.lineColor
+        separatorHeight?.constant = config.lineWidth
+
+        // First deactivate constraints
+        NSLayoutConstraint.deactivate([separatorLeading, separatorTrailing].compactMap { $0 })
+
+        // Now override constraints
+        if let separatorInsets = config.separatorInsets {
+            separatorLeading = separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: separatorInsets.leading)
+            separatorTrailing = separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: separatorInsets.trailing)
+        } else {
+            separatorLeading = separator.leadingAnchor.constraint(equalTo: countryView.leadingTextAnchor)
+            separatorTrailing = separator.trailingAnchor.constraint(equalTo: countryView.trailingTextAnchor)
+        }
+        // Finally activate the correct constraints
+        NSLayoutConstraint.activate([separatorLeading!, separatorTrailing!])
+
+        #if os(iOS)
+        separator.isHidden = false
+        #else
+        separator.isHidden = true
+        #endif
     }
 }
