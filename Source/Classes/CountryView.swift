@@ -10,10 +10,13 @@ import UIKit
 
 final class CountryView: UIView {
 
-    let hStack = UIStackView()
-    let flagIconView = UILabel()
-    let countryNameLabel = UILabel()
-    let countryCodeLabel = UILabel()
+    private (set) lazy var leadingTextAnchor: NSLayoutXAxisAnchor = countryNameLabel.leadingAnchor
+    private (set) lazy var trailingTextAnchor: NSLayoutXAxisAnchor = countryCodeLabel.trailingAnchor
+
+    private let hStack = UIStackView()
+    private let flagIconView = UILabel()
+    private let countryNameLabel = UILabel()
+    private let countryCodeLabel = UILabel()
 
     var country: Country!
     var config: Configurable!
@@ -23,7 +26,7 @@ final class CountryView: UIView {
         setupFlagIconView()
         setupCountryNameLabel()
         setupCountryCodeLabel()
-        setupViewLayoutConstraints()
+        setupAutoLayout()
     }
 
     override init(frame: CGRect) {
@@ -64,7 +67,7 @@ final class CountryView: UIView {
         countryCodeLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
-    func setupViewLayoutConstraints() {
+    func setupAutoLayout() {
         let constraints: [NSLayoutConstraint] = [
             hStack.leadingAnchor.constraint(equalTo: leadingAnchor),
             hStack.trailingAnchor.constraint(equalTo: trailingAnchor),

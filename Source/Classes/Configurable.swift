@@ -17,7 +17,7 @@ public protocol Configurable {
     var lineWidth: CGFloat { get }
     var rasterSize: CGFloat { get }
     var backgroundColor: UIColor { get }
-    var separatorInsets: UIEdgeInsets { get }
+    var separatorInsets: NSDirectionalEdgeInsets? { get }
     var controlColor: UIColor { get }
     var searchBarAttributedPlaceholder: NSAttributedString { get }
 }
