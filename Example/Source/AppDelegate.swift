@@ -62,9 +62,7 @@ struct CountryPickerConfig: Configurable {
     var lineColor: UIColor = .line
     var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     var rasterSize: CGFloat = 10.0
-    var separatorInsets: UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: rasterSize * 4.7, bottom: 0, right: rasterSize * 2.5)
-    }
+    var separatorInsets: NSDirectionalEdgeInsets? { .zero }
     let searchBarAttributedPlaceholder: NSAttributedString = {
         NSAttributedString(string: "Search",
                            attributes: [

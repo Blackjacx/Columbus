@@ -122,7 +122,7 @@ public final class CountryPickerViewController: UIViewController {
         #if os(iOS)
         setupSearchbar()
         #endif
-        setupLayoutConstraints()
+        setupAutoLayout()
 
         reloadData()
         displaySelectedCountry()
@@ -187,7 +187,7 @@ public final class CountryPickerViewController: UIViewController {
         view.addSubview(searchbar)
     }
 
-    private func setupLayoutConstraints() {
+    private func setupAutoLayout() {
 
         var constraints: [NSLayoutConstraint] = []
 
@@ -422,7 +422,7 @@ extension CountryPickerViewController: UITableViewDelegate {
 
         #if os(iOS)
         // setting seperator inset
-        cell.separatorInset = config.separatorInsets
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         #endif
     }
 }
