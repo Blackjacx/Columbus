@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.1] - 2021-11-24Z
 * [#38](https://github.com/Blackjacx/Columbus/pull/38): Fix Separator Alignment - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.7.0] - 2021-11-23
