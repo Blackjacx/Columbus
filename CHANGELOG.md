@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#40](https://github.com/Blackjacx/Columbus/pull/40): Use system font for flags - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.7.2] - 2021-11-24Z
 * [#39](https://github.com/Blackjacx/Columbus/pull/39): Fix Icon Truncation - [@Blackjacx](https://github.com/Blackjacx).
