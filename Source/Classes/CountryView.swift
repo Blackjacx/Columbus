@@ -101,6 +101,10 @@ final class CountryView: UIView {
         paragraphStyle.alignment = .center
         attributes[.paragraphStyle] = paragraphStyle
 
+        // Ensure a system font is used for the emojis so they are not
+        // truncated or rendered in a weird way
+        attributes[.font] = UIFont.preferredFont(forTextStyle: .body)
+
         flagIconView.attributedText = NSAttributedString(string: country.flagString,
                                                          attributes: attributes)
 
