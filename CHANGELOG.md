@@ -4,10 +4,13 @@
 * Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
 * Inject config directly in ViewController - [@Blackjacx](https://github.com/Blackjacx).
 
-## [1.7.3] - 2021-11-24Z
+## [1.7.4] - 2021-11-29Z
+* [#42](https://github.com/Blackjacx/Columbus/pull/42): Add horizontal hugging prio to code label - [@Blackjacx](https://github.com/Blackjacx).
+
+## [1.7.3] - 2021-11-24
 * [#40](https://github.com/Blackjacx/Columbus/pull/40): Use system font for flags - [@Blackjacx](https://github.com/Blackjacx).
 
-## [1.7.2] - 2021-11-24Z
+## [1.7.2] - 2021-11-24
 * [#39](https://github.com/Blackjacx/Columbus/pull/39): Fix Icon Truncation - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.7.1] - 2021-11-24
