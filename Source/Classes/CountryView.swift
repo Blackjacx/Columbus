@@ -48,7 +48,6 @@ final class CountryView: UIView {
     }
 
     func setupFlagIconView() {
-        flagIconView.adjustsFontForContentSizeCategory = true
         flagIconView.numberOfLines = 1
         flagIconView.setContentHuggingPriority(.required, for: .horizontal)
         flagIconView.setContentHuggingPriority(.required, for: .vertical)
@@ -56,16 +55,11 @@ final class CountryView: UIView {
     }
 
     func setupCountryNameLabel() {
-        countryNameLabel.textAlignment = .left
-        countryNameLabel.adjustsFontForContentSizeCategory = true
-        countryNameLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     private func setupCountryCodeLabel() {
-        countryCodeLabel.textAlignment = .right
-        countryCodeLabel.adjustsFontForContentSizeCategory = true
         countryCodeLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        countryCodeLabel.setContentHuggingPriority(.required, for: .vertical)
+        countryCodeLabel.setContentHuggingPriority(.required, for: .horizontal)
     }
 
     func setupAutoLayout() {
@@ -80,38 +74,58 @@ final class CountryView: UIView {
 
     func configure(with country: Country, config: Configurable) {
 
-        countryNameLabel.attributedText = NSAttributedString(string: country.name,
-                                                             attributes: config.textAttributes)
-        countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix,
-                                                             attributes: config.textAttributes)
-
         hStack.spacing = config.rasterSize
 
-        var attributes = config.textAttributes
+        countryNameLabel.attributedText = NSAttributedString(string: country.name,
+                                                             attributes: config.textAttributes)
 
-        // Improve visibility of flags with white background
-        let shadow = NSShadow()
-        shadow.shadowOffset = CGSize(width: 1, height: 1)
-        shadow.shadowColor = UIColor(white: 0, alpha: 0.25)
-        attributes[.shadow] = shadow
+        let countryCodeAttributes = updatedAttributes(attributes: config.textAttributes,
+                                                      alignment: .right)
+        countryCodeLabel.attributedText = NSAttributedString(string: country.dialingCodeWithPlusPrefix,
+                                                             attributes: countryCodeAttributes)
 
-        // Center icon horizontally (tvOS)
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.setParagraphStyle(NSParagraphStyle.default)
-        paragraphStyle.alignment = .center
-        attributes[.paragraphStyle] = paragraphStyle
-
-        // Ensure a system font is used for the emojis so they are not
-        // truncated or rendered in a weird way
-        attributes[.font] = UIFont.preferredFont(forTextStyle: .body)
+        let flagIconAttributes = updatedAttributes(attributes: config.textAttributes,
+                                                   // Ensure a system font is used for the emojis so they are not
+                                                   // truncated or rendered in a weird way
+                                                   font: UIFont.preferredFont(forTextStyle: .body),
+                                                   // Center icon horizontally (tvOS)
+                                                   alignment: .center,
+                                                   // Improve visibility of flags with white background
+                                                   shadow: NSShadow())
 
         flagIconView.attributedText = NSAttributedString(string: country.flagString,
-                                                         attributes: attributes)
+                                                         attributes: flagIconAttributes)
 
         // Configure Display State
         switch config.displayState {
         case .simple:                   countryCodeLabel.isHidden = true
         case .countryCodeSelection:     countryCodeLabel.isHidden = false
         }
+    }
+
+    private func updatedAttributes(attributes: [NSAttributedString.Key: Any],
+                                   font: UIFont? = nil,
+                                   alignment: NSTextAlignment? = nil,
+                                   shadow: NSShadow? = nil) -> [NSAttributedString.Key: Any] {
+        var attributes = attributes
+
+        if let font = font {
+            attributes[.font] = font
+        }
+
+        if let alignment = alignment {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.setParagraphStyle(NSParagraphStyle.default)
+            paragraphStyle.alignment = alignment
+            attributes[.paragraphStyle] = paragraphStyle
+        }
+
+        if let shadow = shadow {
+            shadow.shadowOffset = CGSize(width: 1, height: 1)
+            shadow.shadowColor = UIColor(white: 0, alpha: 0.25)
+            attributes[.shadow] = shadow
+        }
+
+        return attributes
     }
 }
