@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.4] - 2021-11-29Z
 * [#42](https://github.com/Blackjacx/Columbus/pull/42): Add horizontal hugging prio to code label - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.7.3] - 2021-11-24
