@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.5] - 2022-02-01Z
 * Remove SwiftLint Build Phase (b5c98ca055a1e577dd910b9f6fc2aac9e6a2ce5c) - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.7.4] - 2021-11-29Z
