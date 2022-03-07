@@ -11,7 +11,6 @@ import UIKit
 public protocol Configurable {
     var displayState: CountryPickerViewController.DisplayState { get }
     var textAttributes: [NSAttributedString.Key: Any] { get }
-    var textFieldBackgroundColor: UIColor { get }
     var selectionColor: UIColor { get }
     var lineColor: UIColor { get }
     var lineWidth: CGFloat { get }

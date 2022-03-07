@@ -25,19 +25,20 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         #if os(iOS)
-        if #available(iOS 13.0, *) {
-            let storyboard = UIStoryboard(name: "CountryPickerStoryboard", bundle: nil)
-            countryPicker = storyboard.instantiateViewController(identifier: "picker") { (coder) -> CountryPickerViewController? in
-                CountryPickerViewController(coder: coder, config: config, initialCountryCode: "DE") { (country) in
-                    print("Storyboard: \(country)")
-                }
+        let storyboard = UIStoryboard(name: "CountryPickerStoryboard", bundle: nil)
+        countryPicker = storyboard.instantiateViewController(identifier: "picker") { (coder) -> CountryPickerViewController? in
+            CountryPickerViewController(coder: coder, config: config, initialCountryCode: "DE") { (country) in
+                print("Storyboard: \(country)")
             }
-        } else {
-            // Fallback on earlier versions
         }
         #endif
 
-        window?.rootViewController = countryPicker
+        let navigationController = UINavigationController(rootViewController: countryPicker)
+        navigationController.navigationBar.prefersLargeTitles = true
+        countryPicker.useLargeTitles(true)
+        countryPicker.title = "Country Picker"
+
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }
@@ -55,7 +56,6 @@ struct CountryPickerConfig: Configurable {
             .font: UIFont.preferredFont(forTextStyle: .body)
         ]
     }
-    var textFieldBackgroundColor: UIColor = .textFieldBackground
     var backgroundColor: UIColor = .background
     var selectionColor: UIColor = .selection
     var controlColor: UIColor = UIColor(red: 1.0 / 255.0, green: 192.0 / 255.0, blue: 1, alpha: 1)

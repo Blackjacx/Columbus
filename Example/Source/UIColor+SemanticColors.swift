@@ -9,67 +9,21 @@
 import UIKit
 
 extension UIColor {
+    static let text: UIColor = .label
+    static let line: UIColor = .separator
+    static let placeholder: UIColor = .placeholderText
 
-    static let background: UIColor = {
-        if #available(iOS 13, *) {
-            return UIColor(dynamicProvider: { (traits) in
-                switch traits.userInterfaceStyle {
-                case (.dark):   return UIColor(white: 0.1, alpha: 1)
-                default:        return .white
-                }
-            })
-        } else {
-            return .white
+    static let background: UIColor = UIColor(dynamicProvider: { (traits) in
+        switch traits.userInterfaceStyle {
+        case (.dark):   return UIColor(white: 0.1, alpha: 1)
+        default:        return .white
         }
-    }()
+    })
 
-    static let text: UIColor = {
-        if #available(iOS 13, *) {
-            return .label
-        } else {
-            return .systemGray
+    static let selection: UIColor = UIColor(dynamicProvider: { (traits) in
+        switch traits.userInterfaceStyle {
+        case (.dark):   return .darkGray
+        default:        return UIColor(white: 0.9, alpha: 1.0)
         }
-    }()
-
-    static let textFieldBackground: UIColor = {
-        if #available(iOS 13, *) {
-            return UIColor(dynamicProvider: { (traits) in
-                switch traits.userInterfaceStyle {
-                case (.dark):   return UIColor(white: 0, alpha: 0.3)
-                default:        return UIColor(white: 0, alpha: 0.1)
-                }
-            })
-        } else {
-            return UIColor(white: 0, alpha: 0.1)
-        }
-    }()
-
-    static let line: UIColor = {
-        if #available(iOS 13, *) {
-            return .separator
-        } else {
-            return .lightGray
-        }
-    }()
-
-    static let placeholder: UIColor = {
-        if #available(iOS 13, *) {
-            return .placeholderText
-        } else {
-            return .systemGray
-        }
-    }()
-
-    static let selection: UIColor = {
-        if #available(iOS 13, *) {
-            return UIColor(dynamicProvider: { (traits) in
-                switch traits.userInterfaceStyle {
-                case (.dark):   return .darkGray
-                default:        return UIColor(white: 0.9, alpha: 1.0)
-                }
-            })
-        } else {
-            return UIColor(white: 0.9, alpha: 1.0)
-        }
-    }()
+    })
 }

@@ -135,6 +135,11 @@ Filtering|Index bar|History|Localization|Theming
 
 [Stefan Herold](mailto:stefan.herold@gmail.com) • 🐦 [@Blackjacxxx](https://twitter.com/Blackjacxxx)
 
+## Links
+
+- [Modifying UISearchBar Cancel button font text color and style](https://stackoverflow.com/questions/11572372/modifying-uisearchbar-cancel-button-font-text-color-and-style)
+- [Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
+
 ## License
 
 Columbus is available under the MIT license. See the [LICENSE](LICENSE) file for more info.

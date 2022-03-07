@@ -13,7 +13,7 @@ import CoreTelephony
 #endif
 
 /// The CountryPickerViewController class uses a UITableView to display
-/// country names, flags and dialling codes. It is used to pick a country.
+/// country names, flags and dialing codes. It is used to pick a country.
 public final class CountryPickerViewController: UIViewController {
 
     public typealias DidSelectCountry = (_ country: Country) -> Void
@@ -26,7 +26,7 @@ public final class CountryPickerViewController: UIViewController {
     /// The list of data displayed when the user enters a search term
     var filteredItems = CountryList()
     /// Returns all items or filtered items if filtering is currently active
-    var items: CountryList { searchbar.isFiltering ? filteredItems : Self.countries }
+    var items: CountryList { isFiltering ? filteredItems : Self.countries }
     /// The data source for the section indexing
     var itemsForSectionTitle = [String: [Country]]()
     /// The section index title cache
@@ -35,10 +35,8 @@ public final class CountryPickerViewController: UIViewController {
     let didSelectClosure: DidSelectCountry
     /// The currently picked iso country code
     let selectedCountryCode: String
-    /// The search bar to search for countries
-    let searchbar: CustomSearchBar
-    /// Offset before search started, so it can be set again afterwards.
-    var scrollOffsetPriorSearch = CGPoint.zero
+    /// The controller managing the search bar placed in the navigation item
+    let searchController = UISearchController(searchResultsController: nil)
     /// The tableview that displays the countries
     let table = UITableView(frame: .zero, style: .plain)
     /// Constrains the bottom margin of the tableview to screen or keyboard
@@ -71,7 +69,6 @@ public final class CountryPickerViewController: UIViewController {
                 initialCountryCode: String,
                 didSelectClosure: @escaping DidSelectCountry) {
         self.config = config
-        self.searchbar = CustomSearchBar(config: config)
         self.selectedCountryCode = initialCountryCode
         self.didSelectClosure = didSelectClosure
         super.init(nibName: nil, bundle: nil)
@@ -82,7 +79,6 @@ public final class CountryPickerViewController: UIViewController {
                  initialCountryCode: String,
                  didSelectClosure: @escaping DidSelectCountry) {
         self.config = config
-        self.searchbar = CustomSearchBar(config: config)
         self.selectedCountryCode = initialCountryCode
         self.didSelectClosure = didSelectClosure
         super.init(coder: aDecoder)
@@ -120,13 +116,36 @@ public final class CountryPickerViewController: UIViewController {
 
         setupTable()
         #if os(iOS)
-        setupSearchbar()
+        setupSearchBar()
         #endif
         setupAutoLayout()
 
         reloadData()
         displaySelectedCountry()
         setupObserver()
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Font change here is needed since UISearchController seems a bit
+        // broken. Setting that in viewDidLoad doesn't have any effect...
+        //
+        // Don't move that to viewDidAppear to not produce a visible change.
+        #if os(iOS)
+        searchController.searchBar.searchTextField.attributedPlaceholder = config.searchBarAttributedPlaceholder
+        searchController.searchBar.searchTextField.typingAttributes = config.textAttributes
+        searchController.searchBar.searchTextField.defaultTextAttributes = config.textAttributes
+        #endif
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        #if os(iOS)
+        // https://stackoverflow.com/a/59996504/971329
+        searchController.isActive = true
+        #endif
     }
 
     private func setupObserver() {
@@ -169,22 +188,22 @@ public final class CountryPickerViewController: UIViewController {
         view.addSubview(table)
     }
 
-    private func setupSearchbar() {
+    private func setupSearchBar() {
 
-        searchbar.translatesAutoresizingMaskIntoConstraints = false
-        searchbar.delegate = self
-        searchbar.tintColor = config.controlColor
-        searchbar.backgroundColor = config.backgroundColor
-        searchbar.textField.returnKeyType = .done
-        searchbar.textAttributes = config.textAttributes
-        searchbar.placeholder = config.searchBarAttributedPlaceholder
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.automaticallyShowsCancelButton = false
 
-        let textField = searchbar.textField
-        textField.tintColor = config.controlColor
-        textField.textColor = searchbar.tintColor
-        textField.backgroundColor = config.textFieldBackgroundColor
+        searchController.searchBar.tintColor = config.controlColor
 
-        view.addSubview(searchbar)
+        searchController.searchBar.searchTextField.textDragInteraction?.isEnabled = false
+        searchController.searchBar.searchTextField.returnKeyType = .done
+        searchController.searchBar.searchTextField.tintColor = config.controlColor
+        searchController.searchBar.searchTextField.textColor = config.controlColor
+        searchController.searchBar.searchTextField.delegate = self
+
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
 
     private func setupAutoLayout() {
@@ -203,33 +222,19 @@ public final class CountryPickerViewController: UIViewController {
         tableTrailing.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.trailing")
         constraints.append(tableTrailing)
 
-        #if os(iOS)
-
-        let searchbarTop = searchbar.topAnchor.constraint(equalTo: view.topAnchor)
-        searchbarTop.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).searchbar.top")
-        constraints.append(searchbarTop)
-
-        let searchbarLeading = searchbar.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        searchbarLeading.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).searchbar.leading")
-        constraints.append(searchbarLeading)
-
-        let searchbarTrailing = searchbar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        searchbarTrailing.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).searchbar.trailing")
-        constraints.append(searchbarTrailing)
-
-        let tableTop = table.topAnchor.constraint(equalTo: searchbar.bottomAnchor)
-        tableTop.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.top")
-        constraints.append(tableTop)
-
-        #else
-
         let tableTop = table.topAnchor.constraint(equalTo: view.topAnchor)
         tableTop.identifier = ColumbusMain.layoutConstraintId("\(type(of: self)).tableView.top")
         constraints.append(tableTop)
 
-        #endif
-
         NSLayoutConstraint.activate(constraints)
+    }
+
+    // MARK: - Large Titles
+    public func useLargeTitles(_ isOn: Bool) {
+        #if os(iOS)
+        searchController.hidesNavigationBarDuringPresentation = isOn ? true : false
+        #endif
+        navigationItem.largeTitleDisplayMode = isOn ? .always : .never
     }
 
     // MARK: - Country Handling
@@ -253,14 +258,14 @@ public final class CountryPickerViewController: UIViewController {
         // Core Telephony Approach
 
         #if os(iOS) && !targetEnvironment(simulator)
-        if
-            let isoCountryCode = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode,
-            let country = (countries.first { $0.isoCountryCode.compare(isoCountryCode, options: .caseInsensitive) == .orderedSame }) {
+        if let carriers = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders?.map(\.value),
+           let firstIsoCountryCode = carriers.compactMap(\.isoCountryCode).first?.uppercased(),
+           let country = (countries.first { $0.isoCountryCode.compare(firstIsoCountryCode, options: .caseInsensitive) == .orderedSame }) {
             return country
         }
         #endif
 
-        // Fallback  to US
+        // Fallback to United States
 
         return countries.first { $0.isoCountryCode.compare("US", options: .caseInsensitive) == .orderedSame }!
     }
@@ -278,12 +283,24 @@ public final class CountryPickerViewController: UIViewController {
 
     // MARK: - Filtering
 
-    func filterContentForSearchText(_ searchText: String) {
+    /// Returns `true` if search controller is active and query is non-empty
+    var isFiltering: Bool {
+        searchController.isActive && searchController.searchBar.text?.isEmpty == false
+    }
+
+    func filterContentForSearchText(_ searchText: String?) {
+        defer {
+            reloadData()
+        }
+        guard let query = searchText?.lowercased(), !query.isEmpty else {
+            filteredItems = Self.countries
+            return
+        }
         let filteredByName = Self.countries.filter {
-            $0.name.lowercased().contains(searchText.lowercased())
+            $0.name.lowercased().contains(query)
         }
         let filteredByDialingCode = Self.countries.filter {
-            "+\($0.dialingCode)".contains(searchText)
+            "+\($0.dialingCode)".contains(query)
         }
 
         if !filteredByName.isEmpty {
@@ -291,7 +308,6 @@ public final class CountryPickerViewController: UIViewController {
         } else {
             filteredItems = CountryList(values: filteredByDialingCode)
         }
-        reloadData()
     }
 
     // MARK: Section Indices
@@ -316,13 +332,11 @@ public final class CountryPickerViewController: UIViewController {
     func displaySelectedCountry() {
 
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) { [weak self] in
-            guard
-                let key = (self?.itemsForSectionTitle.first { $0.value.contains { $0.isoCountryCode == self?.selectedCountryCode } }?.key),
-                let section = (self?.sectionTitles.firstIndex { $0 == key }),
-                let row = (self?.itemsForSectionTitle[key]?.firstIndex { $0.isoCountryCode == self?.selectedCountryCode }) else {
-
-                    return
-            }
+            guard let key = (self?.itemsForSectionTitle.first { $0.value.contains { $0.isoCountryCode == self?.selectedCountryCode } }?.key),
+                  let section = (self?.sectionTitles.firstIndex { $0 == key }),
+                  let row = (self?.itemsForSectionTitle[key]?.firstIndex { $0.isoCountryCode == self?.selectedCountryCode }) else {
+                      return
+                  }
 
             let indexPath = IndexPath(row: row, section: section)
 
@@ -340,28 +354,6 @@ public final class CountryPickerViewController: UIViewController {
                 #endif
             }
         }
-    }
-}
-
-extension CountryPickerViewController: CustomSearchBarDelegate {
-
-    func searchBarTextDidChange(_ searchBar: CustomSearchBar, newText: String) {
-        filterContentForSearchText(newText)
-    }
-
-    func searchBarTextDidBeginEditing(_ searchBar: CustomSearchBar) {
-        scrollOffsetPriorSearch = table.contentOffset
-//        searchBar.setShowsCancelButton(true, animated: true)
-    }
-
-    func searchBarTextDidEndEditing(_ searchBar: CustomSearchBar) {
-        // Schedule re-setting contentOffset when table view finished reloading
-        // https://stackoverflow.com/a/16071589/971329
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.table.setContentOffset(self.scrollOffsetPriorSearch, animated: true)
-        }
-//        searchBar.setShowsCancelButton(false, animated: true)
     }
 }
 
@@ -418,11 +410,34 @@ extension CountryPickerViewController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-        // Adjusting the seperator insets: http://stackoverflow.com/a/39005773/971329
+        // Adjusting the separator insets: http://stackoverflow.com/a/39005773/971329
 
         #if os(iOS)
-        // setting seperator inset
+        // setting separator inset
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         #endif
+    }
+}
+
+extension CountryPickerViewController: UISearchResultsUpdating {
+    public func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text)
+    }
+}
+
+// https://stackoverflow.com/a/59996504/971329
+extension CountryPickerViewController: UISearchControllerDelegate {
+    public func presentSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async { [weak self] in
+            self?.searchController.searchBar.becomeFirstResponder()
+        }
+    }
+}
+
+// https://stackoverflow.com/a/59996504/971329
+extension CountryPickerViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchController.isActive = false
+        return true
     }
 }
