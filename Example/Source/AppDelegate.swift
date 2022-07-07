@@ -3,7 +3,7 @@
 //  Columbus_iOS_Example
 //
 //  Created by Stefan Herold on 23.06.18.
-//  Copyright © 2021 Stefan Herold. All rights reserved.
+//  Copyright © 2022 Stefan Herold. All rights reserved.
 //
 
 import UIKit
@@ -25,19 +25,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         #if os(iOS)
-        if #available(iOS 13.0, *) {
-            let storyboard = UIStoryboard(name: "CountryPickerStoryboard", bundle: nil)
-            countryPicker = storyboard.instantiateViewController(identifier: "picker") { (coder) -> CountryPickerViewController? in
-                CountryPickerViewController(coder: coder, config: config, initialCountryCode: "DE") { (country) in
-                    print("Storyboard: \(country)")
-                }
+        let storyboard = UIStoryboard(name: "CountryPickerStoryboard", bundle: nil)
+        countryPicker = storyboard.instantiateViewController(identifier: "picker") { (coder) -> CountryPickerViewController? in
+            CountryPickerViewController(coder: coder, config: config, initialCountryCode: "DE") { (country) in
+                print("Storyboard: \(country)")
             }
-        } else {
-            // Fallback on earlier versions
         }
         #endif
 
-        window?.rootViewController = countryPicker
+        let navigationController = UINavigationController(rootViewController: countryPicker)
+        #if os(iOS)
+        navigationController.navigationBar.prefersLargeTitles = true
+        countryPicker.useLargeTitles(true)
+        #endif
+        countryPicker.title = "Country Picker"
+
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }
@@ -55,7 +58,6 @@ struct CountryPickerConfig: Configurable {
             .font: UIFont.preferredFont(forTextStyle: .body)
         ]
     }
-    var textFieldBackgroundColor: UIColor = .textFieldBackground
     var backgroundColor: UIColor = .background
     var selectionColor: UIColor = .selection
     var controlColor: UIColor = UIColor(red: 1.0 / 255.0, green: 192.0 / 255.0, blue: 1, alpha: 1)

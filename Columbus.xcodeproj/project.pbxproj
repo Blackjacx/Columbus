@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,10 +11,6 @@
 		B905891E230233BC00491105 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905891C230233B800491105 /* UIView+Subviews.swift */; };
 		B933818725CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B933818625CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift */; };
 		B933818825CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B933818625CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift */; };
-		B933820425CDE65900618FFD /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B933820325CDE65900618FFD /* CustomTextField.swift */; };
-		B933820525CDE65900618FFD /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B933820325CDE65900618FFD /* CustomTextField.swift */; };
-		B93D76DD23E4691300E41863 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D76DC23E4691300E41863 /* CustomSearchBar.swift */; };
-		B93D76E723E4A66600E41863 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D76DC23E4691300E41863 /* CustomSearchBar.swift */; };
 		B94B1AF921CD38B400FF1B72 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788F21CD28EC00273F82 /* Country.swift */; };
 		B94B1AFA21CD38B400FF1B72 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8788E21CD28EC00273F82 /* CountryList.swift */; };
 		B94B1AFB21CD38B400FF1B72 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8789421CD28EC00273F82 /* Configurable.swift */; };
@@ -75,8 +71,6 @@
 /* Begin PBXFileReference section */
 		B905891C230233B800491105 /* UIView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		B933818625CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryPickerViewController+DisplayState.swift"; sourceTree = "<group>"; };
-		B933820325CDE65900618FFD /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		B93D76DC23E4691300E41863 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		B94B1B0621CD38B400FF1B72 /* Columbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Columbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96D496221CD3DC20010E69B /* Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A4A65921D0FC14001FF5DC /* ColumbusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumbusTests.swift; sourceTree = "<group>"; };
@@ -237,8 +231,6 @@
 				B9F8789221CD28EC00273F82 /* CountryPickerViewController.swift */,
 				B933818625CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift */,
 				B9F8789121CD28EC00273F82 /* CountryView.swift */,
-				B93D76DC23E4691300E41863 /* CustomSearchBar.swift */,
-				B933820325CDE65900618FFD /* CustomTextField.swift */,
 				B905891C230233B800491105 /* UIView+Subviews.swift */,
 			);
 			path = Classes;
@@ -408,7 +400,7 @@
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Columbus" */;
-			compatibilityVersion = "Xcode 12.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -486,13 +478,11 @@
 			files = (
 				B94B1AF921CD38B400FF1B72 /* Country.swift in Sources */,
 				B9CAAB1525E1BEB4004BA1BF /* EmptyDecodable.swift in Sources */,
-				B933820525CDE65900618FFD /* CustomTextField.swift in Sources */,
 				B94B1AFA21CD38B400FF1B72 /* CountryList.swift in Sources */,
 				B94B1AFB21CD38B400FF1B72 /* Configurable.swift in Sources */,
 				B94B1AFC21CD38B400FF1B72 /* CountryCell.swift in Sources */,
 				B905891E230233BC00491105 /* UIView+Subviews.swift in Sources */,
 				B933818825CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift in Sources */,
-				B93D76E723E4A66600E41863 /* CustomSearchBar.swift in Sources */,
 				B94B1AFD21CD38B400FF1B72 /* CountryPickerViewController.swift in Sources */,
 				B94B1AFE21CD38B400FF1B72 /* ColumbusMain.swift in Sources */,
 				B94B1AFF21CD38B400FF1B72 /* CountryView.swift in Sources */,
@@ -527,13 +517,11 @@
 			files = (
 				B9F8789D21CD28EC00273F82 /* Country.swift in Sources */,
 				B9CAAB1425E1BEB4004BA1BF /* EmptyDecodable.swift in Sources */,
-				B933820425CDE65900618FFD /* CustomTextField.swift in Sources */,
 				B9F8789C21CD28EC00273F82 /* CountryList.swift in Sources */,
 				B9F878A221CD28EC00273F82 /* Configurable.swift in Sources */,
 				B9F878A121CD28EC00273F82 /* CountryCell.swift in Sources */,
 				B905891D230233B800491105 /* UIView+Subviews.swift in Sources */,
 				B933818725CDD4F200618FFD /* CountryPickerViewController+DisplayState.swift in Sources */,
-				B93D76DD23E4691300E41863 /* CustomSearchBar.swift in Sources */,
 				B9F878A021CD28EC00273F82 /* CountryPickerViewController.swift in Sources */,
 				B9F8789E21CD28EC00273F82 /* ColumbusMain.swift in Sources */,
 				B9F8789F21CD28EC00273F82 /* CountryView.swift in Sources */,
@@ -623,11 +611,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
@@ -673,11 +661,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 11.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -692,11 +680,11 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 32;
+				DYLIB_CURRENT_VERSION = 33;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Source/Info.plist;
@@ -731,10 +719,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 32;
+				DYLIB_CURRENT_VERSION = 33;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Source/Info.plist;
@@ -909,11 +897,11 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 32;
+				DYLIB_CURRENT_VERSION = 33;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Source/Info.plist;
@@ -949,10 +937,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 32;
+				DYLIB_CURRENT_VERSION = 33;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Source/Info.plist;

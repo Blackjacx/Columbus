@@ -4,6 +4,10 @@
 * Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
 * Inject config directly in ViewController - [@Blackjacx](https://github.com/Blackjacx).
 
+## [1.7.6] - 2022-07-07Z
+
+* [#43](https://github.com/Blackjacx/Columbus/pull/43): Enable Large Titles - [@Blackjacx](https://github.com/Blackjacx).
+
 ## [1.7.5] - 2022-02-01Z
 * Remove SwiftLint Build Phase (b5c98ca055a1e577dd910b9f6fc2aac9e6a2ce5c) - [@Blackjacx](https://github.com/Blackjacx).
 

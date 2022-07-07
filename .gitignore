@@ -29,6 +29,8 @@ Gemfile
 .bundle
 # Bundler vendor information which is bootstrapped
 vendor
+# Documentation script - loaded via https://raw.githubusercontent.com/Blackjacx/Scripts/master/frameworks/bootstrap.sh
+scripts/make-docc-documentation.sh
 
 ## Build generated
 build/
