@@ -34,8 +34,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
 
         let navigationController = UINavigationController(rootViewController: countryPicker)
+        #if os(iOS)
         navigationController.navigationBar.prefersLargeTitles = true
         countryPicker.useLargeTitles(true)
+        #endif
         countryPicker.title = "Country Picker"
 
         window?.rootViewController = navigationController

@@ -189,12 +189,13 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func setupSearchBar() {
-
+        #if os(iOS)
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         searchController.automaticallyShowsCancelButton = false
 
         searchController.searchBar.tintColor = config.controlColor
+
 
         searchController.searchBar.searchTextField.textDragInteraction?.isEnabled = false
         searchController.searchBar.searchTextField.returnKeyType = .done
@@ -204,6 +205,7 @@ public final class CountryPickerViewController: UIViewController {
 
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
+        #endif
     }
 
     private func setupAutoLayout() {
@@ -233,8 +235,8 @@ public final class CountryPickerViewController: UIViewController {
     public func useLargeTitles(_ isOn: Bool) {
         #if os(iOS)
         searchController.hidesNavigationBarDuringPresentation = isOn ? true : false
-        #endif
         navigationItem.largeTitleDisplayMode = isOn ? .always : .never
+        #endif
     }
 
     // MARK: - Country Handling
