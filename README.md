@@ -1,19 +1,17 @@
 # Columbus
 
+<!-- [![Test](https://github.com/Blackjacx/Columbus/actions/workflows/test.yml/badge.svg)](https://github.com/Blackjacx/Columbus/actions/workflows/test.yml) -->
+[![Version]("https://img.shields.io/github/release/blackjacx/Columbus.svg")](https://github.com/Blackjacx/Columbus/releases)
+<!-- [![Swift Package Manager Compatible](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/) -->
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FBlackjacx%2FColumbus%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/Blackjacx/Columbus)
+[![Swift Versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FBlackjacx%2FColumbus%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/Blackjacx/Columbus)
+[![iOS 13+](https://img.shields.io/badge/iOS-13.0%2B-blue.svg)](https://developer.apple.com/download/)
+[![Xcode 13+](https://img.shields.io/badge/Xcode-13%2B-blue.svg)](https://developer.apple.com/download/)
+[![Codebeat](https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18)](https://codebeat.co/projects/github-com-blackjacx-columbus-develop)
+[![License](https://img.shields.io/github/license/blackjacx/columbus.svg)](https://github.com/blackjacx/columbus/blob/main/LICENSE)
 [![Twitter](https://img.shields.io/twitter/follow/blackjacxxx?label=%40Blackjacxxx)](https://twitter.com/blackjacx)
-<a href="https://github.com/Blackjacx/columbus/actions?query=workflow%3ACI"><img alt="CI status" src="https://github.com/blackjacx/columbus/workflows/CI/badge.svg" /></a>
-<img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
-<img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
-<img alt="Xcode 13+" src="https://img.shields.io/badge/Xcode-13%2B-blue.svg"/>
-<img alt="iOS 13.0+" src="https://img.shields.io/badge/iOS-13.0%2B-blue.svg"/>
-<img alt="Swift 5.5+" src="https://img.shields.io/badge/Swift-5.5%2B-orange.svg"/>
-<img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
-<img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
-<img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
-<a href="https://github.com/Carthage/Carthage"><img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat"/></a>
-<a href="https://github.com/Blackjacx/Columbus/blob/develop/LICENSE?raw=true"><img alt="License" src="https://img.shields.io/cocoapods/l/Columbus.svg?style=flat"/></a>
-<a href="https://codebeat.co/projects/github-com-blackjacx-columbus-develop"><img alt="codebeat badge" src="https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18" /></a>  
-<a href="https://www.paypal.me/STHEROLD"><img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg"/></a>
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/STHEROLD)
 
 A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. 
 
@@ -25,6 +23,10 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 - Theme support to easily fit to your design
 - Storyboard support
 - Select a country from the history of selected countries - `still in progress`
+
+## Code Documentation
+
+Find the statically generated code documentation [here](https://blackjacx.github.io/Columbus/documentation/columbus/) (powered by [DocC](https://developer.apple.com/documentation/docc))
 
 ## Installation
 
