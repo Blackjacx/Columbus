@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.7.6] - 2022-07-07Z
+
 * [#43](https://github.com/Blackjacx/Columbus/pull/43): Enable Large Titles - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.7.5] - 2022-02-01Z
