@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
     s.source_files = 'Source/Classes/**/*'
     s.swift_versions = ['5.4']
 
-    s.ios.deployment_target = '11.0'
-    s.tvos.deployment_target = '11.0'
+    s.ios.deployment_target = '13.0'
+    s.tvos.deployment_target = '13.0'
 
     s.resource_bundles  = {
       'Resources' => ['Source/Resources/*.{json,xcassets}']

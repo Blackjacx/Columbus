@@ -4,9 +4,9 @@
 <a href="https://github.com/Blackjacx/columbus/actions?query=workflow%3ACI"><img alt="CI status" src="https://github.com/blackjacx/columbus/workflows/CI/badge.svg" /></a>
 <img alt="Github Current Release" src="https://img.shields.io/github/release/blackjacx/Columbus.svg" /> 
 <img alt="Cocoapods Platforms" src="https://img.shields.io/cocoapods/p/Columbus.svg"/>
-<img alt="Xcode 12.5+" src="https://img.shields.io/badge/Xcode-12.5%2B-blue.svg"/>
-<img alt="iOS 11.0+" src="https://img.shields.io/badge/iOS-11.0%2B-blue.svg"/>
-<img alt="Swift 5.4+" src="https://img.shields.io/badge/Swift-5.4%2B-orange.svg"/>
+<img alt="Xcode 13+" src="https://img.shields.io/badge/Xcode-13%2B-blue.svg"/>
+<img alt="iOS 13.0+" src="https://img.shields.io/badge/iOS-13.0%2B-blue.svg"/>
+<img alt="Swift 5.5+" src="https://img.shields.io/badge/Swift-5.5%2B-orange.svg"/>
 <img alt="Github Repo Size" src="https://img.shields.io/github/repo-size/blackjacx/Columbus.svg" />
 <img alt="Github Code Size" src="https://img.shields.io/github/languages/code-size/blackjacx/Columbus.svg" />
 <img alt="Github Closed PR's" src="https://img.shields.io/github/issues-pr-closed/blackjacx/Columbus.svg" />
@@ -20,7 +20,7 @@ A country picker for iOS, tvOS ad watchOS with features you will only find distr
 ## Features
 
 - Filter countries using an as-you-type search bar - type the **name** or it's **country code**
-- Quickly find a country by using the **indexbar** on the right
+- Quickly find a country by using the **index bar** on the right
 - Localized by using standard components and Apple's `Locale` class
 - Theme support to easily fit to your design
 - Storyboard support
@@ -71,7 +71,6 @@ struct CountryPickerConfig: Configurable {
             .font: UIFont.preferredFont(forTextStyle: .body)
         ]
     }
-    var textFieldBackgroundColor: UIColor = .textFieldBackground
     var backgroundColor: UIColor = .background
     var selectionColor: UIColor = .selection
     var controlColor: UIColor = UIColor(red: 1.0 / 255.0, green: 192.0 / 255.0, blue: 1, alpha: 1)
@@ -98,29 +97,24 @@ present(countryPicker, animated: true)
 
 ### Storyboards
 
-Good news for our storyboard users. I implemented full storyboard support - but for iOS 13 only. You'll need a fallback for earlier versions. To instantiate the picker from a storyboard you can use the following example:
+Good news for our storyboard users. I implemented full storyboard support. You'll need a fallback for earlier versions. To instantiate the picker from a storyboard you can use the following example:
 
 ```swift
-if #available(iOS 13.0, *) {
-    let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
-    let picker: CountryPickerViewController = storyboard.instantiateViewController(identifier: "Picker") { (coder) -> CountryPickerViewController? in
-        return CountryPickerViewController(configcoder: coder, initialCountryCode: defaultCountry.isoCountryCode) { (country) in
-            print(country)
-        }
+let defaultCountry = CountryPickerViewController.defaultCountry(from: "US")
+let picker: CountryPickerViewController = storyboard.instantiateViewController(identifier: "Picker") { (coder) -> CountryPickerViewController? in
+    return CountryPickerViewController(coder: coder, initialCountryCode: defaultCountry.isoCountryCode) { (country) in
+        print(country)
     }
-} else {
-    // Fallback on earlier versions
 }
-
 ```
 
 The above example gives you a non-optional instance of `CountryPickerViewController`. This new syntax also enables us to provide parameters for a storyboard-initialized view (controller). This prevents the addition of optional properties like in previous versions of iOS which is a huge progress.
 
 ### iOS
 
-The repo includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the key features unique to Columbus:
+The repository includes an example project. It shows the main use case of the project - the country picker. To run it, just type `pod try Columbus` in your console and it will be downloaded and opened for you. The following set of screenshots highlights the key features unique to Columbus:
 
-Filtering|Indexbar|History|Localization|Theming
+Filtering|Index bar|History|Localization|Theming
 --- | --- | --- | --- | ---
 ![Searchbar](./github/assets/searchbar.png)|![Indexbar](./github/assets/indexbar.png)|![History](./github/assets/history.png)|![Localization](./github/assets/localization.png)|![Theming](./github/assets/theming.png) 
 
@@ -143,11 +137,8 @@ Filtering|Indexbar|History|Localization|Theming
 
 ## Links
 
-[Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
-
-## Credits
-
-[Thanks for the flag icons](https://github.com/lipis/flag-icon-css)
+- [Modifying UISearchBar Cancel button font text color and style](https://stackoverflow.com/questions/11572372/modifying-uisearchbar-cancel-button-font-text-color-and-style)
+- [Localize the cancel button of a UISearchBar](https://stackoverflow.com/questions/12031942/uisearchbar-cancel-button-change-language-of-word-cancel-in-uisearchdisplaycon)
 
 ## License
 
