@@ -10,7 +10,7 @@
 [![Xcode 13+](https://img.shields.io/badge/Xcode-13%2B-blue.svg)](https://developer.apple.com/download/)
 [![Codebeat](https://codebeat.co/badges/7ad2da62-af22-4a76-a4da-2eb2002bde18)](https://codebeat.co/projects/github-com-blackjacx-columbus-develop)
 [![License](https://img.shields.io/github/license/blackjacx/columbus.svg)](https://github.com/blackjacx/columbus/blob/main/LICENSE)
-[![Twitter](https://img.shields.io/twitter/follow/blackjacxxx?label=%40Blackjacxxx)](https://twitter.com/blackjacx)
+[![Twitter](https://img.shields.io/twitter/follow/blackjacxxx?label=%40Blackjacxxx)](https://twitter.com/blackjacxxx)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/STHEROLD)
 
 A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. 
