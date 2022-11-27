@@ -137,6 +137,14 @@ Filtering|Index bar|History|Localization|Theming
 
 [Stefan Herold](mailto:stefan.herold@gmail.com) • 🐦 [@Blackjacxxx](https://twitter.com/Blackjacxxx)
 
+## Contributors
+
+Thanks to all of you who are part of this:
+
+<a href="https://github.com/blackjacx/Columbus/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=blackjacx/Columbus" />
+</a>
+
 ## Links
 
 - [Modifying UISearchBar Cancel button font text color and style](https://stackoverflow.com/questions/11572372/modifying-uisearchbar-cancel-button-font-text-color-and-style)
