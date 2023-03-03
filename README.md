@@ -13,7 +13,7 @@
 
 # Columbus
 
-A country picker for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. 
+A country picker 🌎 for iOS, tvOS ad watchOS with features you will only find distributed in many different country-picker implementations. 
 
 ## Features
 
