@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.8.0] - 2023-05-02Z
 * Remove auto assign to project workflow - [@Blackjacx](https://github.com/Blackjacx).
 * Make CoreTelephony Approach Debuggable - [@Blackjacx](https://github.com/Blackjacx).
 
