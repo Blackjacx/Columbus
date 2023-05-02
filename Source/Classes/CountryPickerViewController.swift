@@ -249,6 +249,12 @@ public final class CountryPickerViewController: UIViewController {
     /// 3. Using `US` as fallback if the other approaches didn't work.
     public static func defaultCountry(from isoCountryCode: String? = nil) -> Country {
 
+        // Fallback to United States
+
+        let defaultCountry = countries.first {
+            $0.isoCountryCode.compare("US", options: .caseInsensitive) == .orderedSame
+        }!
+
         // Using the `isoCountryCode` parameter to force the picker to return a specific country.
 
         if
@@ -260,16 +266,24 @@ public final class CountryPickerViewController: UIViewController {
         // Core Telephony Approach
 
         #if os(iOS) && !targetEnvironment(simulator)
-        if let carriers = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders?.map(\.value),
-           let firstIsoCountryCode = carriers.compactMap(\.isoCountryCode).first?.uppercased(),
-           let country = (countries.first { $0.isoCountryCode.compare(firstIsoCountryCode, options: .caseInsensitive) == .orderedSame }) {
-            return country
+        guard let cellularProviders = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders else {
+            return defaultCountry
         }
+        guard let carriers = cellularProviders.map(\.value) else {
+            return defaultCountry
+        }
+        guard let firstIsoCountryCode = carriers.compactMap(\.isoCountryCode).first?.uppercased() else {
+            return defaultCountry
+        }
+        guard let country = (countries.first { $0.isoCountryCode.compare(firstIsoCountryCode, options: .caseInsensitive) == .orderedSame }) else {
+            return defaultCountry
+        }
+        return country
         #endif
 
         // Fallback to United States
 
-        return countries.first { $0.isoCountryCode.compare("US", options: .caseInsensitive) == .orderedSame }!
+        return defaultCountry
     }
 
     private static func createCountries() -> CountryList {
