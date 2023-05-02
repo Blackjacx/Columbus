@@ -269,9 +269,8 @@ public final class CountryPickerViewController: UIViewController {
         guard let cellularProviders = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders else {
             return defaultCountry
         }
-        guard let carriers = cellularProviders.map(\.value) else {
-            return defaultCountry
-        }
+        let carriers = cellularProviders.map(\.value)
+        
         guard let firstIsoCountryCode = carriers.compactMap(\.isoCountryCode).first?.uppercased() else {
             return defaultCountry
         }
