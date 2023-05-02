@@ -4,6 +4,10 @@
 * Implement DisplayState - [@Blackjacx](https://github.com/Blackjacx).
 * Inject config directly in ViewController - [@Blackjacx](https://github.com/Blackjacx).
 
+## [1.8.0] - 2023-05-02Z
+* Remove auto assign to project workflow - [@Blackjacx](https://github.com/Blackjacx).
+* Make CoreTelephony Approach Debuggable - [@Blackjacx](https://github.com/Blackjacx).
+
 ## [1.7.6] - 2022-07-07Z
 
 * [#43](https://github.com/Blackjacx/Columbus/pull/43): Enable Large Titles - [@Blackjacx](https://github.com/Blackjacx).
