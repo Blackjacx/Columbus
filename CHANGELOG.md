@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.9.0] - 2023-05-09Z
 * [#49](https://github.com/Blackjacx/Columbus/pull/49): Add fallback for CTCarrier deprecation - [@mic-ioki](https://github.com/mic-ioki).
 * Use default country for the initial country code - [@Blackjacx](https://github.com/Blackjacx).
 * Update Copyright - [@Blackjacx](https://github.com/Blackjacx).
