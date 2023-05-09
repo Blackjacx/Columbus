@@ -20,14 +20,15 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         let config = CountryPickerConfig()
-        var countryPicker = CountryPickerViewController(config: config, initialCountryCode: "DE") { (country) in
+        let defaultCountryCode = CountryPickerViewController.defaultCountry().isoCountryCode
+        var countryPicker = CountryPickerViewController(config: config, initialCountryCode: defaultCountryCode) { (country) in
             print("Programmatic: \(country)")
         }
 
         #if os(iOS)
         let storyboard = UIStoryboard(name: "CountryPickerStoryboard", bundle: nil)
         countryPicker = storyboard.instantiateViewController(identifier: "picker") { (coder) -> CountryPickerViewController? in
-            CountryPickerViewController(coder: coder, config: config, initialCountryCode: "DE") { (country) in
+            CountryPickerViewController(coder: coder, config: config, initialCountryCode: defaultCountryCode) { (country) in
                 print("Storyboard: \(country)")
             }
         }
