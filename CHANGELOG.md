@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+* [#48](https://github.com/Blackjacx/Columbus/pull/48): Add fallback for CTCarrier deprecation - [@mic-ioki](https://github.com/mic-ioki).
 
 ## [1.8.0] - 2023-05-02Z
 * Remove auto assign to project workflow - [@Blackjacx](https://github.com/Blackjacx).
