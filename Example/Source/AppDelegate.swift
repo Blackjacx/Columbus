@@ -3,7 +3,7 @@
 //  Columbus_iOS_Example
 //
 //  Created by Stefan Herold on 23.06.18.
-//  Copyright © 2022 Stefan Herold. All rights reserved.
+//  Copyright © 2023 Stefan Herold. All rights reserved.
 //
 
 import UIKit
@@ -20,14 +20,15 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         let config = CountryPickerConfig()
-        var countryPicker = CountryPickerViewController(config: config, initialCountryCode: "DE") { (country) in
+        let defaultCountryCode = CountryPickerViewController.defaultCountry().isoCountryCode
+        var countryPicker = CountryPickerViewController(config: config, initialCountryCode: defaultCountryCode) { (country) in
             print("Programmatic: \(country)")
         }
 
         #if os(iOS)
         let storyboard = UIStoryboard(name: "CountryPickerStoryboard", bundle: nil)
         countryPicker = storyboard.instantiateViewController(identifier: "picker") { (coder) -> CountryPickerViewController? in
-            CountryPickerViewController(coder: coder, config: config, initialCountryCode: "DE") { (country) in
+            CountryPickerViewController(coder: coder, config: config, initialCountryCode: defaultCountryCode) { (country) in
                 print("Storyboard: \(country)")
             }
         }

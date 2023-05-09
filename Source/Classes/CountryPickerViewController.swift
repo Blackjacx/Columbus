@@ -3,7 +3,7 @@
 //  Columbus
 //
 //  Created by Stefan Herold on 22.06.18.
-//  Copyright © 2022 Stefan Herold. All rights reserved.
+//  Copyright © 2023 Stefan Herold. All rights reserved.
 //
 
 import UIKit
@@ -266,15 +266,23 @@ public final class CountryPickerViewController: UIViewController {
         // Core Telephony Approach
 
         #if os(iOS) && !targetEnvironment(simulator)
-        guard let cellularProviders = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders else {
-            return defaultCountry
+
+        // CTCarrier is deprecated from 16.4 and Locale region is used as fallback.
+        // see: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16_4-release-notes#Deprecations
+
+        var deviceIsoCountryCode: String?
+        if #available(iOS 16.4, *) {
+            deviceIsoCountryCode = Locale.current.language.region?.identifier
+        } else {
+            guard let cellularProviders = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders else {
+                return defaultCountry
+            }
+            let carriers = cellularProviders.map(\.value)
+            deviceIsoCountryCode = carriers.compactMap(\.isoCountryCode).first?.uppercased()
         }
-        let carriers = cellularProviders.map(\.value)
-        
-        guard let firstIsoCountryCode = carriers.compactMap(\.isoCountryCode).first?.uppercased() else {
-            return defaultCountry
-        }
-        guard let country = (countries.first { $0.isoCountryCode.compare(firstIsoCountryCode, options: .caseInsensitive) == .orderedSame }) else {
+
+        guard let deviceIsoCountryCode,
+              let country = (countries.first { $0.isoCountryCode.compare(deviceIsoCountryCode, options: .caseInsensitive) == .orderedSame }) else {
             return defaultCountry
         }
         return country
