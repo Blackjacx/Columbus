@@ -11,6 +11,7 @@ import UIKit
 public protocol Configurable {
     var displayState: CountryPickerViewController.DisplayState { get }
     var textAttributes: [NSAttributedString.Key: Any] { get }
+    var searchTextAttributes: [NSAttributedString.Key: Any]? { get }
     var selectionColor: UIColor { get }
     var lineColor: UIColor { get }
     var lineWidth: CGFloat { get }
@@ -18,5 +19,5 @@ public protocol Configurable {
     var backgroundColor: UIColor { get }
     var separatorInsets: NSDirectionalEdgeInsets? { get }
     var controlColor: UIColor { get }
-    var searchBarAttributedPlaceholder: NSAttributedString { get }
+    var searchBarAttributedPlaceholder: NSAttributedString? { get }
 }
