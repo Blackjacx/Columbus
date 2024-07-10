@@ -59,6 +59,7 @@ struct CountryPickerConfig: Configurable {
             .font: UIFont.preferredFont(forTextStyle: .body)
         ]
     }
+    var searchTextAttributes: [NSAttributedString.Key: Any]? { textAttributes }
     var backgroundColor: UIColor = .background
     var selectionColor: UIColor = .selection
     var controlColor: UIColor = UIColor(red: 1.0 / 255.0, green: 192.0 / 255.0, blue: 1, alpha: 1)
@@ -66,7 +67,7 @@ struct CountryPickerConfig: Configurable {
     var lineWidth: CGFloat = 1.0 / UIScreen.main.scale
     var rasterSize: CGFloat = 10.0
     var separatorInsets: NSDirectionalEdgeInsets? { nil }
-    let searchBarAttributedPlaceholder: NSAttributedString = {
+    let searchBarAttributedPlaceholder: NSAttributedString? = {
         NSAttributedString(string: "Search",
                            attributes: [
                             .foregroundColor: UIColor.placeholder,
