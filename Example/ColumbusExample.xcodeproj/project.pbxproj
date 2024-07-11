@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B933821325CDF99400618FFD /* CountryPickerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B933821225CDF99400618FFD /* CountryPickerStoryboard.storyboard */; };
-		B93D76DE23E4711B00E41863 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; };
-		B93D76DF23E4711B00E41863 /* Columbus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B9F8797221CD36B400273F82 /* Columbus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B93D76E123E4712000E41863 /* Columbus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0C21CD394500FF1B72 /* Columbus.framework */; };
-		B93D76E223E4712000E41863 /* Columbus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B94B1B0C21CD394500FF1B72 /* Columbus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B9367E7E2C3F2E04000547EB /* Columbus in Frameworks */ = {isa = PBXBuildFile; productRef = B9367E7D2C3F2E04000547EB /* Columbus */; };
+		B9367E802C3F2E5E000547EB /* Columbus in Frameworks */ = {isa = PBXBuildFile; productRef = B9367E7F2C3F2E5E000547EB /* Columbus */; };
 		B93D76EF23E4A80900E41863 /* UIColor+SemanticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D76EA23E4A80900E41863 /* UIColor+SemanticColors.swift */; };
 		B93D76F023E4A80900E41863 /* UIColor+SemanticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93D76EA23E4A80900E41863 /* UIColor+SemanticColors.swift */; };
 		B9F8790021CD2D7F00273F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8326021C84F3D0008ED90 /* AppDelegate.swift */; };
@@ -21,65 +19,6 @@
 		B9F8791B21CD2DEF00273F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8326021C84F3D0008ED90 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		B94B1B0B21CD394500FF1B72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B94B1B0621CD38B400FF1B72;
-			remoteInfo = "Columbus-tvOS";
-		};
-		B94B1B0D21CD394700FF1B72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B94B1AF421CD38B400FF1B72;
-			remoteInfo = "Columbus-tvOS";
-		};
-		B94B1B2521CD3BEC00FF1B72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B9F8788221CD28A200273F82;
-			remoteInfo = "Columbus-iOS";
-		};
-		B9693323228B54FF0002B855 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B9A4A67821D145EB001FF5DC;
-			remoteInfo = "Resources-tvOS";
-		};
-		B96D498221CD3ED00010E69B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B96D496221CD3DC20010E69B;
-			remoteInfo = "Resources-iOS";
-		};
-		B9A4A66021D0FC94001FF5DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B9DB81FC21D0E9F500A39677;
-			remoteInfo = "Columbus-tvOS-Tests";
-		};
-		B9F8797121CD36B400273F82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B9F8788321CD28A200273F82;
-			remoteInfo = Columbus;
-		};
-		B9F8797321CD36B400273F82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B9F878AC21CD2A4D00273F82;
-			remoteInfo = ColumbusTests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		B93D76E023E4711B00E41863 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -87,7 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B93D76DF23E4711B00E41863 /* Columbus.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,7 +36,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B93D76E223E4712000E41863 /* Columbus.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		B933821225CDF99400618FFD /* CountryPickerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountryPickerStoryboard.storyboard; sourceTree = "<group>"; };
+		B9367E792C3F2DBF000547EB /* Columbus */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Columbus; path = ..; sourceTree = "<group>"; };
 		B93D76EA23E4A80900E41863 /* UIColor+SemanticColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SemanticColors.swift"; sourceTree = "<group>"; };
 		B9C8326021C84F3D0008ED90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9F878C921CD2CF500273F82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -116,7 +54,6 @@
 		B9F878D221CD2CFE00273F82 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9F878D821CD2D5A00273F82 /* Columbus_iOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Columbus_iOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F8790A21CD2DDA00273F82 /* Columbus_tvOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Columbus_tvOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Columbus.xcodeproj; path = ../Columbus.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93D76DE23E4711B00E41863 /* Columbus.framework in Frameworks */,
+				B9367E7E2C3F2E04000547EB /* Columbus in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93D76E123E4712000E41863 /* Columbus.framework in Frameworks */,
+				B9367E802C3F2E5E000547EB /* Columbus in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,10 +79,10 @@
 		B9C8325421C84F3D0008ED90 = {
 			isa = PBXGroup;
 			children = (
+				B9367E792C3F2DBF000547EB /* Columbus */,
 				B9F8797B21CD373200273F82 /* Frameworks */,
 				B9C8325E21C84F3D0008ED90 /* Products */,
 				B9C8325F21C84F3D0008ED90 /* Source */,
-				B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,19 +126,6 @@
 			path = tvOS;
 			sourceTree = "<group>";
 		};
-		B9F8796C21CD36B400273F82 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B9F8797221CD36B400273F82 /* Columbus.framework */,
-				B96D498321CD3ED00010E69B /* Resources.bundle */,
-				B9F8797421CD36B400273F82 /* Columbus-iOS-Tests.xctest */,
-				B94B1B0C21CD394500FF1B72 /* Columbus.framework */,
-				B9693324228B54FF0002B855 /* Resources.bundle */,
-				B9A4A66121D0FC94001FF5DC /* Columbus-tvOS-Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B9F8797B21CD373200273F82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,9 +148,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				B94B1B2621CD3BEC00FF1B72 /* PBXTargetDependency */,
+				B9367E7B2C3F2DD5000547EB /* PBXTargetDependency */,
 			);
 			name = Columbus_iOS_Example;
+			packageProductDependencies = (
+				B9367E7D2C3F2E04000547EB /* Columbus */,
+			);
 			productName = Columbus_iOS_Example;
 			productReference = B9F878D821CD2D5A00273F82 /* Columbus_iOS_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -243,9 +170,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				B94B1B0E21CD394700FF1B72 /* PBXTargetDependency */,
+				B9367E822C3F2E64000547EB /* PBXTargetDependency */,
 			);
 			name = Columbus_tvOS_Example;
+			packageProductDependencies = (
+				B9367E7F2C3F2E5E000547EB /* Columbus */,
+			);
 			productName = Columbus_tvOS_Example;
 			productReference = B9F8790A21CD2DDA00273F82 /* Columbus_tvOS_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -288,12 +218,6 @@
 			mainGroup = B9C8325421C84F3D0008ED90;
 			productRefGroup = B9C8325E21C84F3D0008ED90 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = B9F8796C21CD36B400273F82 /* Products */;
-					ProjectRef = B9F8796B21CD36B400273F82 /* Columbus.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				B9F878D721CD2D5A00273F82 /* Columbus_iOS_Example */,
@@ -301,51 +225,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		B94B1B0C21CD394500FF1B72 /* Columbus.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Columbus.framework;
-			remoteRef = B94B1B0B21CD394500FF1B72 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B9693324228B54FF0002B855 /* Resources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Resources.bundle;
-			remoteRef = B9693323228B54FF0002B855 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B96D498321CD3ED00010E69B /* Resources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Resources.bundle;
-			remoteRef = B96D498221CD3ED00010E69B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B9A4A66121D0FC94001FF5DC /* Columbus-tvOS-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Columbus-tvOS-Tests.xctest";
-			remoteRef = B9A4A66021D0FC94001FF5DC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B9F8797221CD36B400273F82 /* Columbus.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Columbus.framework;
-			remoteRef = B9F8797121CD36B400273F82 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B9F8797421CD36B400273F82 /* Columbus-iOS-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Columbus-iOS-Tests.xctest";
-			remoteRef = B9F8797321CD36B400273F82 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B9F878D621CD2D5A00273F82 /* Resources */ = {
@@ -390,15 +269,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B94B1B0E21CD394700FF1B72 /* PBXTargetDependency */ = {
+		B9367E7B2C3F2DD5000547EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Columbus-tvOS";
-			targetProxy = B94B1B0D21CD394700FF1B72 /* PBXContainerItemProxy */;
+			productRef = B9367E7A2C3F2DD5000547EB /* Columbus */;
 		};
-		B94B1B2621CD3BEC00FF1B72 /* PBXTargetDependency */ = {
+		B9367E822C3F2E64000547EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Columbus-iOS";
-			targetProxy = B94B1B2521CD3BEC00FF1B72 /* PBXContainerItemProxy */;
+			productRef = B9367E812C3F2E64000547EB /* Columbus */;
 		};
 /* End PBXTargetDependency section */
 
@@ -526,7 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PCW579R278;
+				DEVELOPMENT_TEAM = 3DTVLLXVP2;
 				INFOPLIST_FILE = Source/iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PCW579R278;
+				DEVELOPMENT_TEAM = 3DTVLLXVP2;
 				INFOPLIST_FILE = Source/iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -628,6 +505,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B9367E7A2C3F2DD5000547EB /* Columbus */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Columbus;
+		};
+		B9367E7D2C3F2E04000547EB /* Columbus */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Columbus;
+		};
+		B9367E7F2C3F2E5E000547EB /* Columbus */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Columbus;
+		};
+		B9367E812C3F2E64000547EB /* Columbus */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Columbus;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B9C8325521C84F3D0008ED90 /* Project object */;
 }

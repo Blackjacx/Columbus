@@ -1,11 +1,3 @@
-//
-//  CountryPickerViewController.swift
-//  Columbus
-//
-//  Created by Stefan Herold on 22.06.18.
-//  Copyright © 2023 Stefan Herold. All rights reserved.
-//
-
 import UIKit
 
 #if os(iOS) && !targetEnvironment(simulator)
@@ -52,7 +44,6 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     override public weak var preferredFocusedView: UIView? {
-
         print("\(focussedIndexPath.section), \(focussedIndexPath.row)")
         let cell = table.cellForRow(at: focussedIndexPath)
         return cell
@@ -94,7 +85,6 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func deinitObserver() {
-
         #if os(iOS)
         if let observer = keyboardDidShowObserver {
             NotificationCenter.default.removeObserver(observer)
@@ -109,7 +99,6 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Setup UI
 
     override public func viewDidLoad() {
-
         super.viewDidLoad()
 
         view.backgroundColor = config.backgroundColor
@@ -125,7 +114,7 @@ public final class CountryPickerViewController: UIViewController {
         setupObserver()
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // Font change here is needed since UISearchController seems a bit
@@ -144,7 +133,7 @@ public final class CountryPickerViewController: UIViewController {
         #endif
     }
 
-    public override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         #if os(iOS)
@@ -154,13 +143,12 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func setupObserver() {
-
         let center = NotificationCenter.default
 
         #if os(iOS)
         keyboardDidShowObserver = center.addObserver(forName: UIResponder.keyboardDidShowNotification,
                                                      object: nil,
-                                                     queue: nil) { [weak self] (note) in
+                                                     queue: nil) { [weak self] note in
 
             guard let userInfo = note.userInfo,
                   userInfo[UIResponder.keyboardIsLocalUserInfoKey] as? Bool == true,
@@ -172,7 +160,7 @@ public final class CountryPickerViewController: UIViewController {
 
         keyboardWillHideObserver = center.addObserver(forName: UIResponder.keyboardWillHideNotification,
                                                       object: nil,
-                                                      queue: nil) { [weak self] (note) in
+                                                      queue: nil) { [weak self] note in
 
             guard let userInfo = note.userInfo, userInfo[UIResponder.keyboardIsLocalUserInfoKey] as? Bool == true else {
                 return
@@ -201,7 +189,6 @@ public final class CountryPickerViewController: UIViewController {
 
         searchController.searchBar.tintColor = config.controlColor
 
-
         searchController.searchBar.searchTextField.textDragInteraction?.isEnabled = false
         searchController.searchBar.searchTextField.returnKeyType = .done
         searchController.searchBar.searchTextField.tintColor = config.controlColor
@@ -214,7 +201,6 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     private func setupAutoLayout() {
-
         var constraints: [NSLayoutConstraint] = []
 
         tableViewBottomConstraint = table.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -237,6 +223,7 @@ public final class CountryPickerViewController: UIViewController {
     }
 
     // MARK: - Large Titles
+
     public func useLargeTitles(_ isOn: Bool) {
         #if os(iOS)
         searchController.hidesNavigationBarDuringPresentation = isOn ? true : false
@@ -253,7 +240,6 @@ public final class CountryPickerViewController: UIViewController {
     /// 2. Trying to determine your country from your SIM card
     /// 3. Using `US` as fallback if the other approaches didn't work.
     public static func defaultCountry(from isoCountryCode: String? = nil) -> Country {
-
         // Fallback to United States
 
         let defaultCountry = countries.first {
@@ -287,26 +273,35 @@ public final class CountryPickerViewController: UIViewController {
         }
 
         guard let deviceIsoCountryCode,
-              let country = (countries.first { $0.isoCountryCode.compare(deviceIsoCountryCode, options: .caseInsensitive) == .orderedSame }) else {
+              let country = (countries
+                  .first { $0.isoCountryCode.compare(deviceIsoCountryCode, options: .caseInsensitive) == .orderedSame }) else {
             return defaultCountry
         }
         return country
-        #endif
-
+        #else
         // Fallback to United States
 
         return defaultCountry
+        #endif
     }
 
     private static func createCountries() -> CountryList {
-
-        guard
-            let countriesFilePath = ColumbusMain.bundle.path(forResource: "Countries", ofType: "json"),
-            let countriesData = FileManager.default.contents(atPath: countriesFilePath),
-            let countries = try? JSONDecoder().decode(CountryList.self, from: countriesData) else {
-                return CountryList()
+        guard let fileUrl = ColumbusMain.countriesJsonUrl else {
+            return CountryList()
         }
-        return countries
+
+        let filePath = if #available(iOS 16.0, *) {
+            fileUrl.path()
+        } else {
+            fileUrl.path
+        }
+
+        guard let data = FileManager.default.contents(atPath: filePath) else {
+            return CountryList()
+        }
+
+        let decoder = JSONDecoder()
+        return (try? decoder.decode(CountryList.self, from: data)) ?? CountryList()
     }
 
     // MARK: - Filtering
@@ -341,7 +336,6 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: Section Indices
 
     func updateSectionIndex() {
-
         itemsForSectionTitle = Dictionary(grouping: items) { String($0.name.prefix(1)) }
         sectionTitles = [String](itemsForSectionTitle.keys)
         sectionTitles = sectionTitles.sorted(by: <)
@@ -350,7 +344,6 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: - Date Reloading
 
     func reloadData() {
-
         updateSectionIndex()
         table.reloadData()
     }
@@ -358,13 +351,13 @@ public final class CountryPickerViewController: UIViewController {
     // MARK: Pre-select initial country
 
     func displaySelectedCountry() {
-
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) { [weak self] in
-            guard let key = (self?.itemsForSectionTitle.first { $0.value.contains { $0.isoCountryCode == self?.selectedCountryCode } }?.key),
-                  let section = (self?.sectionTitles.firstIndex { $0 == key }),
-                  let row = (self?.itemsForSectionTitle[key]?.firstIndex { $0.isoCountryCode == self?.selectedCountryCode }) else {
-                      return
-                  }
+            guard let key = (self?.itemsForSectionTitle
+                .first { $0.value.contains { $0.isoCountryCode == self?.selectedCountryCode } }?.key),
+                let section = (self?.sectionTitles.firstIndex { $0 == key }),
+                let row = (self?.itemsForSectionTitle[key]?.firstIndex { $0.isoCountryCode == self?.selectedCountryCode }) else {
+                return
+            }
 
             let indexPath = IndexPath(row: row, section: section)
 
@@ -437,7 +430,6 @@ extension CountryPickerViewController: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
         // Adjusting the separator insets: http://stackoverflow.com/a/39005773/971329
 
         #if os(iOS)

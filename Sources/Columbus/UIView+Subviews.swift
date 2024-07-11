@@ -9,12 +9,11 @@
 import UIKit
 
 extension UIView {
-
     func recursiveSubviews() -> [UIView] {
-
         if subviews.isEmpty {
-            return subviews
+            subviews
+        } else {
+            subviews + subviews.flatMap { $0.recursiveSubviews() }
         }
-        return subviews + subviews.flatMap { $0.recursiveSubviews() }
     }
 }
