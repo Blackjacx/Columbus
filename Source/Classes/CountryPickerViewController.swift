@@ -133,9 +133,14 @@ public final class CountryPickerViewController: UIViewController {
         //
         // Don't move that to viewDidAppear to not produce a visible change.
         #if os(iOS)
-        searchController.searchBar.searchTextField.attributedPlaceholder = config.searchBarAttributedPlaceholder
-        searchController.searchBar.searchTextField.typingAttributes = config.textAttributes
-        searchController.searchBar.searchTextField.defaultTextAttributes = config.textAttributes
+        if let placeholder = config.searchBarAttributedPlaceholder {
+            searchController.searchBar.searchTextField.attributedPlaceholder = placeholder
+        }
+
+        if let textAttributes = config.searchTextAttributes {
+            searchController.searchBar.searchTextField.typingAttributes = textAttributes
+            searchController.searchBar.searchTextField.defaultTextAttributes = textAttributes
+        }
         #endif
     }
 
