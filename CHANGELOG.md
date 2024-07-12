@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.10.0] - 2024-07-12Z
 * [#51](https://github.com/Blackjacx/Columbus/pull/51): Make font attributes optional - [@Blackjacx](https://github.com/Blackjacx).
 
 ## [1.9.0] - 2023-05-09Z
